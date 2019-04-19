@@ -21,6 +21,9 @@
 <script src="{{ url('adminlte/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
 <script src="{{ url('adminlte/plugins/fastclick/fastclick.js') }}"></script>
 <script src="{{ url('adminlte/js/app.min.js') }}"></script>
+{{-- <script src="assets/js/google-map-int.js"></script> --}}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBINVRX-GNF4z1l8CPFrJL5dhIGY96a9-k&callback=initMap" async defer></script>
+
 <script>
     window._token = '{{ csrf_token() }}';
     $.ajaxSetup({
