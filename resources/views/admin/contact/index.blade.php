@@ -2,7 +2,9 @@
 @extends('layouts.app')
 
 @section('content')
-
+    
+   
+@foreach($contact as $row)
     <div class="box box-danger">
         <div class="box-header with-border">
             <h3 class="box-title"><b> @lang('global.website-management.fields.contact_header')</b></h3>
@@ -13,35 +15,55 @@
         <div class="box-body table-responsive">
             <div class="col-md-12 col-sm-12 col-lg-12" style="border:1px solid #80808014;">
                   <div id="mapX" style="height:400px;"></div><br>
-                  <div class="col-md-6 col-sm-12 col-lg-6">
-                        <h4>@lang('global.website-management.fields.contact_map_lat')<input id="lat_value" type="text" class="form-control" placeholder="ละติจูด"></h4>
-                        <h4>@lang('global.website-management.fields.contact_map_lng')<input id="lng_value" type="text" class="form-control" placeholder="ลองติจูด"></h4><br>  
+                  <div class="col-md-2"></div>
+                  {{-- ละติจูดและลองติจูด --}}
+                  <div class="col-md-8 col-sm-12 col-lg-8">
+                        <h4>@lang('global.website-management.fields.contact_map_lat')</h4>
+                        <input id="lat_value" type="text" class="form-control" placeholder="ละติจูด" 
+                            value=" {{$row->lat_map}}">
+                        <h4>@lang('global.website-management.fields.contact_map_lng')</h4>
+                        <input id="lng_value" type="text" class="form-control" placeholder="ลองติจูด" 
+                            value=" {{$row->lng_map}}"><br>  
                   </div>        
+                  <div class="col-md-2"></div>
             </div>
+    {{-- ข้อมูลที่อยู่ --}}
             <div class="col-md-6 col-sm-12  col-lg-6" style="border:1px solid #80808014;">
                 <h4>@lang('global.website-management.fields.contact_header_address')</h4>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_address1')"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_address2')"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_address3')"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_address4')"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_address5')"><br>
+                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_address1')"
+                    value="{{$row->address1}}"><br>
+                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_address2')"
+                    value="{{$row->address2}}"><br>
+                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_address3')"
+                    value="{{$row->address3}}"><br>
+                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_address4')"
+                    value="{{$row->address4}}"><br>
+                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_address5')"
+                    value="{{$row->address5}}"><br>
                 <input type="text" class="form-control" style="visibility: hidden;"><br>
             </div>
+    {{-- ข้อมูล สื่อออนไลน์ --}}
             <div class="col-md-6 col-sm-12 col-lg-6" style="border:1px solid #80808014;">
                 <h4>@lang('global.website-management.fields.contact_header_social')</h4>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_phone') (1)"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_phone') (2)"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_facebook')"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_instragram')"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_youtube')"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_line')"><br>
+                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_phone') (1)"
+                    value="{{$row->phone1}}"><br>
+                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_phone') (2)"
+                    value="{{$row->phone2}}"><br>
+                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_facebook')"
+                    value="{{$row->facebook}}"><br>
+                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_instragram')"
+                    value="{{$row->instragram}}"><br>
+                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_youtube')"
+                    value="{{$row->youtube}}"><br>
+                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_line')"
+                    value="{{$row->line}}"><br>
             </div>
-            <div class="col-md-12" align="right"><br>
+            <div class="col-md-12"><br>
                 <button id="btnsave" class="btn btn-danger" onclick="Get_LatitudeAndLongtitude();">อัพเดท</button>
             </div>
         </div>
     </div>
-
+@endforeach
 @stop
 
 @section('javascript') 
@@ -65,12 +87,22 @@
                 title:"5555",
                 draggable:true
             });
-            //แสดงค่า ละติจูด และ ลองติจูด ตอนเริ่มโหลดครั้งแรก
-            var my_Point = marker.getPosition();  
-            map.panTo(my_Point);       
-            $("#lat_value").val(my_Point.lat());  
-            $("#lng_value").val(my_Point.lng());  
+//             //แสดงค่า ละติจูด และ ลองติจูด ตอนเริ่มโหลดครั้งแรก
+//             var my_Point = marker.getPosition();  
+//             map.panTo(my_Point);       
+//             $("#lat_value").val(my_Point.lat());  
+//             $("#lng_value").val(my_Point.lng());  
 
+
+            var info = new google.maps.InfoWindow({
+                content : '<p align="center" style="width:200px;"><i>ลากเพื่อกำหนดตำแหน่งใหม่</i></p>'
+            });
+            info.open(map,marker);
+            var infoedit = new google.maps.InfoWindow({
+                content : '<p align="center" style="width:200px; color:red; font-family:"Segoe UI Web";><b>>>ตำแหน่งใหม่<<</b></p>'
+            });
+
+            
             //Event ตอนเลื่อน marker
             google.maps.event.addListener(marker, 'dragend', function() {
                 //alert(55);
@@ -78,7 +110,17 @@
                 map.panTo(my_Point); // ให้แผนที่แสดงไปที่ตัว marker        
                 $("#lat_value").val(my_Point.lat());  // เอาค่า latitude ตัว marker แสดงใน textbox id=lat_value
                 $("#lng_value").val(my_Point.lng());  // เอาค่า longtitude ตัว marker แสดงใน textbox id=lat_value
+                info.close(map,marker);
+                infoedit.open(map,marker);
+
+                $("#lat_value").css('background','#ffff0014');
+                $("#lng_value").css('background','#ffff0014');
             });
+            
+            // google.maps.event.addListener(marker,'click',function(){
+            //     // info.close(map,marker);
+            //     // infoedit.open(map,marker);
+            // });
         }
         
       

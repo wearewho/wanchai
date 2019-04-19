@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
+use App\Contact;
 
 class ManagecontactController extends Controller
 {
@@ -15,7 +16,8 @@ class ManagecontactController extends Controller
      */
     public function index()
     {
-        return view('admin.contact.index');
+        $contact = contact::all();
+        return view('admin.contact.index',compact('contact'));
     }
 
     /**
