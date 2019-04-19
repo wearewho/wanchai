@@ -44,8 +44,11 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('/store_promotion', 'Admin\ManagehomeController@store_promotion')->name('managehome.store_promotion');
     Route::resource('managecontact', 'Admin\ManagecontactController');
     Route::resource('manageblog', 'Admin\ManageblogController');
-    Route::post('destroyImage', ['uses' => 'Admin\ManageblogController@destroyImage', 'as' => 'manageblog.destroyImage']);
+    Route::post('destroyImageBlog', ['uses' => 'Admin\ManageblogController@destroyImage', 'as' => 'manageblog.destroyImage']);
     Route::post('countImgBlog', ['uses' => 'Admin\ManageblogController@countImgBlog', 'as' => 'manageblog.countImgBlog']);
     Route::post('blog_mass_destroy', ['uses' => 'Admin\ManageblogController@massDestroy', 'as' => 'manageblog.mass_destroy']);
     Route::resource('managegallery', 'Admin\ManagegalleryController');
+    Route::post('destroyImageGallery', ['uses' => 'Admin\ManagegalleryController@destroyImage', 'as' => 'managegallery.destroyImage']);
+    Route::post('countImgGallery', ['uses' => 'Admin\ManagegalleryController@countImgGallery', 'as' => 'managegallery.countImgGallery']);
+    Route::post('gallery_mass_destroy', ['uses' => 'Admin\ManagegalleryController@massDestroy', 'as' => 'managegallery.mass_destroy']);
 });

@@ -84,7 +84,7 @@ class ManageblogController extends Controller
         }
 
         $blog = Blog::all();
-        return view('admin.blog.index',compact('blog'));
+        return redirect()->route('admin.manageblog.index', compact('blog'));
     }
 
     /**
@@ -163,7 +163,7 @@ class ManageblogController extends Controller
         }
 
         $blog = Blog::all();
-        return view('admin.blog.index',compact('blog'));
+        return redirect()->route('admin.manageblog.index', compact('blog'));
     }
 
     /**
@@ -185,7 +185,7 @@ class ManageblogController extends Controller
         }
 
         $blog = Blog::all();
-        return view('admin.blog.index',compact('blog'));
+        return redirect()->route('admin.manageblog.index', compact('blog'));
     }
 
     public function countImgBlog(Request $request)
@@ -220,17 +220,16 @@ class ManageblogController extends Controller
         }
 
         if ($request->input('ids')) {
-            $entries = Blog::whereIn('id', $request->input('ids'))->get();
+            $entriesBlog = Blog::whereIn('id', $request->input('ids'))->get();
+            $entriesImageBlog = ImageBlog::whereIn('blog_id', $request->input('ids'))->get();
 
-            foreach ($entries as $entry) {
-                $groupImageBlog = ImageBlog::where('blog_id',$entry->id)->get();
-                $entry->delete();
+            foreach ($entriesBlog as $blogentry) {
+                $blogentry->delete();
+            }
 
-                foreach ($groupImageBlog as $key) {
-                    $imageBlog = ImageBlog::findOrFail($key->id);
-                    Storage::disk('s3')->delete($imageBlog->image_name);
-                    $imageBlog->delete();
-                }
+            foreach ($entriesImageBlog as $imageblogentry) {
+                Storage::disk('s3')->delete($imageblogentry->image_name);
+                $imageblogentry->delete();
             }
         }
 

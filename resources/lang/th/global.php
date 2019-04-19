@@ -22,6 +22,8 @@ return [
 			'detail' => 'รายละเอียด',
 			'twohandcar' => 'รถมือสอง',
 			'gallery' => 'รีวิวจากลูกค้า',
+			'gallery_header' => 'หัวเรื่อง',
+			'gallery_status' => 'สถานะ',
 			'contact_header' => 'จัดการข้อมูลการติดต่อ',
 			'contact_header_address' => 'ข้อมูลที่อยู่',
 			'contact_address1' => 'บ้านเลขที่ ถนน ซอย',

@@ -2,11 +2,11 @@
 
 @section('content')
     
-    {!! Form::model($blog, ['method' => 'PUT', 'route' => ['admin.manageblog.update', $blog->id], 'files' => true]) !!}
+    {!! Form::model($gallery, ['method' => 'PUT', 'route' => ['admin.managegallery.update', $gallery->id], 'files' => true]) !!}
     
     <div class="box box-danger">
         <div class="box-header with-border">
-            <h3 class="box-title"><b>@lang('global.app_edit')@lang('global.website-management.fields.twohandcar')</b></h3>
+            <h3 class="box-title"><b>@lang('global.app_edit')@lang('global.website-management.fields.gallery')</b></h3>
             <div class="box-tools">
                             
             </div>
@@ -14,12 +14,12 @@
         <div class="box-body">
             <div class="row">
                 <div class="col-xs-10 form-group">
-                    {!! Form::label('header', trans('global.website-management.fields.header').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('header', old('header'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::label('detail', trans('global.website-management.fields.detail').'*', ['class' => 'control-label']) !!}
+                    {!! Form::textarea('detail', old('detail'), ['class' => 'form-control', 'required' => '', 'placeholder' => '', 'rows' => 4, 'cols' => 12, 'style' => 'resize:none']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('header'))
+                    @if($errors->has('detail'))
                         <p class="help-block">
-                            {{ $errors->first('header') }}
+                            {{ $errors->first('detail') }}
                         </p>
                     @endif
                 </div>
@@ -33,18 +33,6 @@
                     @if($errors->has('status'))
                         <p class="help-block">
                             {{ $errors->first('status') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('detail', trans('global.website-management.fields.detail').'*', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('detail', old('detail'), ['class' => 'form-control', 'required' => '', 'placeholder' => '', 'rows' => 4, 'cols' => 12, 'style' => 'resize:none']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('detail'))
-                        <p class="help-block">
-                            {{ $errors->first('detail') }}
                         </p>
                     @endif
                 </div>
@@ -70,12 +58,14 @@
 
         $(document).on('ready', function() {
 
-            var images = $.parseJSON('<?php echo json_encode($imageblog);?>');
-            var id = '<?php echo $blog->id;?>';
+            var images = $.parseJSON('<?php echo json_encode($imagegallery);?>');
+            var id = '<?php echo $gallery->id;?>';
             
             var imgArray = [];
             var imgArray2 = [];
             var type = '';
+
+            console.log(images.length);
      
             if (images.length == 0) {
                 $('#car_image').prop('required', true);
@@ -98,12 +88,12 @@
             });
             
             $("#car_image").fileinput({
-                maxFileCount: 10,
+                maxFileCount: 1,
                 validateInitialCount: true,
                 overwriteInitial: false,
                 initialPreview: imgArray,
                 initialPreviewConfig: imgArray2,
-                deleteUrl: '{{url("admin/destroyImageBlog")}}',
+                deleteUrl: '{{url("admin/destroyImageGallery")}}',
                 allowedFileExtensions: ["jpg", "png", "gif"]
             }).on('fileselect', function() {
                 type = 'add';
@@ -121,7 +111,7 @@
 
         function checkRequired(id,type){
             $.ajax({ 
-                url: '{{url("admin/countImgBlog")}}', 
+                url: '{{url("admin/countImgGallery")}}', 
                 type: "POST",
                 data: { "id" : id },
                 success: function(data, statusText, resObject) {
