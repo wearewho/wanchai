@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Response;
 use App\Blog;
 use App\ImageBlog;
 
@@ -119,7 +120,6 @@ class ManageblogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
         $editblog = Blog::findOrFail($id);
         $editblog->header = $request->header;
         $editblog->detail = $request->detail;
@@ -153,7 +153,7 @@ class ManageblogController extends Controller
                 $url = Storage::disk('s3')->url($filenametostore);
                 
                 $imageblog = new ImageBlog;
-                $imageblog->blog_id = $newblog->id;
+                $imageblog->blog_id = $editblog->id;
                 $imageblog->image_name = $filenametostore;
                 $imageblog->image_size = $filesize;
                 $imageblog->image_url = $url;
@@ -174,7 +174,24 @@ class ManageblogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $oldblog = Blog::findOrFail($id);
+        $groupImageBlog = ImageBlog::where('blog_id',$id)->get();
+        $oldblog->delete();
+
+        foreach ($groupImageBlog as $key) {
+            $imageBlog = ImageBlog::findOrFail($key->id);
+            Storage::disk('s3')->delete($imageBlog->image_name);
+            $imageBlog->delete();
+        }
+
+        $blog = Blog::all();
+        return view('admin.blog.index',compact('blog'));
+    }
+
+    public function countImgBlog(Request $request)
+    {
+        $countImageBlog = ImageBlog::where('blog_id',$request->id)->count();
+        return Response::json(array($countImageBlog)); 
     }
 
     /**
@@ -201,14 +218,21 @@ class ManageblogController extends Controller
         if (! Gate::allows('users_manage')) {
             return abort(401);
         }
+
         if ($request->input('ids')) {
-            $entries = User::whereIn('id', $request->input('ids'))->get();
+            $entries = Blog::whereIn('id', $request->input('ids'))->get();
 
             foreach ($entries as $entry) {
+                $groupImageBlog = ImageBlog::where('blog_id',$entry->id)->get();
                 $entry->delete();
+
+                foreach ($groupImageBlog as $key) {
+                    $imageBlog = ImageBlog::findOrFail($key->id);
+                    Storage::disk('s3')->delete($imageBlog->image_name);
+                    $imageBlog->delete();
+                }
             }
         }
-        
-        LogActivity::addToLog('Delete Users successfully.');
+
     }
 }

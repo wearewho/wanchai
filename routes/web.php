@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('managecontact', 'Admin\ManagecontactController');
     Route::resource('manageblog', 'Admin\ManageblogController');
     Route::post('destroyImage', ['uses' => 'Admin\ManageblogController@destroyImage', 'as' => 'manageblog.destroyImage']);
+    Route::post('countImgBlog', ['uses' => 'Admin\ManageblogController@countImgBlog', 'as' => 'manageblog.countImgBlog']);
     Route::post('blog_mass_destroy', ['uses' => 'Admin\ManageblogController@massDestroy', 'as' => 'manageblog.mass_destroy']);
     Route::resource('managegallery', 'Admin\ManagegalleryController');
 });

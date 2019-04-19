@@ -15,28 +15,29 @@ $(document).ready(function() {
     window.dtDefaultOptions = {
         retrieve: true,
         // dom: 'lBfrtip<"actions">',
-        dom: 'Bfrtip',
+        dom: 'Bfrtip<"actions">',
         columnDefs: [],
         "iDisplayLength": 10,
         "aaSorting": [],
-        buttons: [{
-                extend: 'copy',
-                exportOptions: {
-                    columns: ':visible',
-                    format: {
-                        body: handleCheckboxes
-                    }
-                }
-            },
-            {
-                extend: 'csv',
-                exportOptions: {
-                    columns: ':visible',
-                    format: {
-                        body: handleCheckboxes
-                    }
-                }
-            },
+        buttons: [
+            // {
+            //     extend: 'copy',
+            //     exportOptions: {
+            //         columns: ':visible',
+            //         format: {
+            //             body: handleCheckboxes
+            //         }
+            //     }
+            // },
+            // {
+            //     extend: 'csv',
+            //     exportOptions: {
+            //         columns: ':visible',
+            //         format: {
+            //             body: handleCheckboxes
+            //         }
+            //     }
+            // },
             {
                 extend: 'excel',
                 exportOptions: {
@@ -55,16 +56,16 @@ $(document).ready(function() {
                     }
                 }
             },
-            {
-                extend: 'print',
-                exportOptions: {
-                    columns: ':visible',
-                    format: {
-                        body: handleCheckboxes
-                    }
-                }
-            },
-            'colvis'
+            // {
+            //     extend: 'print',
+            //     exportOptions: {
+            //         columns: ':visible',
+            //         format: {
+            //             body: handleCheckboxes
+            //         }
+            //     }
+            // },
+            //'colvis'
         ]
     };
     $('.datatable').each(function() {
@@ -91,7 +92,7 @@ $(document).ready(function() {
             var ids = [];
 
             $(this).closest('.actions').siblings('.datatable, .ajaxTable').find('tbody tr.selected').each(function() {
-                console.log("selected", $(this).data('entry-id'));
+                //console.log("selected", $(this).data('entry-id'));
                 ids.push($(this).data('entry-id'));
             });
 

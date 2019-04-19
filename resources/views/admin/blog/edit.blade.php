@@ -2,7 +2,7 @@
 
 @section('content')
     
-    {!! Form::model($blog, ['method' => 'PUT', 'route' => ['admin.manageblog.update', $blog->id]]) !!}
+    {!! Form::model($blog, ['method' => 'PUT', 'route' => ['admin.manageblog.update', $blog->id], 'files' => true]) !!}
     
     <div class="box box-danger">
         <div class="box-header with-border">
@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('detail', trans('global.website-management.fields.detail').'*', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('detail', old('detail'), ['class' => 'form-control', 'placeholder' => '', 'rows' => 4, 'cols' => 12, 'style' => 'resize:none']) !!}
+                    {!! Form::textarea('detail', old('detail'), ['class' => 'form-control', 'required' => '', 'placeholder' => '', 'rows' => 4, 'cols' => 12, 'style' => 'resize:none']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('detail'))
                         <p class="help-block">
@@ -50,11 +50,10 @@
                 </div>
             </div>
             <div class="row">
-                    <div class="col-xs-12 form-group">
-                        <div class="file-loading">
-                            <input id="car_image" name="car_image[]" type="file" multiple accept="image/*" data-browse-on-zone-click="true" data-show-upload="false" required>
-                        </div> 
-                    </div>
+                <div class="col-xs-12 form-group">
+                    <div class="file-loading">
+                        <input id="car_image" name="car_image[]" type="file" multiple accept="image/*" data-browse-on-zone-click="true" data-show-upload="false">
+                    </div> 
                 </div>
             </div>
         </div>
@@ -72,9 +71,19 @@
         $(document).on('ready', function() {
 
             var images = $.parseJSON('<?php echo json_encode($imageblog);?>');
+            var id = '<?php echo $blog->id;?>';
             
             var imgArray = [];
             var imgArray2 = [];
+            var type = '';
+
+            console.log(images.length);
+     
+            if (images.length == 0) {
+                $('#car_image').prop('required', true);
+            } else {
+                $('#car_image').removeProp('required');
+            }
 
             $.each(images, function (key, val) {
 
@@ -89,7 +98,7 @@
                 imgArray2.push(imgDetail);
 
             });
-
+            
             $("#car_image").fileinput({
                 maxFileCount: 10,
                 validateInitialCount: true,
@@ -98,14 +107,53 @@
                 initialPreviewConfig: imgArray2,
                 deleteUrl: '{{url("admin/destroyImage")}}',
                 allowedFileExtensions: ["jpg", "png", "gif"]
+            }).on('fileselect', function() {
+                type = 'add';
+                checkRequired(id,type);
             }).on('filebeforedelete', function() {
                 var aborted = !window.confirm('Are you sure you want to delete this file?');
                 if (aborted) {
                     
-                };
+                }
+                type = 'delete';
+                checkRequired(id,type);
                 return aborted;
             });
         });
+
+        function checkRequired(id,type){
+            $.ajax({ 
+                url: '{{url("admin/countImgBlog")}}', 
+                type: "POST",
+                data: { "id" : id },
+                success: function(data, statusText, resObject) {
+                    
+                    if (data) {    
+
+                        var countImg = data[0];
+                        if(type == 'delete'){
+                            countImg = countImg - 1;
+                        }else{
+                            countImg = countImg + 1;
+                        }
+                        
+                        if (countImg == 0) {
+                            $('#car_image').prop('required', true);
+                        } else {
+                            $('#car_image').removeProp('required');
+                        }
+                                                          
+                    }
+                    return false;
+                },
+                error: function (jqXHR, exception) {
+                    getErrorMessage(jqXHR, exception);
+                },
+                complete: function() {      
+                    // Do something when success or error.                                           
+                }
+            });
+        }
     </script>
 @endsection
 

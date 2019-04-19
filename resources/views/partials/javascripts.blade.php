@@ -30,6 +30,4 @@
         });
 </script>
 
-
-
 @yield('javascript')
