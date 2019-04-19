@@ -98,6 +98,12 @@
                 initialPreviewConfig: imgArray2,
                 deleteUrl: '{{url("admin/destroyImage")}}',
                 allowedFileExtensions: ["jpg", "png", "gif"]
+            }).on('filebeforedelete', function() {
+                var aborted = !window.confirm('Are you sure you want to delete this file?');
+                if (aborted) {
+                    
+                };
+                return aborted;
             });
         });
     </script>
