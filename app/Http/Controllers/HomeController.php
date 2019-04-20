@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Auth;
+use Session;
 
 class HomeController extends Controller
 {
@@ -24,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $message = "Just media";
+        //$message = "Just media";
         //$this->sendNotify($message);
         return view('home');
     }
