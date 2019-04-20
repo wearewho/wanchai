@@ -43,7 +43,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('/store_newcar', 'Admin\ManagehomeController@store_newcar')->name('managehome.store_newcar');
     Route::post('/store_promotion', 'Admin\ManagehomeController@store_promotion')->name('managehome.store_promotion');
     Route::resource('managecontact', 'Admin\ManagecontactController');
-    Route::post('updatecontact','Admin\ManagecontactController@edit')->name('updatecontact');//ohm
     Route::resource('manageblog', 'Admin\ManageblogController');
     Route::post('destroyImageBlog', ['uses' => 'Admin\ManageblogController@destroyImage', 'as' => 'manageblog.destroyImage']);
     Route::post('countImgBlog', ['uses' => 'Admin\ManageblogController@countImgBlog', 'as' => 'manageblog.countImgBlog']);

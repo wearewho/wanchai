@@ -31,7 +31,8 @@ return [
 			'contact_social_youtube' => 'Youtube',
 			'contact_social_line' => 'Line',
 			'contact_map_lat' => 'Latitude',
-			'contact_map_lng' => 'Longtitude'
+			'contact_map_lng' => 'Longtitude',
+			'contact_header_phone' => 'Phone Number'
 		],
 	],
 	
