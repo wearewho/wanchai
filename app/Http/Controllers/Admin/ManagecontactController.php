@@ -18,7 +18,7 @@ class ManagecontactController extends Controller
      */
     public function index()
     {
-        $contact = contact::all();
+        $contact = contact::where('id',1)->first();
         return view('admin.contact.index',compact('contact'));
     }
 
@@ -74,24 +74,42 @@ class ManagecontactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $editcontact = contact::findOrFail($id);
-        $editcontact =  $request->input('lat_map');
-        $editcontact =  $request->input('lng_map');
-        $editcontact =  $request->input('address1');
-        $editcontact =  $request->input('address2');
-        $editcontact =  $request->input('address3');
-        $editcontact =  $request->input('address4');
-        $editcontact =  $request->input('address5');
-        $editcontact =  $request->input('phone1');
-        $editcontact =  $request->input('phone2');
-        $editcontact =  $request->input('facebook');
-        $editcontact =  $request->input('instragram');
-        $editcontact =  $request->input('youtube');
-        $editcontact =  $request->input('line');
+        
+        // $editcontact = Contact::findOrFail($id);
+        // $editcontact =  $request->input('lat_map');
+        // $editcontact =  $request->input('lng_map');
+        // $editcontact =  $request->input('address1');
+        // $editcontact =  $request->input('address2');
+        // $editcontact =  $request->input('address3');
+        // $editcontact =  $request->input('address4');
+        // $editcontact =  $request->input('address5');
+        // $editcontact =  $request->input('phone1');
+        // $editcontact =  $request->input('phone2');
+        // $editcontact =  $request->input('facebook');
+        // $editcontact =  $request->input('instragram');
+        // $editcontact =  $request->input('youtube');
+        // $editcontact =  $request->input('line');
+        // $editcontact->save();
+        
+        $editcontact = Contact::findOrFail($id);
+        $editcontact->lat_map = $request->lat_map;
+        $editcontact->lng_map = $request->lng_map;
+        $editcontact->address1 = $request->address1;
+        $editcontact->address2 = $request->address2;
+        $editcontact->address3 = $request->address3;
+        $editcontact->address4 = $request->address4;
+        $editcontact->address5 = $request->address5;
+        $editcontact->phone1 = $request->phone1;
+        $editcontact->phone2 = $request->phone2;
+        $editcontact->facebook = $request->facebook;
+        $editcontact->instragram = $request->instragram;
+        $editcontact->youtube = $request->youtube;
+        $editcontact->line = $request->line;
+        
         $editcontact->save();
 
-
-        return view('admin.contact.index');
+        
+        return redirect()->route('admin.managecontact.index')->with('success','Data Updated');
         
     }
 

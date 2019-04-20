@@ -38,7 +38,8 @@ return [
 			'contact_social_youtube' => 'ยูทูป',
 			'contact_social_line' => ' ไลน์',
 			'contact_map_lat' => 'ละติจูด',
-			'contact_map_lng' => 'ลองติจูด'
+			'contact_map_lng' => 'ลองติจูด',
+			'contact_header_phone' => 'เบอร์โทรติดต่อ'
 		],
 	],
 	
