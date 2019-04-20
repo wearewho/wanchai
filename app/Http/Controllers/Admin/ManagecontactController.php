@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Contact;
+use Response;
 
 class ManagecontactController extends Controller
 {
@@ -60,7 +62,7 @@ class ManagecontactController extends Controller
      */
     public function edit($id)
     {
-        //
+      //            
     }
 
     /**
@@ -72,7 +74,25 @@ class ManagecontactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $editcontact = contact::findOrFail($id);
+        $editcontact =  $request->input('lat_map');
+        $editcontact =  $request->input('lng_map');
+        $editcontact =  $request->input('address1');
+        $editcontact =  $request->input('address2');
+        $editcontact =  $request->input('address3');
+        $editcontact =  $request->input('address4');
+        $editcontact =  $request->input('address5');
+        $editcontact =  $request->input('phone1');
+        $editcontact =  $request->input('phone2');
+        $editcontact =  $request->input('facebook');
+        $editcontact =  $request->input('instragram');
+        $editcontact =  $request->input('youtube');
+        $editcontact =  $request->input('line');
+        $editcontact->save();
+
+
+        return view('admin.contact.index');
+        
     }
 
     /**

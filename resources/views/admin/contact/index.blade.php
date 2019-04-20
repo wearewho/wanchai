@@ -5,6 +5,8 @@
     
    
 @foreach($contact as $row)
+<form action="updatecontact" method="POST">
+        
     <div class="box box-danger">
         <div class="box-header with-border">
             <h3 class="box-title"><b> @lang('global.website-management.fields.contact_header')</b></h3>
@@ -19,10 +21,10 @@
                   {{-- ละติจูดและลองติจูด --}}
                   <div class="col-md-8 col-sm-12 col-lg-8">
                         <h4>@lang('global.website-management.fields.contact_map_lat')</h4>
-                        <input id="lat_value" type="text" class="form-control" placeholder="ละติจูด" 
+                        <input id="lat_value" name="lat_map" type="text" class="form-control" placeholder="ละติจูด" 
                             value=" {{$row->lat_map}}">
                         <h4>@lang('global.website-management.fields.contact_map_lng')</h4>
-                        <input id="lng_value" type="text" class="form-control" placeholder="ลองติจูด" 
+                        <input id="lng_value" name="lng_map" type="text" class="form-control" placeholder="ลองติจูด" 
                             value=" {{$row->lng_map}}"><br>  
                   </div>        
                   <div class="col-md-2"></div>
@@ -30,39 +32,41 @@
     {{-- ข้อมูลที่อยู่ --}}
             <div class="col-md-6 col-sm-12  col-lg-6" style="border:1px solid #80808014;">
                 <h4>@lang('global.website-management.fields.contact_header_address')</h4>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_address1')"
+                <input type="text" name="address1" class="form-control" placeholder="@lang('global.website-management.fields.contact_address1')"
                     value="{{$row->address1}}"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_address2')"
+                <input type="text" name="address2" class="form-control" placeholder="@lang('global.website-management.fields.contact_address2')"
                     value="{{$row->address2}}"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_address3')"
+                <input type="text" name="address3" class="form-control" placeholder="@lang('global.website-management.fields.contact_address3')"
                     value="{{$row->address3}}"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_address4')"
+                <input type="text" name="address4" class="form-control" placeholder="@lang('global.website-management.fields.contact_address4')"
                     value="{{$row->address4}}"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_address5')"
+                <input type="text" name="address5" class="form-control" placeholder="@lang('global.website-management.fields.contact_address5')"
                     value="{{$row->address5}}"><br>
-                <input type="text" class="form-control" style="visibility: hidden;"><br>
+                <input type="text" class="form-control" style="visibility: hidden;"
+                    value="{{$row->id}}"><br>
             </div>
     {{-- ข้อมูล สื่อออนไลน์ --}}
             <div class="col-md-6 col-sm-12 col-lg-6" style="border:1px solid #80808014;">
                 <h4>@lang('global.website-management.fields.contact_header_social')</h4>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_phone') (1)"
+                <input type="text" name="phone1" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_phone') (1)"
                     value="{{$row->phone1}}"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_phone') (2)"
+                <input type="text" name="phone2" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_phone') (2)"
                     value="{{$row->phone2}}"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_facebook')"
+                <input type="text" name="facebook" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_facebook')"
                     value="{{$row->facebook}}"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_instragram')"
+                <input type="text" name="instragram" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_instragram')"
                     value="{{$row->instragram}}"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_youtube')"
+                <input type="text" name="youtube" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_youtube')"
                     value="{{$row->youtube}}"><br>
-                <input type="text" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_line')"
+                <input type="text" name="line" class="form-control" placeholder="@lang('global.website-management.fields.contact_social_line')"
                     value="{{$row->line}}"><br>
             </div>
             <div class="col-md-12"><br>
-                <button id="btnsave" class="btn btn-danger" onclick="Get_LatitudeAndLongtitude();">อัพเดท</button>
+                <button type="submit" id="btnsave" class="btn btn-danger">อัพเดท</button>
             </div>
         </div>
     </div>
+</form>
 @endforeach
 @stop
 
