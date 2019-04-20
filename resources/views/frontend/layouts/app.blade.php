@@ -4,8 +4,8 @@
     @include('frontend.partials.head')
 </head>
 <body itemscope>
+    <div class="fakeLoader"></div>
     <main>
-
         @include('frontend.partials.header')
         
         @yield('frontendcontent')

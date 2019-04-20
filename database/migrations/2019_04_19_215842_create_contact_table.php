@@ -15,8 +15,8 @@ class CreateContactTable extends Migration
     {
         Schema::create('contact', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('lat_map','10','10');
-            $table->double('lng_map','10','10');
+            $table->decimal('lat_map', 10, 8);
+            $table->decimal('lng_map', 11, 8);
             $table->string('address1');
             $table->string('address2');
             $table->string('address3');

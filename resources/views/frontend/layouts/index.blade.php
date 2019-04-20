@@ -4,6 +4,7 @@
     @include('frontend.partials.head')
 </head>
 <body itemscope>
+    <div class="fakeLoader"></div>
     <main>
         <div class="paddlr60">
             @include('frontend.partials.indexheader')

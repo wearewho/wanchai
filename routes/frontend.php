@@ -7,4 +7,4 @@ Route::get('/gallery', 'FrontEnd\FrontController@gallery');
 Route::get('/contact', 'FrontEnd\FrontController@contact');
 Route::get('/blog-detail', 'FrontEnd\FrontController@blogDetail');
 
-Route::post('/inquiry', 'FrontEnd\FrontController@inquiry');
+Route::post('/inquiry', 'FrontEnd\FrontController@inquiry')->name('inquiry');;

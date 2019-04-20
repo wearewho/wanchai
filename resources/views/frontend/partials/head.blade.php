@@ -4,6 +4,7 @@
 <meta name="keywords" content="" />
 <title>{{ trans('global.global_header') }}</title>
 
+<link rel="stylesheet" href="{{ url('frontend/assets/css/fakeLoader.css') }}">
 <link rel="stylesheet" href="{{ url('frontend/assets/css/icons.min.css') }}">
 <link rel="stylesheet" href="{{ url('frontend/assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ url('frontend/assets/css/plugins.min.css') }}">
@@ -12,6 +13,7 @@
 <link rel="stylesheet" href="{{ url('frontend/assets/css/responsive.css') }}">
 <link rel="stylesheet" href="{{ url('frontend/assets/css/floating-totop-button.css') }}">
 <link rel="icon" size="32x32" href="{{ url('frontend/favicon.ico') }}" >
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- REVOLUTION STYLE SHEETS -->
 <link rel="stylesheet" href="{{ url('frontend/assets/css/revolution/settings.css') }}">
