@@ -3,7 +3,6 @@
 
 @section('content')
     
-   
 @foreach($contact as $row)
 <form action="updatecontact" method="POST">
         
