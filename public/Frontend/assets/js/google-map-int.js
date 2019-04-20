@@ -1,217 +1,287 @@
 $(document).ready(function () {
   'use strict';
 
+ 
+
   var marker;
 
   function initMap() {
+    var position = {lat:13.754026, lng:100.521327};
     var map = new google.maps.Map(document.getElementById('loc-mp'), {
-      zoom: 13,
+      center:position,
+      zoom:12,
+      mapTypeId:google.maps.MapTypeId.ROADMAP,
       styles: [
-      {
-        "elementType": "geometry",
-        "stylers": [
         {
-          "color": "#212121"
-        }
-        ]
-      },
-      {
-        "elementType": "labels.icon",
-        "stylers": [
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#ebe3cd"
+            }
+          ]
+        },
         {
-          "visibility": "off"
-        }
-        ]
-      },
-      {
-        "elementType": "labels.text.fill",
-        "stylers": [
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#523735"
+            }
+          ]
+        },
         {
-          "color": "#757575"
-        }
-        ]
-      },
-      {
-        "elementType": "labels.text.stroke",
-        "stylers": [
+          "elementType": "labels.text.stroke",
+          "stylers": [
+            {
+              "color": "#f5f1e6"
+            }
+          ]
+        },
         {
-          "color": "#212121"
-        }
-        ]
-      },
-      {
-        "featureType": "administrative",
-        "elementType": "geometry",
-        "stylers": [
+          "featureType": "administrative",
+          "elementType": "geometry.stroke",
+          "stylers": [
+            {
+              "color": "#c9b2a6"
+            }
+          ]
+        },
         {
-          "color": "#757575"
-        }
-        ]
-      },
-      {
-        "featureType": "administrative.country",
-        "elementType": "labels.text.fill",
-        "stylers": [
+          "featureType": "administrative.land_parcel",
+          "elementType": "geometry.stroke",
+          "stylers": [
+            {
+              "color": "#dcd2be"
+            }
+          ]
+        },
         {
-          "color": "#9e9e9e"
-        }
-        ]
-      },
-      {
-        "featureType": "administrative.land_parcel",
-        "stylers": [
+          "featureType": "administrative.land_parcel",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#ae9e90"
+            }
+          ]
+        },
         {
-          "visibility": "off"
-        }
-        ]
-      },
-      {
-        "featureType": "administrative.locality",
-        "elementType": "labels.text.fill",
-        "stylers": [
+          "featureType": "landscape.natural",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#dfd2ae"
+            }
+          ]
+        },
         {
-          "color": "#bdbdbd"
-        }
-        ]
-      },
-      {
-        "featureType": "poi",
-        "elementType": "labels.text.fill",
-        "stylers": [
+          "featureType": "poi",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#dfd2ae"
+            }
+          ]
+        },
         {
-          "color": "#757575"
-        }
-        ]
-      },
-      {
-        "featureType": "poi.park",
-        "elementType": "geometry",
-        "stylers": [
+          "featureType": "poi",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#93817c"
+            }
+          ]
+        },
         {
-          "color": "#181818"
-        }
-        ]
-      },
-      {
-        "featureType": "poi.park",
-        "elementType": "labels.text.fill",
-        "stylers": [
+          "featureType": "poi.park",
+          "elementType": "geometry.fill",
+          "stylers": [
+            {
+              "color": "#a5b076"
+            }
+          ]
+        },
         {
-          "color": "#616161"
-        }
-        ]
-      },
-      {
-        "featureType": "poi.park",
-        "elementType": "labels.text.stroke",
-        "stylers": [
+          "featureType": "poi.park",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#447530"
+            }
+          ]
+        },
         {
-          "color": "#1b1b1b"
-        }
-        ]
-      },
-      {
-        "featureType": "road",
-        "elementType": "geometry.fill",
-        "stylers": [
+          "featureType": "road",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#f5f1e6"
+            }
+          ]
+        },
         {
-          "color": "#2c2c2c"
-        }
-        ]
-      },
-      {
-        "featureType": "road",
-        "elementType": "labels.text.fill",
-        "stylers": [
+          "featureType": "road.arterial",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#fdfcf8"
+            }
+          ]
+        },
         {
-          "color": "#8a8a8a"
-        }
-        ]
-      },
-      {
-        "featureType": "road.arterial",
-        "elementType": "geometry",
-        "stylers": [
+          "featureType": "road.highway",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#f8c967"
+            }
+          ]
+        },
         {
-          "color": "#373737"
-        }
-        ]
-      },
-      {
-        "featureType": "road.highway",
-        "elementType": "geometry",
-        "stylers": [
+          "featureType": "road.highway",
+          "elementType": "geometry.stroke",
+          "stylers": [
+            {
+              "color": "#e9bc62"
+            }
+          ]
+        },
         {
-          "color": "#3c3c3c"
-        }
-        ]
-      },
-      {
-        "featureType": "road.highway.controlled_access",
-        "elementType": "geometry",
-        "stylers": [
+          "featureType": "road.highway.controlled_access",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#e98d58"
+            }
+          ]
+        },
         {
-          "color": "#4e4e4e"
-        }
-        ]
-      },
-      {
-        "featureType": "road.local",
-        "elementType": "labels.text.fill",
-        "stylers": [
+          "featureType": "road.highway.controlled_access",
+          "elementType": "geometry.stroke",
+          "stylers": [
+            {
+              "color": "#db8555"
+            }
+          ]
+        },
         {
-          "color": "#616161"
-        }
-        ]
-      },
-      {
-        "featureType": "transit",
-        "elementType": "labels.text.fill",
-        "stylers": [
+          "featureType": "road.local",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#806b63"
+            }
+          ]
+        },
         {
-          "color": "#757575"
-        }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "geometry",
-        "stylers": [
+          "featureType": "transit.line",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#dfd2ae"
+            }
+          ]
+        },
         {
-          "color": "#000000"
-        }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "labels.text.fill",
-        "stylers": [
+          "featureType": "transit.line",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#8f7d77"
+            }
+          ]
+        },
         {
-          "color": "#3d3d3d"
+          "featureType": "transit.line",
+          "elementType": "labels.text.stroke",
+          "stylers": [
+            {
+              "color": "#ebe3cd"
+            }
+          ]
+        },
+        {
+          "featureType": "transit.station",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#dfd2ae"
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "geometry.fill",
+          "stylers": [
+            {
+              "color": "#b9d3c2"
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#92998d"
+            }
+          ]
         }
-        ]
-      }
       ],
-      center: {lat: 59.325, lng: 18.070}
+      //center: {lat: 59.325, lng: 18.070}
     });
-
+    
     marker = new google.maps.Marker({
+      position: position,
       map: map,
-      draggable: true,
-      animation: google.maps.Animation.DROP,
-      position: {lat: 59.327, lng: 18.067}
+      title:"5555"
+      // draggable: true,
+      // animation: google.maps.Animation.DROP,
     });
-    marker.addListener('click', toggleBounce);
-  }
+    var info = new google.maps.InfoWindow({
+      content : '<p align="center" style="width:200px; font-size:17px; color:#E949A1;"><b>พอใจ ออโต้</b></p>'
+    });
+    info.open(map,marker);
+    
+    google.maps.event.addListener(marker,'click',function(){
+      info.open(map,marker);
+    });
 
-  function toggleBounce() {
-    if (marker.getAnimation() !== null) {
-      marker.setAnimation(null);
-    } else {
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
-  }
+    
+  //   var directionsService = new google.maps.DirectionService;
+  //   var directionsDisplay = new google.maps.DirectionRenderer;
+  //  directionsDisplay.setMap(map);
 
-  google.maps.event.addDomListener(window, 'load', initMap);
+  //   var onChangeHandler = function(){
+  //     calculateAndDisplayRoute(directionsService,directionsDisplay);
+  //   }
+   
+  //    document.getElementById('bb').addEventListener("click",onChangeHandler);
 
-});
+
+
+  }//--END initMap--//
+
+  // function calculateAndDisplayRoute(directionsService,directionsDisplay)
+  // {
+  //   directionsService.route({
+  //     origin: กรุงเทพ,
+  //     destination: เชียงใหม่,
+  //     travelMode: 'DRIVING' 
+  //   },function(response,status){
+  //     if(status === 'OK'){
+  //         directionsDisplay.setDirections(response);
+  //     }else{
+  //       window.alert('Directions request failed due to' + status);
+  //     }
+  //   });
+
+  // }
+
+    
+
+
+   google.maps.event.addDomListener(window, 'load', initMap);
+
+
+
+  
+  });
