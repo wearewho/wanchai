@@ -13,7 +13,7 @@
                         <div class="col-md-6 col-sm-12 col-lg-6 slideInLeft wow" data-wow-duration="1s" data-wow-delay=".2s">
                             <div class="hir-box text-center">
                                 <img src="{{ url('frontend/assets/images/newcar.png') }}" alt="aply-mckp.png" style="margin-left: 0px;margin-right:-90px;" itemprop="image">
-                                <a class="thm-btn" href="contact.html" title="" itemprop="url">กดชมรถ</a>
+                                <a class="thm-btn" href="{{ url('blog') }}" title="" itemprop="url">กดชมรถ</a>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12 col-lg-6">

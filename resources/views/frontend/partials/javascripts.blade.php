@@ -1,4 +1,5 @@
 <script src="{{ url('frontend/assets/js/jquery.min.js') }}"></script>
+<script src="{{ url('frontend/assets/js/fakeLoader.js') }}"></script>
 <script src="{{ url('frontend/assets/js/bootstrap.min.js') }}"></script>
 <script src="{{ url('frontend/assets/js/plugins.min.js') }}"></script>
 <script src="{{ url('frontend/assets/js/part-int.js') }}"></script>
@@ -27,6 +28,13 @@
 
 <script>
     window._token = '{{ csrf_token() }}';
+
+    $.fakeLoader({
+        timeToHide:1200,
+        bgColor:"#ec376c",
+        spinner:"spinner7"
+    });
+
     $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -38,3 +46,6 @@
 </script>
 
 @yield('frontendjavascript')
+
+
+  

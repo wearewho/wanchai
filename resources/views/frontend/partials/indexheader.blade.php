@@ -1,3 +1,4 @@
+    
     <header class="stick style1">
         <div class="topbar">
             <div class="logo"><a href="{{ url('index') }}" title="Logo" itemprop="url"><img src="{{ url('frontend/assets/images/porjailogo.png') }}" width="200" alt="logo.png" itemprop="image"></a></div>

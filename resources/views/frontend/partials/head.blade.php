@@ -4,6 +4,7 @@
 <meta name="keywords" content="" />
 <title>{{ trans('global.global_header') }}</title>
 
+<link rel="stylesheet" href="{{ url('frontend/assets/css/fakeLoader.css') }}">
 <link rel="stylesheet" href="{{ url('frontend/assets/css/icons.min.css') }}">
 <link rel="stylesheet" href="{{ url('frontend/assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ url('frontend/assets/css/plugins.min.css') }}">
