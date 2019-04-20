@@ -6,6 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<link rel="icon" size="32x32" href="{{ url('backend/favicon.ico') }}" >
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- Tell the browser to be responsive to screen width -->
@@ -21,12 +22,12 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="stylesheet" href="{{ url('adminlte/bootstrap/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ url('backend/adminlte/bootstrap/css/bootstrap.min.css') }}">
 {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css"/> --}}
-<link rel="stylesheet" href="{{ url('adminlte/css') }}/select2.min.css"/>
-<link rel="stylesheet" href="{{ url('adminlte/css/AdminLTE.min.css') }}">
-<link rel="stylesheet" href="{{ url('adminlte/css/skins/skin-red.min.css') }}">
-<link rel="stylesheet" href="{{ url('css/fileinput.css') }}">
+<link rel="stylesheet" href="{{ url('backend/adminlte/css') }}/select2.min.css"/>
+<link rel="stylesheet" href="{{ url('backend/adminlte/css/AdminLTE.min.css') }}">
+<link rel="stylesheet" href="{{ url('backend/adminlte/css/skins/skin-red.min.css') }}">
+<link rel="stylesheet" href="{{ url('backend/css/fileinput.css') }}">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"/>
 <link rel="stylesheet" href="https://cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css"/>

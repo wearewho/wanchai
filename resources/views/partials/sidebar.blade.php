@@ -6,24 +6,16 @@
         <ul class="sidebar-menu">
             <div class="user-panel">
                 <div class="pull-left image">
-                <img src="{{ url('images/admin.png') }}" class="img-circle" alt="User Image">
+                <img src="{{ url('backend/images/admin.png') }}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                {{-- @if (session('data')->lang == 'th')                    
-                    <p>{{session('data')->name}}</p>
-                @else          
-                    @if (session('data')->nameEng)                        
-                        <p style="font-size:11px;">{{session('data')->nameEng}}</p> 
-                    @else
-                        <p>{{session('data')->name}}</p>
-                    @endif                     
-                @endif --}}
                 <p>Administrator</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> @lang('global.app_online')</a>
                 </div>
             </div>
+
             <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
-                <a href="{{ url('/') }}">
+                <a href="{{ url('/admin') }}">
                     <i class="fa fa-dashboard"></i>
                     <span class="title">@lang('global.app_dashboard')</span>
                 </a>
@@ -38,7 +30,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="treeview">
+                    <li class="treeview {{ $request->segment(2) == 'newcar' || $request->segment(2) == 'promotion' ? 'active active-sub' : '' }}">
                         <a href="{{ route('admin.permissions.index') }}">
                             <i class="fa fa-home"></i> 
                             @lang('global.website-management.fields.home')
@@ -47,13 +39,13 @@
                             </span>
                         </a>
                         <ul class="treeview-menu" style="display: block;">
-                            <li>
+                            <li class="{{ $request->segment(2) == 'newcar' ? 'active active-sub' : '' }}">
                                 <a href="#">
                                 <i class="fa fa-circle-o"></i> 
                                     @lang('global.website-management.fields.home_newcar')
                                 </a>
                             </li>
-                            <li>
+                            <li class="{{ $request->segment(2) == 'promotion' ? 'active active-sub' : '' }}">
                                 <a href="{{ route('admin.managehome.index_promotion') }}">
                                 <i class="fa fa-circle-o"></i> 
                                     @lang('global.website-management.fields.home_promotion')
@@ -130,6 +122,13 @@
                 <a href="{{ route('auth.change_password') }}">
                     <i class="fa fa-key"></i>
                     <span class="title">@lang('global.users.fields.change_password')</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url('/') }}">
+                    <i class="fa fa-home"></i>
+                    <span class="title">@lang('global.app_website')</span>
                 </a>
             </li>
 

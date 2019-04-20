@@ -3,7 +3,6 @@
 
 @section('content')
     
-   
 @foreach($contact as $row)
     <div class="box box-danger">
         <div class="box-header with-border">

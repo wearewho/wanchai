@@ -113,7 +113,9 @@ return [
 	'app_are_you_sure' => 'คุณแน่ใจหรือไม่?',
 	'app_back_to_list' => 'Back to list',
 	'app_dashboard' => 'หน้าหลัก',
+	'app_website' => 'หน้าเว็บไซต์',
 	'app_delete' => 'ลบ',
 	'global_title' => 'Website Manager',
+	'global_header' => 'Porjai Auto Used Cars',
 	
 ];
