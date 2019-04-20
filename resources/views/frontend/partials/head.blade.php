@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="{{ url('frontend/assets/css/responsive.css') }}">
 <link rel="stylesheet" href="{{ url('frontend/assets/css/floating-totop-button.css') }}">
 <link rel="icon" size="32x32" href="{{ url('frontend/favicon.ico') }}" >
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- REVOLUTION STYLE SHEETS -->
 <link rel="stylesheet" href="{{ url('frontend/assets/css/revolution/settings.css') }}">

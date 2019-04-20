@@ -20,9 +20,10 @@
 <script src="{{ url('frontend/assets/js/revolution/extensions/revolution.extension.slideanims.min.js') }}"></script>
 <script src="{{ url('frontend/assets/js/revolution/extensions/revolution.extension.video.min.js') }}"></script>
 <script src="{{ url('frontend/assets/js/revolution/revolution-init.js') }}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 {{-- <script src="{{ url('frontend/assets/js/google-map-int.js') }}"></script> --}}
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBINVRX-GNF4z1l8CPFrJL5dhIGY96a9-k&callback=initMap" async defer></script>
+{{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBINVRX-GNF4z1l8CPFrJL5dhIGY96a9-k&callback=initMap" async defer></script> --}}
 
 <script>
     window._token = '{{ csrf_token() }}';

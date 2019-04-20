@@ -10,22 +10,22 @@
                     <form>
                         <div class="row mrg20">
                             <div class="col-md-3 col-sm-6 col-lg-3">
-                                <input type="text" placeholder="ชื่อ">
+                                <input type="text" id="name" placeholder="ชื่อ">
                             </div>
                             <div class="col-md-3 col-sm-6 col-lg-3">
-                                <input type="email" placeholder="เบอร์โทรติดต่อ">
+                                <input type="text" id="tel" maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="เบอร์โทรติดต่อ">
                             </div>
                             <div class="col-md-3 col-sm-12 col-lg-3">
-                                <input type="text" placeholder="ไลน์ไอดี">
+                                <input type="text" id="line" placeholder="ไลน์ไอดี">
                             </div>
                             <div class="col-md-3 col-sm-6 col-lg-3">
-                                <input type="text" placeholder="วันที่สะดวกเข้ามาชมรถ">
+                                <input type="text" id="appoint" placeholder="วันที่สะดวกเข้ามาชมรถ">
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <textarea placeholder="รายละเอียด"></textarea>
+                                <textarea placeholder="รายละเอียด" id="detail"></textarea>
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <button class="thm-btn" type="submit">ยืนยันนัดหมาย</button>
+                                <button class="thm-btn" id="confirm" type="button">ยืนยันนัดหมาย</button>
                             </div>
                         </div>
                     </form>
@@ -72,5 +72,59 @@
 @stop
 
 @section('frontendjavascript') 
-    
+    <script>
+        $(document).ready(function () {
+            $('#confirm').click(function(e){   
+
+                let name = $('#name').val();
+                let tel = $('#tel').val();
+                let line = $('#line').val();
+                let appoint = $('#appoint').val();
+                let detail = $('#detail').val();
+
+                if (name == "") {
+                    swal("กรุณากรอกชื่อ","","warning");
+                } else if (tel == "") {
+                    swal("กรุณากรอกเบอร์ติดต่อ","","warning");
+                } else if (line == "") {
+                    swal("กรุณากรอกไอดีไลน์","","warning");
+                } else if (appoint == "") {
+                    swal("กรุณากรอกวันที่สะดวกเข้ามาชมรถ","","warning");
+                } else if (detail == "") {
+                    swal("กรุณากรอกรายละเอียด","","warning");
+                } else {
+                    $.ajax({ 
+                        url: '{{url("inquiry")}}', 
+                        type: "POST",
+                        data: { "name" : name, "tel" : tel, "appoint" : appoint, "detail" : detail, "line" : line},
+                        success: function(data, statusText, resObject) {
+                            
+                            if (data) {    
+
+                                if(data === true){
+                                    swal("นัดหมายสำเร็จ โปรดรอการติดต่อกลับ","","success");
+                                    $('#name').val("");
+                                    $('#tel').val("");
+                                    $('#line').val("");
+                                    $('#appoint').val("");
+                                    $('#detail').val("");
+                                }else{
+                                    swal("เกิดข้อผิดพลาด กรุณาลองใหม่","","error");
+                                }
+                                                                
+                            }
+                            return false;
+                        },
+                        error: function (jqXHR, exception) {
+                            getErrorMessage(jqXHR, exception);
+                        },
+                        complete: function() {      
+                            // Do something when success or error.                                           
+                        }
+                    });
+                }
+
+            })
+        });
+    </script>
 @endsection
