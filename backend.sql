@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 20, 2019 at 07:06 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Host: localhost
+-- Generation Time: Apr 21, 2019 at 05:44 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -37,6 +37,16 @@ CREATE TABLE `blog` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`id`, `header`, `detail`, `status`, `created_at`, `updated_at`) VALUES
+(6, 'Toyota Fortuner 2.5 (ปี 12-15) G SUV MT', 'ยี่ห้อ - Toyota\r\nรุ่น - Fortuner\r\nโฉมรถยนต์ - (ปี 12-15)\r\nรายละเอียดรุ่น - G\r\nปี - 2012\r\nขนาดเครื่องยนต์ - 2494 ซีซี\r\nระบบเกียร์ - เกียร์ธรรมดา\r\nจำนวนที่นั่ง - 7\r\nเลขไมล์ (กม.) - 100\r\nสี - สีดำ', 'publish', '2019-04-19 19:57:20', '2019-04-21 06:23:56'),
+(7, 'Mazda 2 1.3 (ปี 15-18) High Connect Sedan AT', 'เครื่องยนต์เบนซิน 1.3 การรันตรีศูนย์ อยู่ในเชคระยะฟรี ออกห้างมือเดียว กดปุ่มสตาทร์ กุญแจรีโมทแท้ไมล์ดิจิตอลแท้พวงมาลัย Multifunction เบาะหนังเครื่อ เสียงเชื่อมต่อโทรศัพท์ พร้อมสปิกเกอร์ เบาะหลังพับได้ เชื่อมต่อท้ายกระโปรง ฟรีประกันภัยรถยนต์ปีแรก ดอกเบี้ยต่ำสุด 0% 12เดือน', 'publish', '2019-04-19 19:57:37', '2019-04-21 06:38:21'),
+(8, 'Honda Accord 2.0 (ปี 07-13) E i-VTEC Sedan AT', 'พวงมาลัย Multifunction AIRBAG +ABS เบาะหนังแท้ ปรับไฟฟ้า เครื่องเดิม2.4 น้ำมันล้วน เครื่องฟิต สตาร์ทติดง่าย กระจกไฟฟ้า กุญแจรีโมท พร้อมหล่อ ทุกสถานการณ์', 'publish', '2019-04-19 19:58:01', '2019-04-21 06:44:06'),
+(9, 'Toyota Hilux Vigo 2.5 CHAMP DOUBLE CAB (ปี 11-15) E', 'เครื่องยนต์ดีเซล 2.5 กุญแจรีโมทแท้ AIR bag +ABS พวงมาลัย Multifunction ล้อแม๊ค เครื่องเดิม ของเหลวใหม่ ท่อลั่น พร้อมบวก', 'publish', '2019-04-21 06:50:52', '2019-04-21 06:50:52');
+
 -- --------------------------------------------------------
 
 --
@@ -53,6 +63,39 @@ CREATE TABLE `blog_image` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `blog_image`
+--
+
+INSERT INTO `blog_image` (`id`, `blog_id`, `image_name`, `image_size`, `image_url`, `created_at`, `updated_at`) VALUES
+(37, 6, 'blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_CuKm0UUUOz5AhkuowkDSYd_1555827776.jpg', 110785, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_CuKm0UUUOz5AhkuowkDSYd_1555827776.jpg', '2019-04-21 06:22:58', '2019-04-21 06:22:58'),
+(38, 6, 'blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_inyJjiprGd00tKnrBYfHmG_1555827778.jpg', 105544, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_inyJjiprGd00tKnrBYfHmG_1555827778.jpg', '2019-04-21 06:22:58', '2019-04-21 06:22:58'),
+(39, 6, 'blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_mF4iUF9eyFbsbFiXKTFf7r_1555827778.jpg', 89459, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_mF4iUF9eyFbsbFiXKTFf7r_1555827778.jpg', '2019-04-21 06:22:58', '2019-04-21 06:22:58'),
+(40, 6, 'blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_MfMcF1Dos3agy9pK6mCIIn_1555827778.jpg', 117977, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_MfMcF1Dos3agy9pK6mCIIn_1555827778.jpg', '2019-04-21 06:22:58', '2019-04-21 06:22:58'),
+(41, 6, 'blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_r1m5yEqUX0JjL4WqaM4Duj_1555827778.jpg', 106648, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_r1m5yEqUX0JjL4WqaM4Duj_1555827778.jpg', '2019-04-21 06:22:58', '2019-04-21 06:22:58'),
+(42, 6, 'blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_yCfh17LHSWfSS1DzaiPT3o_1555827778.jpg', 113999, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_yCfh17LHSWfSS1DzaiPT3o_1555827778.jpg', '2019-04-21 06:22:58', '2019-04-21 06:22:58'),
+(43, 6, 'blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_zfbtESLzFa6lv5sbkSXa8M_1555827778.jpg', 116983, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_zfbtESLzFa6lv5sbkSXa8M_1555827778.jpg', '2019-04-21 06:22:59', '2019-04-21 06:22:59'),
+(44, 7, 'blog/gallery_used-car-one2car-mazda-2-sports-high-connect-hatchback-thailand_0957775_2QKKyWyrsz3TkKVT0MQ7SD_1555828701.jpeg', 99017, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-mazda-2-sports-high-connect-hatchback-thailand_0957775_2QKKyWyrsz3TkKVT0MQ7SD_1555828701.jpeg', '2019-04-21 06:38:22', '2019-04-21 06:38:22'),
+(45, 7, 'blog/gallery_used-car-one2car-mazda-2-sports-high-connect-hatchback-thailand_0957775_bS1kxtXAnhAGTJgSRRJo7l_1555828702.jpeg', 92022, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-mazda-2-sports-high-connect-hatchback-thailand_0957775_bS1kxtXAnhAGTJgSRRJo7l_1555828702.jpeg', '2019-04-21 06:38:23', '2019-04-21 06:38:23'),
+(46, 7, 'blog/gallery_used-car-one2car-mazda-2-sports-high-connect-hatchback-thailand_0957775_CbklGz5U1yFaiq0zZ46vWY_1555828703.jpeg', 93267, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-mazda-2-sports-high-connect-hatchback-thailand_0957775_CbklGz5U1yFaiq0zZ46vWY_1555828703.jpeg', '2019-04-21 06:38:24', '2019-04-21 06:38:24'),
+(47, 7, 'blog/gallery_used-car-one2car-mazda-2-sports-high-connect-hatchback-thailand_0957775_DNkkDRXj4vKQEJOLWuITAw_1555828704.jpeg', 66754, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-mazda-2-sports-high-connect-hatchback-thailand_0957775_DNkkDRXj4vKQEJOLWuITAw_1555828704.jpeg', '2019-04-21 06:38:24', '2019-04-21 06:38:24'),
+(48, 7, 'blog/gallery_used-car-one2car-mazda-2-sports-high-connect-hatchback-thailand_0957775_TXCjWdCFVjvdoKmaUr7KTj_1555828704.jpeg', 109316, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-mazda-2-sports-high-connect-hatchback-thailand_0957775_TXCjWdCFVjvdoKmaUr7KTj_1555828704.jpeg', '2019-04-21 06:38:25', '2019-04-21 06:38:25'),
+(49, 8, 'blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_cPRJKwFffkrRsa6gHCpHzZ_1555828953.jpeg', 87747, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_cPRJKwFffkrRsa6gHCpHzZ_1555828953.jpeg', '2019-04-21 06:42:33', '2019-04-21 06:42:33'),
+(50, 8, 'blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_D8msxDa5Y7oB46gOqMRk0P_1555828953.jpeg', 97080, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_D8msxDa5Y7oB46gOqMRk0P_1555828953.jpeg', '2019-04-21 06:42:34', '2019-04-21 06:42:34'),
+(51, 8, 'blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_kPrnTBIgJLe2SzbN4m7bmk_1555828954.jpeg', 115896, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_kPrnTBIgJLe2SzbN4m7bmk_1555828954.jpeg', '2019-04-21 06:42:34', '2019-04-21 06:42:34'),
+(52, 8, 'blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_S695qU3NJ5JQorj1467ZpJ_1555828954.jpeg', 96742, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_S695qU3NJ5JQorj1467ZpJ_1555828954.jpeg', '2019-04-21 06:42:34', '2019-04-21 06:42:34'),
+(53, 8, 'blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_YbAbjvmLiSKQFLYKwV1x2o_1555828954.jpeg', 107088, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_YbAbjvmLiSKQFLYKwV1x2o_1555828954.jpeg', '2019-04-21 06:42:34', '2019-04-21 06:42:34'),
+(54, 9, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_6Nuq7uGshaEZQJ79oYpyx2_1555829452.jpg', 83582, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_6Nuq7uGshaEZQJ79oYpyx2_1555829452.jpg', '2019-04-21 06:50:53', '2019-04-21 06:50:53'),
+(55, 9, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_9QePbyWJCHoVEw1YGoIfzt_1555829453.jpg', 106608, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_9QePbyWJCHoVEw1YGoIfzt_1555829453.jpg', '2019-04-21 06:50:54', '2019-04-21 06:50:54'),
+(56, 9, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_e1MOeeghWekDF4cvrUAxYQ_1555829454.jpg', 98989, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_e1MOeeghWekDF4cvrUAxYQ_1555829454.jpg', '2019-04-21 06:50:54', '2019-04-21 06:50:54'),
+(57, 9, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_e7oAafoZvDRSKSoszFqqRT_1555829454.jpg', 91371, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_e7oAafoZvDRSKSoszFqqRT_1555829454.jpg', '2019-04-21 06:50:54', '2019-04-21 06:50:54'),
+(58, 9, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_Kq8PxO91uuqIoqVifOOG9I_1555829454.jpg', 83703, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_Kq8PxO91uuqIoqVifOOG9I_1555829454.jpg', '2019-04-21 06:50:55', '2019-04-21 06:50:55'),
+(59, 9, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_oKFB4KW72IMI9Wcjv8vwEt_1555829455.jpg', 93946, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_oKFB4KW72IMI9Wcjv8vwEt_1555829455.jpg', '2019-04-21 06:50:55', '2019-04-21 06:50:55'),
+(60, 9, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_P1rLKLUWXGZsIPbJtH4ESA_1555829455.jpg', 97999, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_P1rLKLUWXGZsIPbJtH4ESA_1555829455.jpg', '2019-04-21 06:50:55', '2019-04-21 06:50:55'),
+(61, 9, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_T2ExOHiGAXitv09izxUQWQ_1555829455.jpg', 75753, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_T2ExOHiGAXitv09izxUQWQ_1555829455.jpg', '2019-04-21 06:50:55', '2019-04-21 06:50:55'),
+(62, 9, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_VrqQC0V5LdXEL25pGAkC8L_1555829455.jpg', 66651, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_VrqQC0V5LdXEL25pGAkC8L_1555829455.jpg', '2019-04-21 06:50:55', '2019-04-21 06:50:55'),
+(63, 9, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_wGbvG8lkrs53WR8j1ANjzt_1555829455.jpg', 65637, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_wGbvG8lkrs53WR8j1ANjzt_1555829455.jpg', '2019-04-21 06:50:55', '2019-04-21 06:50:55');
+
 -- --------------------------------------------------------
 
 --
@@ -61,9 +104,9 @@ CREATE TABLE `blog_image` (
 
 CREATE TABLE `contact` (
   `id` int(10) UNSIGNED NOT NULL,
-  `lat_map` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lng_map` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address1` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lat_map` decimal(10,8) NOT NULL,
+  `lng_map` decimal(11,8) NOT NULL,
+  `address1` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `address2` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `address3` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `address4` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -83,7 +126,7 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id`, `lat_map`, `lng_map`, `address1`, `address2`, `address3`, `address4`, `address5`, `phone1`, `phone2`, `facebook`, `instragram`, `youtube`, `line`, `created_at`, `updated_at`) VALUES
-(1, '13.816113196829853', '100.49036802158776', '18/407 ถนนคู้บอน ซอยคู้บอน27แยก35', 'บางเขน', 'ท่าแร้ง', 'กรุงเทพ', '10220', '0812345678', '0823454460', 'pncohm', '-', '-', 'pncohmhnkk', '2019-04-19 17:00:00', '2019-04-20 16:34:57');
+(1, '14.03264389', '100.34950256', '18/407 ถนนคู้บอน ซอยคู้บอน27แยก35', 'บางเขน', 'ท่าแร้ง', 'กรุงเทพ', '10220', '0812345678', '0823454460', 'porjaiauto', 'porjaiauto', 'porjaiauto', 'porjaiauto', '2019-04-19 10:00:00', '2019-04-21 09:21:44');
 
 -- --------------------------------------------------------
 
@@ -94,10 +137,44 @@ INSERT INTO `contact` (`id`, `lat_map`, `lng_map`, `address1`, `address2`, `addr
 CREATE TABLE `gallery` (
   `id` int(10) UNSIGNED NOT NULL,
   `detail` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image_url` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `gallery`
+--
+
+INSERT INTO `gallery` (`id`, `detail`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'ดีจริง ดีจัง', 'publish', '2019-04-19 17:14:42', '2019-04-19 17:14:42'),
+(4, 'ใช้ดีมากๆ', 'publish', '2019-04-19 17:54:20', '2019-04-19 20:13:44'),
+(10, 'ใช้ดีจริงๆนะ', 'publish', '2019-04-19 20:14:13', '2019-04-21 08:38:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gallery_image`
+--
+
+CREATE TABLE `gallery_image` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `gallery_id` int(11) NOT NULL,
+  `image_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image_size` int(11) NOT NULL,
+  `image_url` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `gallery_image`
+--
+
+INSERT INTO `gallery_image` (`id`, `gallery_id`, `image_name`, `image_size`, `image_url`, `created_at`, `updated_at`) VALUES
+(8, 4, 'gallery/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_zfbtESLzFa6lv5sbkSXa8M_1555696460.jpg', 116983, 'https://porjai.s3.ap-southeast-1.amazonaws.com/gallery/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_zfbtESLzFa6lv5sbkSXa8M_1555696460.jpg', '2019-04-19 17:54:20', '2019-04-19 17:54:20'),
+(14, 1, 'gallery/e877d1da-2020-nissan-sylphy-1_1555704796.jpg', 151975, 'https://porjai.s3.ap-southeast-1.amazonaws.com/gallery/e877d1da-2020-nissan-sylphy-1_1555704796.jpg', '2019-04-19 20:13:17', '2019-04-19 20:13:17'),
+(15, 10, 'gallery/พอใจ_1555704853.jpg', 133968, 'https://porjai.s3.ap-southeast-1.amazonaws.com/gallery/%E0%B8%9E%E0%B8%AD%E0%B9%83%E0%B8%88_1555704853.jpg', '2019-04-19 20:14:15', '2019-04-19 20:14:15');
 
 -- --------------------------------------------------------
 
@@ -107,9 +184,25 @@ CREATE TABLE `gallery` (
 
 CREATE TABLE `home_new_car` (
   `id` int(10) UNSIGNED NOT NULL,
+  `image_url` text COLLATE utf8mb4_unicode_ci,
+  `image_name` text COLLATE utf8mb4_unicode_ci,
+  `image_size` int(11) DEFAULT NULL,
+  `newcar_header` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `newcar_detail` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `property_header` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `property_detail` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `review_header` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `review_detail` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `home_new_car`
+--
+
+INSERT INTO `home_new_car` (`id`, `image_url`, `image_name`, `image_size`, `newcar_header`, `newcar_detail`, `property_header`, `property_detail`, `review_header`, `review_detail`, `created_at`, `updated_at`) VALUES
+(1, 'https://porjai.s3.ap-southeast-1.amazonaws.com/newcar/newcar_1555860083.png', 'newcar/newcar_1555860083.png', 135899, 'โตโยต้า แข็งแกร่งสุด ๆ นะจ๊ะ', 'ล้อแม็กเต็มขอบทองประตูเหลือบเงินสะท้อนแสงได้', 'ตัวถังของรถ', 'ด้วยเครื่องยนต์ที่ไม่มีการย้อมแมวจึงทำให้คุณภาพรถ เยี่ยมยอดกระเทียมดอง', 'รีวิว จากคุณ ประยุทธ์', 'ใช้แล้วดี ใช้ๆ ไปเหอะ ช่วยๆ กันหน่อย นะ เข้าใจกันด้วยว่า รถเนี่ยดีมาก', '2019-04-20 17:00:00', '2019-04-21 15:21:25');
 
 -- --------------------------------------------------------
 
@@ -131,7 +224,36 @@ CREATE TABLE `home_promotion` (
 --
 
 INSERT INTO `home_promotion` (`id`, `header`, `detail`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'ผ่อน 0% 36 เดือน', 'โปรโมชั่นนี้หมดเขตวันที่ 31 พฤษภาคม 2562', 'publish', '2019-04-12 09:04:36', '2019-04-12 09:48:51');
+(1, 'ผ่อน 0% 36 เดือน', 'Suspendisse facilisis commodo lobortis. Nullam mollis lobortis ex vel faucibus. Proin nec viverra turpis. Nulla eget justo scelerisque, pretium purus vel, congue libero. Suspendisse potenti. Sed risus nisi, auctor nec auctor id, luctus sed dui. In ex tellus,', 'publish', '2019-04-12 09:04:36', '2019-04-21 06:17:09'),
+(2, 'ผ่อนเบา', 'Suspendisse facilisis commodo lobortis. Nullam mollis lobortis ex vel faucibus. Proin nec viverra turpis. Nulla eget justo scelerisque, pretium purus vel, congue libero. Suspendisse potenti. Sed risus nisi, auctor nec auctor id, luctus sed dui. In ex tellus,', 'publish', '2019-04-21 06:17:18', '2019-04-21 06:17:52'),
+(3, 'ฟรีทุกค่าใช้จ่ายรับรถ', 'Suspendisse facilisis commodo lobortis. Nullam mollis lobortis ex vel faucibus. Proin nec viverra turpis. Nulla eget justo scelerisque, pretium purus vel, congue libero. Suspendisse potenti. Sed risus nisi, auctor nec auctor id, luctus sed dui. In ex tellus,', 'publish', '2019-04-21 06:17:25', '2019-04-21 06:18:27');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inquiry`
+--
+
+CREATE TABLE `inquiry` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tel` int(11) NOT NULL,
+  `line` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `appoint` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `detail` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `inquiry`
+--
+
+INSERT INTO `inquiry` (`id`, `name`, `tel`, `line`, `appoint`, `detail`, `created_at`, `updated_at`) VALUES
+(1, 'rerr', 0, 'fgfg', 'fgfg', 'tertetet', '2019-04-20 16:35:52', '2019-04-20 16:35:52'),
+(2, 'Manager', 804299141, 'careeeeeeeeee', 'ต้องมีสักวัน', 'สนใจเข้าไปชมรถ', '2019-04-20 17:15:28', '2019-04-20 17:15:28'),
+(3, 'Messy', 912334567, 'messyjaja', '21/04/2019', 'รถกระบะ 4 ประตู', '2019-04-20 17:19:31', '2019-04-20 17:19:31'),
+(4, 'อาสี่แห่งชุมแสง', 21111111, 'seichumsang', '22/04/2019', 'อยากหารถให้ม๊าใช้ขายของสักคัน', '2019-04-21 07:55:08', '2019-04-21 07:55:08');
 
 -- --------------------------------------------------------
 
@@ -162,7 +284,9 @@ INSERT INTO `log_activities` (`id`, `subject`, `url`, `method`, `ip`, `agent`, `
 (4, 'Update Promotion Successfully.', 'http://127.0.0.1:8000/admin/promotion/1', 'PUT', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36', 1, '2019-04-12 09:48:44', '2019-04-12 09:48:44'),
 (5, 'Update Promotion Successfully.', 'http://127.0.0.1:8000/admin/promotion/1', 'PUT', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36', 1, '2019-04-12 09:48:51', '2019-04-12 09:48:51'),
 (6, 'Create User successfully.', 'http://127.0.0.1:8000/admin/users/create', 'GET', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36', 1, '2019-04-17 04:38:35', '2019-04-17 04:38:35'),
-(7, 'Create User successfully.', 'http://localhost/backend/public/admin/users/create', 'GET', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36', 1, '2019-04-19 16:39:04', '2019-04-19 16:39:04');
+(7, 'Update Promotion Successfully.', 'http://127.0.0.1:8000/admin/promotion/1', 'PUT', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36', 1, '2019-04-21 06:17:09', '2019-04-21 06:17:09'),
+(8, 'Update Promotion Successfully.', 'http://127.0.0.1:8000/admin/promotion/2', 'PUT', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36', 1, '2019-04-21 06:17:52', '2019-04-21 06:17:52'),
+(9, 'Update Promotion Successfully.', 'http://127.0.0.1:8000/admin/promotion/3', 'PUT', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36', 1, '2019-04-21 06:18:27', '2019-04-21 06:18:27');
 
 -- --------------------------------------------------------
 
@@ -191,7 +315,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2019_04_17_102654_create_blog_table', 5),
 (9, '2019_04_18_100548_create_gallery_table', 6),
 (10, '2019_04_18_110425_create_blog_image_table', 7),
-(11, '2019_04_19_215842_create_contact_table', 8);
+(11, '2019_04_19_215842_create_contact_table', 8),
+(12, '2019_04_19_233155_create_gallery_image_table', 8),
+(13, '2019_04_20_214707_create_inquiry_table', 9);
 
 -- --------------------------------------------------------
 
@@ -319,7 +445,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@admin.com', '$2y$10$e69qau0JSFe8d8xVN4TSF.uQOaJvM9AHFwfNSpnTQ.Wc5cjNXuSKy', 'k4HopEUadq5pIG7uN7amrc8cht67uHps2cAt4MX6VA9MXAIzh8fhEsBSsL2v', '2018-09-03 21:39:19', '2018-09-03 21:39:19'),
+(1, 'Admin', 'admin@admin.com', '$2y$10$e69qau0JSFe8d8xVN4TSF.uQOaJvM9AHFwfNSpnTQ.Wc5cjNXuSKy', 'hzMLwO7BcSn1SA7Sr1HDE88rt4qjqF0OhV0KZcp0axV3z8CgEINhKndapIHK', '2018-09-03 21:39:19', '2018-09-03 21:39:19'),
 (2, 'Manager', 'manager@manager.com', '$2y$10$6sbWAwSVDn9cny0EOB.dSeP881IZOFri7akzcySU9gSEHlHlHltA6', NULL, '2018-09-03 21:42:38', '2019-04-10 07:58:29');
 
 --
@@ -351,6 +477,12 @@ ALTER TABLE `gallery`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `gallery_image`
+--
+ALTER TABLE `gallery_image`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `home_new_car`
 --
 ALTER TABLE `home_new_car`
@@ -360,6 +492,12 @@ ALTER TABLE `home_new_car`
 -- Indexes for table `home_promotion`
 --
 ALTER TABLE `home_promotion`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `inquiry`
+--
+ALTER TABLE `inquiry`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -427,13 +565,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `blog_image`
 --
 ALTER TABLE `blog_image`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `contact`
@@ -445,31 +583,43 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `gallery_image`
+--
+ALTER TABLE `gallery_image`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `home_new_car`
 --
 ALTER TABLE `home_new_car`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `home_promotion`
 --
 ALTER TABLE `home_promotion`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `inquiry`
+--
+ALTER TABLE `inquiry`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `log_activities`
 --
 ALTER TABLE `log_activities`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `permissions`
