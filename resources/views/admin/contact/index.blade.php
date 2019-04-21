@@ -4,7 +4,7 @@
 @section('content')
     
      
-    {!! Form::model($contact, ['method' => 'PUT', 'route' => ['admin.managecontact.update', $contact->id]]) !!}
+    {!! Form::model($contact, ['id' => 'f1','method' => 'PUT', 'route' => ['admin.managecontact.update', $contact->id]]) !!}
         
     <div class="box box-warning">
             <div class="box-header with-border">
@@ -38,48 +38,48 @@
             <div class="col-md-12"><hr>
                 <div class="form-group">
                     <label>@lang('global.website-management.fields.contact_header_phone')</label>
-                    <input type="text" name="phone1" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_social_phone') (1)"
+                    <input id="phone1" type="text" name="phone1" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_social_phone') (1)"
                             value="{{$contact->phone1}}">
                 </div>
                     <div class="form-group">
-                        <input type="text" name="phone2" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_social_phone') (2)"
+                        <input id="phone2" type="text" name="phone2" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_social_phone') (2)"
                             value="{{$contact->phone2}}">
                     </div>
                 <div class="form-group">
                   <label>@lang('global.website-management.fields.contact_header_address')</label>
-                  <textarea name="address1" class="form-control" rows="3" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_address1')" >{{$contact->address1}}</textarea>
+                  <textarea id="address1" name="address1" class="form-control" rows="3" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_address1')" >{{$contact->address1}}</textarea>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="address2" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_address2')"
+                    <input id="address2" type="text" name="address2" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_address2')"
                             value="{{$contact->address2}}">
                 </div>
                 <div class="form-group">
-                    <input type="text" name="address3" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_address3')"
+                    <input id="address3" type="text" name="address3" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_address3')"
                             value="{{$contact->address3}}">
                 </div>
                 <div class="form-group">
-                    <input type="text" name="address4" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_address4')"
+                    <input id="address4" type="text" name="address4" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_address4')"
                         value="{{$contact->address4}}">
                 </div>
                 <div class="form-group">                   
-                    <input type="text" name="address5" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_address5')"
+                    <input id="address5" type="text" name="address5" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_address5')"
                         value="{{$contact->address5}}">
                 </div>
                 <div class="form-group">
                         <label>@lang('global.website-management.fields.contact_header_social')</label>
-                        <input type="text" name="facebook" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_social_facebook')"
+                        <input id="facebook" type="text" name="facebook" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_social_facebook')"
                             value="{{$contact->facebook}}">
                 </div>
                 <div class="form-group">
-                    <input type="text" name="instragram" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_social_instragram')"
+                    <input id="instragram" type="text" name="instragram" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_social_instragram')"
                         value="{{$contact->instragram}}">
                 </div>
                 <div class="form-group">
-                    <input type="text" name="youtube" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_social_youtube')"
+                    <input id="youtube" type="text" name="youtube" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_social_youtube')"
                         value="{{$contact->youtube}}">
                 </div>
                 <div class="form-group">
-                    <input type="text" name="line" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_social_line')"
+                    <input id="line" type="text" name="line" class="form-control" onclick="ClickTextboxWarning(this);" onblur="BlurTextbox(this)"; placeholder="@lang('global.website-management.fields.contact_social_line')"
                         value="{{$contact->line}}">
                 </div>
                 <!-- /button submit -->
@@ -132,9 +132,6 @@
                 $("#lng_value").val(my_Point.lng());  // เอาค่า longtitude ตัว marker แสดงใน textbox id=lat_value
                 info.close(map,marker);
                 infoedit.open(map,marker);
-
-                $("#lat_value").css("border-color","#f39c12");
-                $("#lng_value").css("border-color","#f39c12");
             });
             
             // google.maps.event.addListener(marker,'click',function(){
@@ -151,7 +148,72 @@
         {
             $(x).removeAttr("style");
         }
-            
+        $(document).ready(function(){
+            $("#f1").submit(function(event){
+                var lat_value = $("#lat_value").val();
+                var lng_value = $("#lng_value").val();
+                var phone1 = $("#phone1").val();
+                var phone2 = $("#phone3").val();
+                var address1 = $("#address1").val();
+                var address2 = $("#address2").val();
+                var address3 = $("#address3").val();
+                var address4 = $("#address4").val();
+                var address5 = $("#address5").val();
+                var facebook = $("#facebook").val();
+                var instragram = $("#instragram").val();
+                var youtube = $("#youtube").val();
+                var line = $("#line").val();
+                if(lat_value==""){
+                    alert("โปรดกรอกข้อมูลให้ครบ");
+                    $("#lat_value").focus();
+                    event.preventDefault();
+                }else if(lng_value==""){
+                    alert("โปรดกรอกข้อมูลให้ครบ");
+                    $("#lng_value").focus();
+                    event.preventDefault();
+                }else if(phone1==""){
+                    alert("โปรดกรอกข้อมูลให้ครบ"); 
+                    $("#phone1").focus();
+                    event.preventDefault();
+                }else if(phone2==""){
+                    alert("โปรดกรอกข้อมูลให้ครบ");
+                    $("#phone2").focus();
+                    event.preventDefault();
+                }else if(address2==""){
+                    alert("โปรดกรอกข้อมูลให้ครบ");
+                    $("#address2").focus(); 
+                    event.preventDefault();
+                }else if(address3==""){
+                    alert("โปรดกรอกข้อมูลให้ครบ");
+                    $("#address3").focus();
+                    event.preventDefault();
+                }else if(address4==""){
+                    alert("โปรดกรอกข้อมูลให้ครบ");
+                    $("#address4").focus();
+                    event.preventDefault();
+                }else if(address5==""){
+                    alert("โปรดกรอกข้อมูลให้ครบ");
+                    $("#address5").focus();
+                    event.preventDefault();
+                }else if(facebook==""){
+                    alert("โปรดกรอกข้อมูลให้ครบ");
+                    $("#facebook").focus();
+                    event.preventDefault();
+                }else if(instragram==""){
+                    alert("โปรดกรอกข้อมูลให้ครบ");
+                    $("#instragram").focus();
+                    event.preventDefault();
+                }else if(youtube==""){
+                    alert("โปรดกรอกข้อมูลให้ครบ");
+                    $("#youtube").focus();
+                    event.preventDefault();
+                }else if(line==""){
+                    alert("โปรดกรอกข้อมูลให้ครบ");
+                    $("#line").focus();
+                    event.preventDefault();
+                }
+            });
+        });   
         
     </script>
 
