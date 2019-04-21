@@ -72,7 +72,32 @@
 @stop
 
 @section('frontendjavascript') 
+
+        
     <script>
+       //--Map--// 
+        var position={lat:{{$footer->lat_map}},lng:{{$footer->lng_map}} };
+        function initMap(){
+            var map = new google.maps.Map(document.getElementById('loc-mp'),{
+                zoom: 13,
+                center:position
+            });
+            var marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title:"5544455",
+                draggable:true
+            });
+
+            var info = new google.maps.InfoWindow({
+                content : '<p align="center" style="width:200px;color:#E949A1;"><b>พอใจ ออโต้คาร์</b></p>'
+            });
+            info.open(map,marker);
+            var infoedit = new google.maps.InfoWindow({
+                content : '<p align="center" style="width:200px; color:red; font-family:"Segoe UI Web";><b>>>ตำแหน่งใหม่<<</b></p>'
+            });
+        }//--End Map--//   
+
         $(document).ready(function () {
             $('#confirm').click(function(e){   
 
@@ -125,6 +150,9 @@
                 }
 
             })
+            
+            
         });
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBINVRX-GNF4z1l8CPFrJL5dhIGY96a9-k&callback=initMap"></script>
 @endsection
