@@ -6,44 +6,55 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use View;
 use Response;
 use App\Promotion;
 use App\Blog;
 use App\ImageBlog;
 use App\Gallery;
+use App\Contact;
 use App\Inquiry;
 
 class FrontController extends Controller
 {
+    protected $footer;
+
+    public function __construct() 
+    {
+        $footer = Contact::where('id',1)->first();
+        View::share('footer', $footer);
+    }
+
     public function index()
     {
         $promotion = Promotion::where('status','publish')->orderBy('updated_at', 'DESC')->limit(3)->get();
         $blog = Blog::with('imageblog')->where('status','publish')->orderBy('updated_at', 'DESC')->limit(3)->get();
-        return view('frontend.index',compact('promotion','blog'));
+        return view('frontend.index',compact('promotion','blog','footer'));
     }
 
     public function blog()
     {
         $blog = Blog::with('imageblog')->where('status','publish')->orderBy('updated_at', 'DESC')->get();
-        return view('frontend.blog', compact('blog'));
+        return view('frontend.blog', compact('blog','footer'));
     }
     
     public function gallery()
     {
         $gallery = Gallery::with('imagegallery')->where('status','publish')->orderBy('updated_at', 'DESC')->get();
-        return view('frontend.gallery', compact('gallery'));
+        return view('frontend.gallery', compact('gallery','footer'));
     }
     
     public function contact()
     {
-        return view('frontend.contact');
+        $contact = Contact::where('id',1)->first();
+        return view('frontend.contact', compact('contact','footer'));
     }
     
     public function blogDetail($id)
     {
         $blog = Blog::findOrFail($id);
         $imageblog = ImageBlog::where('blog_id',$id)->get();
-        return view('frontend.blog-detail', compact('blog','imageblog'));
+        return view('frontend.blog-detail', compact('blog','imageblog','footer'));
     }
     
     public function inquiry(Request $request)

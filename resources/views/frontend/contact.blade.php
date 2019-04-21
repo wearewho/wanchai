@@ -45,21 +45,21 @@
                                 <div class="cnt-inf-bx brd-rd10">
                                     <i class="fa fa-map-marker"></i>
                                     <strong>Address</strong>
-                                    <span>Spring Store London Oxford Street, 012 United Kingdom</span>
+                                    <span>{{$footer->address1." ".$footer->address2." ".$footer->address3." ".$footer->address4." ".$footer->address5}}</span>
                                 </div>
                                 <div class="cnt-inf-bx brd-rd10">
                                     <i class="fa fa-phone"></i>
                                     <strong>Phone</strong>
-                                    <span>Phone 01: (+032) 3456 7890</span>
-                                    <span>Phone 02: (+032) 3427 7670</span>
+                                    <span>Phone 01: {{$footer->phone1}}</span>
+                                    <span>Phone 02: {{$footer->phone2}}</span>
                                 </div>
                                 <div class="cnt-inf-bx brd-rd10">
                                     <i class="fa fa-globe"></i>
                                     <strong>Social</strong>
-                                    <a href="#" title="" itemprop="url"><i class="fa fa-facebook"></i> &nbsp; facebook.pncohm</a>
-                                    <a href="#" title="" itemprop="url"><i class="fa fa-instagram"></i> &nbsp;instragram</a>
-                                    <a href="#" title="" itemprop="url"><i class="fa fa-youtube"></i> &nbsp;youtube</a>
-                                    <a href="#" title="" itemprop="url"><i class="fa fa-line"></i> &nbsp;line</a>
+                                    <a href="#" title="" itemprop="url"><i class="fa fa-facebook"></i> &nbsp; facebook.{{$footer->facebook}}</a>
+                                    <a href="#" title="" itemprop="url"><i class="fa fa-instagram"></i> &nbsp;{{$footer->instragram}}</a>
+                                    <a href="#" title="" itemprop="url"><i class="fa fa-youtube"></i> &nbsp;{{$footer->youtube}}</a>
+                                    <a href="#" title="" itemprop="url">Line ID </i> :&nbsp;{{$footer->line}}</a>
                                 </div>
                             </div>
                         </div>

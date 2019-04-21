@@ -7,11 +7,13 @@
                         <div class="col-md-3 col-sm-6 col-lg-3">
                             <div class="wdgt">
                                 <div class="logo"><a href="index.html" title="" itemprop="url"><img src="{{ url('frontend/assets/images/porjaiwhitelogo.png') }}" alt="logo-lgt.png" itemprop="image"></a></div>
-                                <p itemprop="description">Many businesses, large and small, have a huge source of great ideas that can help them improve, innovate, and grow, and yet so many of these companies.</p>
+                                {{-- <p itemprop="description"> </p> --}}
+                                <br><br>
                                 <ul class="abt-cnt-lst">
-                                    <li><i class="fa fa-map-marker"></i> London, UK 441</li>
-                                    <li><i class="fa fa-phone"></i> Phone: +7 526 255 25 26</li>
-                                    <li><i class="fa fa-envelope"></i> Email: <a href="#" title="" itemprop="url">info@example.com</a></li>
+                                    <li><i class="fa fa-map-marker"></i> {{$footer->address1." ".$footer->address2." ".$footer->address3." ".$footer->address4." ".$footer->address5}}</li>
+                                    <li><i class="fa fa-phone"></i> Phone: {{$footer->phone1}}</li>
+                                    <li><i class="fa fa-phone"></i> Phone: {{$footer->phone2}}</li>
+                                    {{-- <li><i class="fa fa-envelope"></i> Email: <a href="#" title="" itemprop="url">info@example.com</a></li> --}}
                                 </ul>
                             </div>
                         </div>
