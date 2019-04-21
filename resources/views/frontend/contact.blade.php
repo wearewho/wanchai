@@ -45,21 +45,21 @@
                                 <div class="cnt-inf-bx brd-rd10">
                                     <i class="fa fa-map-marker"></i>
                                     <strong>Address</strong>
-                                    <span>{{$footer->address1." ".$footer->address2." ".$footer->address3." ".$footer->address4." ".$footer->address5}}</span>
+                                    <span>{{$contact->address1." ".$contact->address2." ".$contact->address3." ".$contact->address4." ".$contact->address5}}</span>
                                 </div>
                                 <div class="cnt-inf-bx brd-rd10">
                                     <i class="fa fa-phone"></i>
                                     <strong>Phone</strong>
-                                    <span>Phone 01: {{$footer->phone1}}</span>
-                                    <span>Phone 02: {{$footer->phone2}}</span>
+                                    <span>Phone 01: {{$contact->phone1}}</span>
+                                    <span>Phone 02: {{$contact->phone2}}</span>
                                 </div>
                                 <div class="cnt-inf-bx brd-rd10">
                                     <i class="fa fa-globe"></i>
                                     <strong>Social</strong>
-                                    <a href="#" title="" itemprop="url"><i class="fa fa-facebook"></i> &nbsp; facebook.{{$footer->facebook}}</a>
-                                    <a href="#" title="" itemprop="url"><i class="fa fa-instagram"></i> &nbsp;{{$footer->instragram}}</a>
-                                    <a href="#" title="" itemprop="url"><i class="fa fa-youtube"></i> &nbsp;{{$footer->youtube}}</a>
-                                    <a href="#" title="" itemprop="url">Line ID </i> :&nbsp;{{$footer->line}}</a>
+                                    <a href="#" title="" itemprop="url"><i class="fa fa-facebook"></i> &nbsp; facebook.{{$contact->facebook}}</a>
+                                    <a href="#" title="" itemprop="url"><i class="fa fa-instagram"></i> &nbsp;{{$contact->instragram}}</a>
+                                    <a href="#" title="" itemprop="url"><i class="fa fa-youtube"></i> &nbsp;{{$contact->youtube}}</a>
+                                    <a href="#" title="" itemprop="url">Line ID </i> :&nbsp;{{$contact->line}}</a>
                                 </div>
                             </div>
                         </div>

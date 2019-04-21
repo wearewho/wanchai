@@ -10,38 +10,47 @@
                                 {{-- <p itemprop="description"> </p> --}}
                                 <br><br>
                                 <ul class="abt-cnt-lst">
-                                    <li><i class="fa fa-map-marker"></i> {{$footer->address1." ".$footer->address2." ".$footer->address3." ".$footer->address4." ".$footer->address5}}</li>
-                                    <li><i class="fa fa-phone"></i> Phone: {{$footer->phone1}}</li>
-                                    <li><i class="fa fa-phone"></i> Phone: {{$footer->phone2}}</li>
+                                    <li><i class="fa fa-map-marker"></i> {{$footer[0]->address1." ".$footer[0]->address2." ".$footer[0]->address3." ".$footer[0]->address4." ".$footer[0]->address5}}</li>
+                                    <li><i class="fa fa-phone"></i> Phone: {{$footer[0]->phone1}}</li>
+                                    <li><i class="fa fa-phone"></i> Phone: {{$footer[0]->phone2}}</li>
                                     {{-- <li><i class="fa fa-envelope"></i> Email: <a href="#" title="" itemprop="url">info@example.com</a></li> --}}
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-lg-3">
                             <div class="wdgt">
+                                
                                 <h4 itemprop="headline">เลือกชมรถ</h4>
                                 <div class="wdgt-pst-wrp">
-                                    <div class="wdgt-pst">
-                                        <a href="blog-detail-right-sidebar.html" title="" itemprop="url"><img src="{{ url('frontend/assets/images/resources/wdgt-pst-img2-1.jpg') }}" alt="wdgt-pst-img1-1.jpg" itemprop="image"></a>
-                                        <div class="wdgt-inf">
-                                            <h4 itemprop="headline"><a href="blog-detail-right-sidebar.html" title="" itemprop="url">Geoffrey Weaver Selfhosted audio post</a></h4>
-                                            <span><i class="fa fa-clock-o"></i>July 18, 2016</span>
+                                    @if (!empty($footer[1][0]))
+                                        <div class="wdgt-pst">
+                                            <a href="{{ route('blog-detail',[$footer[1][0]->id]) }}" title="" itemprop="url"><img src="{{ $footer[1][0]->imageblog[0]->image_url }}" width="60" height="60" alt="{{ $footer[1][0]->imageblog[0]->image_name }}" itemprop="image"></a>
+                                            <div class="wdgt-inf">
+                                                <h4 itemprop="headline"><a href="{{ route('blog-detail',[$footer[1][0]->id]) }}" title="" itemprop="url">{{  mb_substr($footer[1][0]->header, 0, 35) }}...</a></h4>
+                                                <span><i class="fa fa-clock-o"></i>{{ date("d/m/Y", strtotime($footer[1][0]->created_at)) }}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="wdgt-pst">
-                                        <a href="blog-detail-right-sidebar.html" title="" itemprop="url"><img src="{{ url('frontend/assets/images/resources/wdgt-pst-img2-2.jpg') }}" alt="wdgt-pst-img1-2.jpg" itemprop="image"></a>
-                                        <div class="wdgt-inf">
-                                            <h4 itemprop="headline"><a href="blog-detail-right-sidebar.html" title="" itemprop="url">Geoffrey Weaver Selfhosted audio post</a></h4>
-                                            <span><i class="fa fa-clock-o"></i>August 20, 2018</span>
+                                    @endif
+                                    
+                                    @if (!empty($footer[1][1]))
+                                        <div class="wdgt-pst">
+                                            <a href="{{ route('blog-detail',[$footer[1][1]->id]) }}" title="" itemprop="url"><img src="{{ $footer[1][1]->imageblog[0]->image_url }}" width="60" height="60" alt="{{ $footer[1][1]->imageblog[0]->image_name }}" itemprop="image"></a>
+                                            <div class="wdgt-inf">
+                                                <h4 itemprop="headline"><a href="{{ route('blog-detail',[$footer[1][1]->id]) }}" title="" itemprop="url">{{  mb_substr($footer[1][1]->header, 0, 35) }}...</a></h4>
+                                                <span><i class="fa fa-clock-o"></i>{{ date("d/m/Y", strtotime($footer[1][1]->created_at)) }}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="wdgt-pst">
-                                        <a href="blog-detail-right-sidebar.html" title="" itemprop="url"><img src="{{ url('frontend/assets/images/resources/wdgt-pst-img2-3.jpg') }}" alt="wdgt-pst-img1-3.jpg" itemprop="image"></a>
-                                        <div class="wdgt-inf">
-                                            <h4 itemprop="headline"><a href="blog-detail-right-sidebar.html" title="" itemprop="url">Emily Wright Post with VC modules</a></h4>
-                                            <span><i class="fa fa-clock-o"></i>April 25, 2017</span>
+                                    @endif
+                                    
+                                    @if (!empty($footer[1][2]))
+                                        <div class="wdgt-pst">
+                                            <a href="{{ route('blog-detail',[$footer[1][2]->id]) }}" title="" itemprop="url"><img src="{{ $footer[1][2]->imageblog[0]->image_url }}" width="60" height="60" alt="{{ $footer[1][2]->imageblog[0]->image_name }}" itemprop="image"></a>
+                                            <div class="wdgt-inf">
+                                                <h4 itemprop="headline"><a href="{{ route('blog-detail',[$footer[1][2]->id]) }}" title="" itemprop="url">{{  mb_substr($footer[1][2]->header, 0, 35) }}...</a></h4>
+                                                <span><i class="fa fa-clock-o"></i>{{ date("d/m/Y", strtotime($footer[1][2]->created_at)) }}</span>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -49,29 +58,35 @@
                             <div class="wdgt">
                                 <br>
                                 <br>
-                                <div class="wdgt-pst-wrp">
+                                @if (!empty($footer[1][3]))
                                     <div class="wdgt-pst">
-                                        <a href="blog-detail-right-sidebar.html" title="" itemprop="url"><img src="{{ url('frontend/assets/images/resources/wdgt-pst-img2-1.jpg') }}" alt="wdgt-pst-img1-1.jpg" itemprop="image"></a>
+                                        <a href="{{ route('blog-detail',[$footer[1][3]->id]) }}" title="" itemprop="url"><img src="{{ $footer[1][3]->imageblog[0]->image_url }}" width="60" height="60" alt="{{ $footer[1][3]->imageblog[0]->image_name }}" itemprop="image"></a>
                                         <div class="wdgt-inf">
-                                            <h4 itemprop="headline"><a href="blog-detail-right-sidebar.html" title="" itemprop="url">Geoffrey Weaver Selfhosted audio post</a></h4>
-                                            <span><i class="fa fa-clock-o"></i>July 18, 2016</span>
+                                            <h4 itemprop="headline"><a href="{{ route('blog-detail',[$footer[1][3]->id]) }}" title="" itemprop="url">{{  mb_substr($footer[1][3]->header, 0, 35) }}...</a></h4>
+                                            <span><i class="fa fa-clock-o"></i>{{ date("d/m/Y", strtotime($footer[1][3]->created_at)) }}</span>
                                         </div>
                                     </div>
+                                @endif
+                                
+                                @if (!empty($footer[1][4]))
                                     <div class="wdgt-pst">
-                                        <a href="blog-detail-right-sidebar.html" title="" itemprop="url"><img src="{{ url('frontend/assets/images/resources/wdgt-pst-img2-2.jpg') }}" alt="wdgt-pst-img1-2.jpg" itemprop="image"></a>
+                                        <a href="{{ route('blog-detail',[$footer[1][4]->id]) }}" title="" itemprop="url"><img src="{{ $footer[1][4]->imageblog[0]->image_url }}" width="60" height="60" alt="{{ $footer[1][4]->imageblog[0]->image_name }}" itemprop="image"></a>
                                         <div class="wdgt-inf">
-                                            <h4 itemprop="headline"><a href="blog-detail-right-sidebar.html" title="" itemprop="url">Geoffrey Weaver Selfhosted audio post</a></h4>
-                                            <span><i class="fa fa-clock-o"></i>August 20, 2018</span>
+                                            <h4 itemprop="headline"><a href="{{ route('blog-detail',[$footer[1][4]->id]) }}" title="" itemprop="url">{{  mb_substr($footer[1][4]->header, 0, 35) }}...</a></h4>
+                                            <span><i class="fa fa-clock-o"></i>{{ date("d/m/Y", strtotime($footer[1][4]->created_at)) }}</span>
                                         </div>
                                     </div>
+                                @endif
+                                
+                                @if (!empty($footer[1][5]))
                                     <div class="wdgt-pst">
-                                        <a href="blog-detail-right-sidebar.html" title="" itemprop="url"><img src="{{ url('frontend/assets/images/resources/wdgt-pst-img2-3.jpg') }}" alt="wdgt-pst-img1-3.jpg" itemprop="image"></a>
+                                        <a href="{{ route('blog-detail',[$footer[1][5]->id]) }}" title="" itemprop="url"><img src="{{ $footer[1][5]->imageblog[0]->image_url }}" width="60" height="60" alt="{{ $footer[1][5]->imageblog[0]->image_name }}" itemprop="image"></a>
                                         <div class="wdgt-inf">
-                                            <h4 itemprop="headline"><a href="blog-detail-right-sidebar.html" title="" itemprop="url">Emily Wright Post with VC modules</a></h4>
-                                            <span><i class="fa fa-clock-o"></i>April 25, 2017</span>
+                                            <h4 itemprop="headline"><a href="{{ route('blog-detail',[$footer[1][5]->id]) }}" title="" itemprop="url">{{  mb_substr($footer[1][5]->header, 0, 35) }}...</a></h4>
+                                            <span><i class="fa fa-clock-o"></i>{{ date("d/m/Y", strtotime($footer[1][5]->created_at)) }}</span>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-lg-3">
@@ -80,20 +95,38 @@
                                 <div class="wdgt-gal-car owl-carousel">
                                     <div class="wdgt-gal-itm">
                                         <div class="row mrg">
-                                            <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ url('frontend/assets/images/resources/wdgt-gal-img1-1.jpg') }}" alt="wdgt-gal-img1-1.jpg" itemprop="image"></div>
-                                            <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ url('frontend/assets/images/resources/wdgt-gal-img1-2.jpg') }}" alt="wdgt-gal-img1-2.jpg" itemprop="image"></div>
-                                            <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ url('frontend/assets/images/resources/wdgt-gal-img1-3.jpg') }}" alt="wdgt-gal-img1-3.jpg" itemprop="image"></div>
-                                            <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ url('frontend/assets/images/resources/wdgt-gal-img1-4.jpg') }}" alt="wdgt-gal-img1-4.jpg" itemprop="image"></div>
+                                            @if (!empty($footer[2][0]))
+                                                <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ $footer[2][0]->imagegallery[0]->image_url }}" width="135" height="104" alt="{{ $footer[2][0]->imagegallery[0]->image_name }}" itemprop="image"></div>
+                                            @endif
+                                            @if (!empty($footer[2][1]))
+                                                <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ $footer[2][1]->imagegallery[0]->image_url }}" width="135" height="104" alt="{{ $footer[2][1]->imagegallery[0]->image_name }}" itemprop="image"></div>
+                                            @endif
+                                            @if (!empty($footer[2][2]))
+                                                <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ $footer[2][2]->imagegallery[0]->image_url }}" width="135" height="104" alt="{{ $footer[2][2]->imagegallery[0]->image_name }}" itemprop="image"></div>
+                                            @endif
+                                            @if (!empty($footer[2][3]))
+                                                <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ $footer[2][3]->imagegallery[0]->image_url }}" width="135" height="104" alt="{{ $footer[2][3]->imagegallery[0]->image_name }}" itemprop="image"></div>
+                                            @endif
                                         </div>
                                     </div>
-                                    <div class="wdgt-gal-itm">
-                                        <div class="row mrg">
-                                            <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ url('frontend/assets/images/resources/wdgt-gal-img2-1.jpg') }}" alt="wdgt-gal-img2-1.jpg" itemprop="image"></div>
-                                            <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ url('frontend/assets/images/resources/wdgt-gal-img2-2.jpg') }}" alt="wdgt-gal-img2-2.jpg" itemprop="image"></div>
-                                            <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ url('frontend/assets/images/resources/wdgt-gal-img2-3.jpg') }}" alt="wdgt-gal-img2-3.jpg" itemprop="image"></div>
-                                            <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ url('frontend/assets/images/resources/wdgt-gal-img2-4.jpg') }}" alt="wdgt-gal-img2-4.jpg" itemprop="image"></div>
+                                    @if (!empty($footer[2][4]) || !empty($footer[2][5]) || !empty($footer[2][6]) || !empty($footer[2][7]))
+                                        <div class="wdgt-gal-itm">
+                                            <div class="row mrg">
+                                                @if (!empty($footer[2][4]))
+                                                    <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ $footer[2][4]->imagegallery[0]->image_url }}" width="135" height="104" alt="{{ $footer[2][4]->imagegallery[0]->image_name }}" itemprop="image"></div>
+                                                @endif
+                                                @if (!empty($footer[2][5]))
+                                                    <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ $footer[2][5]->imagegallery[0]->image_url }}" width="135" height="104" alt="{{ $footer[2][5]->imagegallery[0]->image_name }}" itemprop="image"></div>
+                                                @endif
+                                                @if (!empty($footer[2][6]))
+                                                    <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ $footer[2][6]->imagegallery[0]->image_url }}" width="135" height="104" alt="{{ $footer[2][6]->imagegallery[0]->image_name }}" itemprop="image"></div>
+                                                @endif
+                                                @if (!empty($footer[2][7]))
+                                                    <div class="col-md-6 col-sm-6 col-lg-6"><img src="{{ $footer[2][7]->imagegallery[0]->image_url }}" width="135" height="104" alt="{{ $footer[2][7]->imagegallery[0]->image_name }}" itemprop="image"></div>
+                                                @endif
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

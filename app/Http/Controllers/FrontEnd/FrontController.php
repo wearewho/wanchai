@@ -21,7 +21,11 @@ class FrontController extends Controller
 
     public function __construct() 
     {
-        $footer = Contact::where('id',1)->first();
+        $footer = [];
+        $contact = Contact::where('id',1)->first();
+        $blog = Blog::with('imageblog')->where('status','publish')->orderBy('updated_at', 'DESC')->limit(6)->get();
+        $gallery = Gallery::with('imagegallery')->where('status','publish')->orderBy('updated_at', 'DESC')->limit(8)->get();
+        array_push($footer,$contact,$blog,$gallery);
         View::share('footer', $footer);
     }
 
