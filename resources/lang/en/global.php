@@ -32,7 +32,11 @@ return [
 			'contact_social_line' => 'Line',
 			'contact_map_lat' => 'Latitude',
 			'contact_map_lng' => 'Longtitude',
-			'contact_header_phone' => 'Phone Number'
+			'contact_header_phone' => 'Phone Number',
+			'newcar_header' => 'New Car Management',
+			'newcar_tap' => 'New car',
+			'property_tap' => 'Propoty',
+			'review_tap' => 'Review'
 		],
 	],
 	

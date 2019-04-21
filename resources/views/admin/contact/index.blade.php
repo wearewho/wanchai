@@ -3,7 +3,7 @@
 
 @section('content')
     
-    
+     
     {!! Form::model($contact, ['method' => 'PUT', 'route' => ['admin.managecontact.update', $contact->id]]) !!}
         
     <div class="box box-warning">
@@ -83,7 +83,7 @@
                         value="{{$contact->line}}">
                 </div>
                 <!-- /button submit -->
-                <button type="submit" id="btnsave" class="btn btn-danger">อัพเดท</button>    
+                <button type="submit" id="btnsave" class="btn btn-danger">@lang('global.app_update')</button>    
             </div>
             </div>
             <!-- /.box-body -->
