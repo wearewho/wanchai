@@ -116,11 +116,11 @@
             });
 
             var info = new google.maps.InfoWindow({
-                content : '<p align="center" style="width:200px;"><i>ลากเพื่อกำหนดตำแหน่งใหม่</i></p>'
+                content : '<p align="center"><i>ลากเพื่อกำหนด<br>ตำแหน่งใหม่</i></p>'
             });
             info.open(map,marker);
             var infoedit = new google.maps.InfoWindow({
-                content : '<p align="center" style="width:200px; color:red; font-family:"Segoe UI Web";><b>>>ตำแหน่งใหม่<<</b></p>'
+                content : '<p align="center" style="color:red; font-family:"Segoe UI Web";><b>ตำแหน่งใหม่</b></p>'
             });
 
             

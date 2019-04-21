@@ -47,12 +47,7 @@
     </div><!-- Header Search -->
     <div class="rspn-hdr">
         <div class="rspn-mdbr">
-            <ul class="rspn-scil">
-                <li><a href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="#" title="Linkedin" itemprop="url" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
+            
             <form class="rspn-srch">
                 <input type="text" placeholder="Enter Your Keyword" />
                 <button type="submit"><i class="fa fa-search"></i></button>

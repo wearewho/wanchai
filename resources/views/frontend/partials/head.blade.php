@@ -3,7 +3,7 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <title>{{ trans('global.global_header') }}</title>
-
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 <link rel="stylesheet" href="{{ url('frontend/assets/css/fakeLoader.css') }}">
 <link rel="stylesheet" href="{{ url('frontend/assets/css/icons.min.css') }}">
 <link rel="stylesheet" href="{{ url('frontend/assets/css/bootstrap.min.css') }}">
