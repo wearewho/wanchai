@@ -70,7 +70,7 @@
                         <li style="color:#fff;"><a href="{{ url('contact') }}" title="" itemprop="url">ติดต่อสอบถาม</a></li>
                         <li style="color:#fff;"><a href="{{ url('gallery') }}" title="" itemprop="url">รีวิวจากลูกค้า</a></li>
                         @if(Auth::check())
-                            <li style="color:#000;"><a href="{{ url('admin') }}" title="" itemprop="url">จัดการหลังบ้าน</a></li>
+                            <li style="color:#fff;"><a href="{{ url('admin') }}" title="" itemprop="url">จัดการหลังบ้าน</a></li>
                         @endif
                     </ul>
             </div><!-- Responsive Menu -->
