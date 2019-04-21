@@ -104,7 +104,7 @@
                 initialPreview: imgArray,
                 initialPreviewConfig: imgArray2,
                 deleteUrl: '{{url("admin/destroyImageBlog")}}',
-                allowedFileExtensions: ["jpg", "png", "gif"]
+                allowedFileExtensions: ["jpeg", "jpg", "png", "gif"]
             }).on('fileselect', function() {
                 type = 'add';
                 checkRequired(id,type);

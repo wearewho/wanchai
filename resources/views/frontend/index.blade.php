@@ -155,65 +155,32 @@
             <br><br>
             <div class="container">
                 <div class="sec-title text-center">
-                    <h2 itemprop="headline">โปรโมชั่นประจำเดือน</h2>
-                    <span>New stunning projects for our amazing clients.</span>
+                    <h2 itemprop="headline">@lang('global.website-management.fields.home_promotion')</h2>
+                    <span>บริษัทขอสงวนสิทธ์ในการเปลี่ยนแปลงเงื่อนไข ยกเลิกได้ โดยไม่ต้องแจ้งให้ทราบล่วงหน้า</span>
                 </div>
                 <div class="remove-ext3">
                     <div class="row">
-                        <div class="col-md-4 col-sm-6 col-lg-4 slideInUp wow" data-wow-duration=".8s" data-wow-delay=".1s">
-                            <div class="pln-box">
-                                <div class="pln-hdr">
-                                    <h4 itemprop="headline">ฟรีเงินดาวน์</h4>
-                                    <span>$10<i>/month</i></span>
+                        @foreach ($promotion as $item)
+                            <div class="col-md-4 col-sm-6 col-lg-4 slideInUp wow" data-wow-duration=".8s" data-wow-delay=".1s">
+                                <div class="pln-box">
+                                    <div class="pln-hdr">
+                                        <h4 itemprop="headline">{{$item->header}}</h4>
+                                        {{-- <span>$10<i>/month</i></span> --}}
+                                    </div>
+                                    <div class="pln-bdy">
+                                        <p>{{$item->detail}}</p>
+                                        {{-- <ul class="pln-feat-lst">
+                                            <li>5GB Storage Space</li>
+                                            <li>20GB Monthly Bandwidth</li>
+                                            <li>My SQL Databases</li>
+                                            <li>100 Email Account</li>
+                                            <li>10 Free Domain Names</li>
+                                        </ul> --}}
+                                    </div>
+                                    {{-- <a class="thm-btn" href="#" title="" itemprop="url">Select Plan</a> --}}
                                 </div>
-                                <div class="pln-bdy">
-                                    <ul class="pln-feat-lst">
-                                        <li>5GB Storage Space</li>
-                                        <li>20GB Monthly Bandwidth</li>
-                                        <li>My SQL Databases</li>
-                                        <li>100 Email Account</li>
-                                        <li>10 Free Domain Names</li>
-                                    </ul>
-                                </div>
-                                <a class="thm-btn" href="#" title="" itemprop="url">Select Plan</a>
                             </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-lg-4 slideInUp wow" data-wow-duration=".8s" data-wow-delay=".2s">
-                            <div class="pln-box active">
-                                <div class="pln-hdr">
-                                    <h4 itemprop="headline">ผ่อนเบา</h4>
-                                    <span>$10<i>/month</i></span>
-                                </div>
-                                <div class="pln-bdy">
-                                    <ul class="pln-feat-lst">
-                                        <li>5GB Storage Space</li>
-                                        <li>20GB Monthly Bandwidth</li>
-                                        <li>My SQL Databases</li>
-                                        <li>100 Email Account</li>
-                                        <li>10 Free Domain Names</li>
-                                    </ul>
-                                </div>
-                                <a class="thm-btn" href="#" title="" itemprop="url">Select Plan</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-lg-4 slideInUp wow" data-wow-duration=".8s" data-wow-delay=".3s">
-                            <div class="pln-box">
-                                <div class="pln-hdr">
-                                    <h4 itemprop="headline">ฟรีทุกค่าใช้จ่ายรับรถ</h4>
-                                    <span>$10<i>/month</i></span>
-                                </div>
-                                <div class="pln-bdy">
-                                    <ul class="pln-feat-lst">
-                                        <li>5GB Storage Space</li>
-                                        <li>20GB Monthly Bandwidth</li>
-                                        <li>My SQL Databases</li>
-                                        <li>100 Email Account</li>
-                                        <li>10 Free Domain Names</li>
-                                    </ul>
-                                </div>
-                                <a class="thm-btn" href="#" title="" itemprop="url">Select Plan</a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -270,24 +237,26 @@
             <div class="container">
                 <div class="sec-title text-center">
                     <h2 itemprop="headline">เลือกชมรถมือสอง</h2>
-                    <span>New stunning projects for our amazing clients.</span>
+                    {{-- <span>New stunning projects for our amazing clients.</span> --}}
                 </div>
                 <div class="remove-ext5">
                     <div class="row">
-                        <div class="col-md-4 col-sm-6 col-lg-4 slideInUp wow" data-wow-duration=".8s" data-wow-delay=".1s">
-                            <div class="pst-box-styl1">
-                                <div class="pst-thmb-styl1">
-                                    <span class="pst-dat">April 6, 2019</span>
-                                    <a href="blog-detail-right-sidebar.html" title="" itemprop="url"><img src="{{ url('frontend/assets/images/twohand.jpg') }}" alt="pst-img1-1.jpg" itemprop="image"></a>
-                                </div>
-                                <div class="pst-inf-styl1">
-                                    <h4 itemprop="headline"><a href="blog-detail-right-sidebar.html" title="" itemprop="url">2017 Mazda 2  Top...!! <br>ราคา 445,000 บาท</a></h4>
-                                    <p itemprop="description">เครื่องยนต์เบนซิน 1.3 การรันตรีศูนย์ อยู่ในเชคระยะฟรี ออกห้างมือเดียว กดปุ่มสตาทร์ กุญแจรีโมทแท้ไมล์ดิจิตอลแท้พวงมาลัย Multifunction เบาะหนังเครื่อ เสียงเชื่อมต่อโทรศัพท์ พร้อมสปิกเกอร์ เบาะหลังพับได้ เชื่อมต่อท้ายกระโปรง
-                                            ฟรีประกันภัยรถยนต์ปีแรก ดอกเบี้ยต่ำสุด 0% 12เดือน</p>
+                        @foreach ($blog as $item)
+                            <div class="col-md-4 col-sm-6 col-lg-4 slideInUp wow" data-wow-duration=".8s" data-wow-delay=".1s">
+                                <div class="pst-box-styl1">
+                                    <div class="pst-thmb-styl1">
+                                    <span class="pst-dat">{{ date("d/m/Y", strtotime($item->created_at)) }}</span>
+                                        <a href="blog-detail-right-sidebar.html" title="" itemprop="url"><img src="{{$item->imageblog[0]->image_url}}" alt="{{$item->imageblog[0]->image_name}}" itemprop="image"></a>
+                                    </div>
+                                    <div class="pst-inf-styl1">
+                                        <h4 itemprop="headline"><a href="{{ route('blog-detail',[$item->id]) }}" title="" itemprop="url">{{$item->header}}</a></h4>
+                                        <p itemprop="description">{{$item->detail}}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-lg-4 slideInUp wow" data-wow-duration=".8s" data-wow-delay=".2s">
+                        @endforeach
+                        
+                        {{-- <div class="col-md-4 col-sm-6 col-lg-4 slideInUp wow" data-wow-duration=".8s" data-wow-delay=".2s">
                             <div class="pst-box-styl1">
                                 <div class="pst-thmb-styl1">
                                     <span class="pst-dat">April 1, 2019</span>
@@ -310,7 +279,8 @@
                                     <p itemprop="description">พวงมาลัยmultifunction  AIRBAG +ABS  เบาะหนังแท้ ปรับไฟฟ้า เครื่องเดิม2.4 น้ำมันล้วน เครื่องฟิต สตาร์ทติดง่าย กระจกไฟฟ้า กุญแจรีโมท พร้อมหล่อ ทุกสถานการณ์</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
+
                     </div>
                 </div>
             </div>

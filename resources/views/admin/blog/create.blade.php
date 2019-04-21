@@ -71,7 +71,7 @@
                     maxFileCount: 10,
                     validateInitialCount: true,
                     overwriteInitial: false,
-                    allowedFileExtensions: ["jpg", "png", "gif"]
+                    allowedFileExtensions: ["jpeg", "jpg", "png", "gif"]
                 });
             });
         </script>
