@@ -15,6 +15,9 @@ class CreateHomeNewCarTable extends Migration
     {
         Schema::create('home_new_car', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('image_name');
+            $table->integer('image_size');
+            $table->text('image_url');
             $table->text('newcar_header');
             $table->text('newcar_detail');
             $table->text('property_header');

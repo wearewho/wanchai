@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-{!! Form::model($newcar, ['id'=>'f1', 'method' => 'PUT', 'route' => ['admin.managenewcar.update', $newcar->id]]) !!}
+{!! Form::model($newcar, ['id'=>'f1', 'method' => 'PUT', 'route' => ['admin.managehome.update_newcar', $newcar->id], 'files' => true]) !!}
     <div class="box box-danger"> 
         <div class="box-header with-border">
             <h3 class="box-title">@lang('global.website-management.fields.newcar_header')</h3>
@@ -13,6 +13,13 @@
                     <p>{{$message}}</p>
                 </div>
             @endif
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    <div class="file-loading">
+                        <input id="car_image" name="car_image" type="file" accept="image/*" data-browse-on-zone-click="true" data-show-upload="false">
+                    </div> 
+                </div>
+            </div>
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                 <li id="t1" class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">@lang('global.website-management.fields.newcar_tap')</a></li>
@@ -56,14 +63,98 @@
 
 @section('javascript')
     <script>
+
         function ClickTextboxWarning(x)
         {
             $(x).css("border-color","#f39c12");
         }
+
         function BlurTextbox(x)
         {
             $(x).removeAttr("style");
         }   
+
+        $(document).on('ready', function() {
+
+            var images = $.parseJSON('<?php echo json_encode($newcar);?>');
+            var type = '';
+            let imgUrl = "";
+            let imgDetail = "";
+
+            if (images.image_url != null) {
+                imgUrl = "<img class='kv-preview-data file-preview-image' src='"+images.image_url+"'>";
+                imgDetail = {};
+                imgDetail.caption = images.image_name;
+                imgDetail.size = images.image_size;
+                imgDetail.width = "120px";
+                imgDetail.key = 1;
+            }
+        
+            if (images.image_url == null) {
+                $('#car_image').prop('required', true);
+            } else {
+                $('#car_image').removeProp('required');
+            }
+            
+            $("#car_image").fileinput({
+                maxFileCount: 1,
+                validateInitialCount: true,
+                overwriteInitial: false,
+                initialPreview: imgUrl,
+                initialPreviewConfig: imgDetail,
+                deleteUrl: '{{url("admin/destroyImageNewcar")}}',
+                allowedFileExtensions: ["jpg", "png", "gif"]
+            }).on('fileselect', function() {
+                type = 'add';
+                checkRequired(type);
+            }).on('filebeforedelete', function() {
+                var aborted = !window.confirm('Are you sure you want to delete this file?');
+                if (aborted) {
+                    
+                }
+                type = 'delete';
+                checkRequired(type);
+                return aborted;
+            });
+        });
+
+        function checkRequired(type){
+            $.ajax({ 
+                url: '{{url("admin/getImgNewcar")}}', 
+                type: "GET",
+                success: function(data, statusText, resObject) {
+                    
+                    if (data) {    
+
+                        var countImg = 0;
+
+                        if (data == true) {
+                            countImg = 1;
+                        } 
+
+                        if(type == 'delete'){
+                            countImg = countImg - 1;
+                        }else{
+                            countImg = countImg + 1;
+                        }
+                        
+                        if (countImg == 0) {
+                            $('#car_image').prop('required', true);
+                        } else {
+                            $('#car_image').removeProp('required');
+                        }
+                                                          
+                    }
+                    return false;
+                },
+                error: function (jqXHR, exception) {
+                    getErrorMessage(jqXHR, exception);
+                },
+                complete: function() {      
+                    // Do something when success or error.                                           
+                }
+            });
+        }
 
         $('#f1').submit(function(event){
            

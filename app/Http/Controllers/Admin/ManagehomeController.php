@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\Newcar;
 use App\Promotion;
 use LogActivity;
+use Response;
 
 class ManagehomeController extends Controller
 {
@@ -23,8 +25,8 @@ class ManagehomeController extends Controller
 
     public function index_newcar()
     {
-        $newcar = Newcar::all();
-        return view('admin.home.newcar.index');
+        $newcar = Newcar::where('id',1)->first();
+        return view('admin.home.newcar.index',compact('newcar'));
     }
 
     public function index_promotion()
@@ -74,6 +76,29 @@ class ManagehomeController extends Controller
         //$newcar = Newcar::create($request->all());
 
         return redirect()->route('admin.managehome.index_newcar');
+    }
+
+    public function getImgNewcar()
+    {
+        $haveImage = true;
+        $ImageNewcar = Newcar::findOrFail(1);
+
+        if ($ImageNewcar->image_url == null) {
+            $haveImage = false;
+        } 
+        
+        return Response::json($haveImage); 
+    }
+
+    public function destroyImage(Request $request)
+    {
+        $ImageNewcar = Newcar::findOrFail(1);
+        Storage::disk('s3')->delete($ImageNewcar->image_name);
+        $ImageNewcar->image_url = null;
+        $ImageNewcar->image_name = null;
+        $ImageNewcar->image_size = null;
+        $ImageNewcar->save();
+        return "{}";
     }
 
     public function store_promotion(Request $request)
@@ -154,12 +179,48 @@ class ManagehomeController extends Controller
         if (! Gate::allows('users_manage')) {
             return abort(401);
         }
+        
+        $update_newcar = Newcar::findOrFail($id);
+        $update_newcar->newcar_header = $request->newcar_header;
+        $update_newcar->newcar_detail = $request->newcar_detail;
+        $update_newcar->property_header = $request->property_header;
+        $update_newcar->property_detail = $request->property_detail;
+        $update_newcar->review_header = $request->review_header;
+        $update_newcar->review_detail = $request->review_detail;   
+        
+        if($request->hasFile('car_image')) {
 
-        $newcar = Newcar::findOrFail($id);
-        $newcar->update($request->all());
-        LogActivity::addToLog('Update New Car Successfully.');
+            //get filename with extension
+            $filenamewithextension = $request->car_image->getClientOriginalName();
+    
+            //get filename without extension
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+    
+            //get file extension
+            $extension = $request->car_image->getClientOriginalExtension();
+    
+            //filename to store
+            $filenametostore = 'newcar/'.$filename.'_'.time().'.'.$extension;
+            //$filenametostore = 'newcar/'.time();
 
-        return redirect()->route('admin.managehome.inde');
+            //get file size
+            $filesize = filesize($request->car_image);
+    
+            //Upload File to s3
+            Storage::disk('s3')->put($filenametostore, file_get_contents($request->car_image), 'public');
+            //Storage::disk('s3')->put($filenametostore, fopen($request->file('car_image'), 'r+'));
+    
+            $url = Storage::disk('s3')->url($filenametostore);
+            
+            $update_newcar->image_name = $filenametostore;
+            $update_newcar->image_size = $filesize;
+            $update_newcar->image_url = $url;
+
+        }
+        
+        $update_newcar->save();
+        
+        return redirect()->route('admin.managehome.index_newcar')->with('success','Data Updated');
     }
 
     public function update_promotion(Request $request, $id)

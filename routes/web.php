@@ -42,6 +42,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::get('/promotion/{id}/edit', 'Admin\ManagehomeController@edit_promotion')->name('managehome.edit_promotion');
     Route::post('/store_newcar', 'Admin\ManagehomeController@store_newcar')->name('managehome.store_newcar');
     Route::post('/store_promotion', 'Admin\ManagehomeController@store_promotion')->name('managehome.store_promotion');
+    Route::get('/getImgNewcar', 'Admin\ManagehomeController@getImgNewcar');
+    Route::post('destroyImageNewcar', ['uses' => 'Admin\ManagehomeController@destroyImage', 'as' => 'managehome.destroyImage']);
     Route::resource('managecontact', 'Admin\ManagecontactController');
     Route::resource('manageblog', 'Admin\ManageblogController');
     Route::post('destroyImageBlog', ['uses' => 'Admin\ManageblogController@destroyImage', 'as' => 'manageblog.destroyImage']);
@@ -51,5 +53,4 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('destroyImageGallery', ['uses' => 'Admin\ManagegalleryController@destroyImage', 'as' => 'managegallery.destroyImage']);
     Route::post('countImgGallery', ['uses' => 'Admin\ManagegalleryController@countImgGallery', 'as' => 'managegallery.countImgGallery']);
     Route::post('gallery_mass_destroy', ['uses' => 'Admin\ManagegalleryController@massDestroy', 'as' => 'managegallery.mass_destroy']);
-    Route::resource('managenewcar','Admin\ManagenewcarController');
-});
+ });

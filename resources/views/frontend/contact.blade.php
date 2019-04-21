@@ -76,7 +76,7 @@
         
     <script>
        //--Map--// 
-        var position={lat:{{$footer->lat_map}},lng:{{$footer->lng_map}} };
+        var position={lat:{{$contact->lat_map}},lng:{{$contact->lng_map}} };
         function initMap(){
             var map = new google.maps.Map(document.getElementById('loc-mp'),{
                 zoom: 13,

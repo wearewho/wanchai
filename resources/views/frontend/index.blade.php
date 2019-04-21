@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-12 col-lg-6 slideInLeft wow" data-wow-duration="1s" data-wow-delay=".2s">
                             <div class="hir-box text-center">
-                                <img src="{{ url('frontend/assets/images/newcar.png') }}" alt="aply-mckp.png" style="margin-left: 0px;margin-right:-90px;" itemprop="image">
+                                <img src="{{ $newcar->image_url }}" alt="{{ $newcar->image_name }}" style="margin-left: 0px;margin-right:-90px;" itemprop="image">
                                 <a class="thm-btn" href="{{ url('blog') }}" title="" itemprop="url">กดชมรถ</a>
                             </div>
                         </div>
@@ -25,8 +25,8 @@
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="busns-slut-tb1">
-                                        <h2 itemprop="headline">We provide the solutions to grow your business</h2>
-                                        <p itemprop="description">Suspendisse facilisis commodo lobortis. Nullam mollis lobortis ex vel faucibus. Proin nec viverra turpis. Nulla eget justo scelerisque, pretium purus vel, congue libero. Suspendisse potenti. Sed risus nisi, auctor nec auctor id, luctus sed dui. In ex tellus, malesuada cursus erat sed, fermentum hendrerit turpis.</p>
+                                        <h2 itemprop="headline">{{ $newcar->newcar_header }}</h2>
+                                        <p itemprop="description">{{ $newcar->newcar_detail }}</p>
                                         <div class="skl-prg-wrp">
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-6 col-lg-6">
@@ -51,12 +51,9 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="busns-slut-tb2">
-                                        <h2 itemprop="headline">We provide the solutions to grow your business</h2>
-                                        <p itemprop="description">Suspendisse facilisis commodo lobortis. Nullam mollis lobortis ex vel faucibus. Proin nec
-                                            viverra turpis. Nulla eget justo scelerisque, pretium purus vel, congue libero. Suspendisse potenti. Sed risus
-                                            nisi, auctor nec auctor id, luctus sed dui. In ex tellus, malesuada cursus erat sed, fermentum hendrerit
-                                            turpis.</p>
-                                        <div class="skl-prg-wrp">
+                                        <h2 itemprop="headline">{{ $newcar->property_header }}</h2>
+                                        <p itemprop="description">{{ $newcar->property_detail }}</p>
+                                        {{-- <div class="skl-prg-wrp">
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-6 col-lg-6">
                                                     <div class="skl-prg">
@@ -77,15 +74,12 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <div class="tab-pane fade" id="busns-slut-tb3">
-                                        <h2 itemprop="headline">We provide the solutions to grow your business</h2>
-                                        <p itemprop="description">Suspendisse facilisis commodo lobortis. Nullam mollis lobortis ex vel faucibus. Proin nec
-                                            viverra turpis. Nulla eget justo scelerisque, pretium purus vel, congue libero. Suspendisse potenti. Sed risus
-                                            nisi, auctor nec auctor id, luctus sed dui. In ex tellus, malesuada cursus erat sed, fermentum hendrerit
-                                            turpis.</p>
-                                        <div class="skl-prg-wrp">
+                                        <h2 itemprop="headline">{{ $newcar->review_header }}</h2>
+                                        <p itemprop="description">{{ $newcar->review_detail }}</p>
+                                        {{-- <div class="skl-prg-wrp">
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-6 col-lg-6">
                                                     <div class="skl-prg">
@@ -106,7 +100,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>

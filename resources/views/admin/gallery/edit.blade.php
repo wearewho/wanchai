@@ -37,13 +37,6 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    <div class="file-loading">
-                        <input id="car_image" name="car_image[]" type="file" multiple accept="image/*" data-browse-on-zone-click="true" data-show-upload="false">
-                    </div> 
-                </div>
-            </div>
         </div>
         <div class="box-footer">            
             {!! Form::submit(trans('global.app_save'), ['class' => 'btn btn-danger']) !!}
@@ -64,8 +57,6 @@
             var imgArray = [];
             var imgArray2 = [];
             var type = '';
-
-            console.log(images.length);
      
             if (images.length == 0) {
                 $('#car_image').prop('required', true);

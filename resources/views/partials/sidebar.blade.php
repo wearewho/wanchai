@@ -40,7 +40,7 @@
                         </a>
                         <ul class="treeview-menu" style="display: block;">
                             <li class="{{ $request->segment(2) == 'newcar' ? 'active active-sub' : '' }}">
-                                <a href="{{ route('admin.managenewcar.index') }}">
+                                <a href="{{ route('admin.managehome.index_newcar') }}">
                                 <i class="fa fa-circle-o"></i> 
                                     @lang('global.website-management.fields.home_newcar')
                                 </a>

@@ -14,6 +14,7 @@ use App\ImageBlog;
 use App\Gallery;
 use App\Contact;
 use App\Inquiry;
+use App\Newcar;
 
 class FrontController extends Controller
 {
@@ -31,9 +32,10 @@ class FrontController extends Controller
 
     public function index()
     {
+        $newcar = Newcar::where('id', 1)->first();
         $promotion = Promotion::where('status','publish')->orderBy('updated_at', 'DESC')->limit(3)->get();
         $blog = Blog::with('imageblog')->where('status','publish')->orderBy('updated_at', 'DESC')->limit(3)->get();
-        return view('frontend.index',compact('promotion','blog','footer'));
+        return view('frontend.index',compact('newcar','promotion','blog','footer'));
     }
 
     public function blog()
