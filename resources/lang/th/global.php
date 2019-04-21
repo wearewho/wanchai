@@ -39,7 +39,11 @@ return [
 			'contact_social_line' => ' ไลน์',
 			'contact_map_lat' => 'ละติจูด',
 			'contact_map_lng' => 'ลองติจูด',
-			'contact_header_phone' => 'เบอร์โทรติดต่อ'
+			'contact_header_phone' => 'เบอร์โทรติดต่อ',
+			'newcar_header' => 'จัดการข้อมูลรถใหม่',
+			'newcar_tap' => 'รถเข้าใหม่',
+			'property_tap' => 'คุณสมบัติ',
+			'review_tap' => 'รีวิว'
 		],
 	],
 	
