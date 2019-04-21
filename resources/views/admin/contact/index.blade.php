@@ -13,8 +13,9 @@
             <!-- /.box-header -->
             <div class="box-body">
             @if($message = Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{$message}}</p>
+                <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4><i class="icon fa fa-check"></i>{{$message}}</h4>
                 </div>
             @endif
     <!--- Map--->
@@ -132,6 +133,8 @@
                 $("#lng_value").val(my_Point.lng());  // เอาค่า longtitude ตัว marker แสดงใน textbox id=lat_value
                 info.close(map,marker);
                 infoedit.open(map,marker);
+                $("#lat_value").css("border-color","#f39c12");
+                $("#lng_value").css("border-color","#f39c12");
             });
             
             // google.maps.event.addListener(marker,'click',function(){
