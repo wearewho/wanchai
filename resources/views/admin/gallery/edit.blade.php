@@ -37,6 +37,13 @@
                     @endif
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    <div class="file-loading">
+                        <input id="car_image" name="car_image[]" type="file" accept="image/*" data-browse-on-zone-click="true" data-show-upload="false" required>
+                    </div> 
+                </div>
+            </div>
         </div>
         <div class="box-footer">            
             {!! Form::submit(trans('global.app_save'), ['class' => 'btn btn-danger']) !!}

@@ -73,6 +73,8 @@
                     overwriteInitial: false,
                     allowedFileExtensions: ["jpeg", "jpg", "png", "gif"]
                 });
+            }).on('fileselect', function() {
+                console.log(this.files[0].size);
             });
         </script>
     @endsection
