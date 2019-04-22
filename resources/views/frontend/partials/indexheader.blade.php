@@ -46,10 +46,10 @@
     <div class="rspn-hdr">
         <div class="rspn-mdbr">
             <ul class="rspn-scil">
-                <li><a href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a></li>
                 <li><a href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="#" title="Linkedin" itemprop="url" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#" title="Instagram" itemprop="url" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#" title="Youtube" itemprop="url" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#" title="Line" itemprop="url" target="_blank"><i class="fab fa-line"></i></a></li>
             </ul>
             <form class="rspn-srch">
                 <input type="text" placeholder="Enter Your Keyword" />
@@ -68,7 +68,7 @@
                     <li style="color:#fff;"><a href="{{ url('contact') }}" title="" itemprop="url">ติดต่อสอบถาม</a></li>
                     <li style="color:#fff;"><a href="{{ url('gallery') }}" title="" itemprop="url">รีวิวจากลูกค้า</a></li>
                     @if(Auth::check())
-                        <li style="color:#000;"><a href="{{ url('admin') }}" title="" itemprop="url">จัดการหลังบ้าน</a></li>
+                        <li style="color:#fff;"><a href="{{ url('admin') }}" title="" itemprop="url">จัดการหลังบ้าน</a></li>
                     @endif
                 </ul>
         </div><!-- Responsive Menu -->
