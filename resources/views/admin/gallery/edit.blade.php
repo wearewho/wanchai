@@ -73,7 +73,7 @@
 
             $.each(images, function (key, val) {
 
-                let imgUrl = "<img class='kv-preview-data file-preview-image' src='"+this.image_url+"'>";
+                let imgUrl = "<img class='kv-preview-data file-preview-image' src='../../../"+this.image_url+"'>";
                 imgArray.push(imgUrl);
 
                 let imgDetail = {};

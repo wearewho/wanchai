@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Response;
 use App\Gallery;
 use App\ImageGallery;
+use Image;
 
 class ManagegalleryController extends Controller
 {
@@ -65,18 +66,32 @@ class ManagegalleryController extends Controller
 
                 //get file size
                 $filesize = filesize($key);
+
+                //Upload File
+                $imgwidth = 1170;
+                $path = 'image_car/'.$filenametostore;
+                $img = Image::make($key->getRealPath());
+                if($img->width()>$imgwidth){ 
+                    // See the docs - http://image.intervention.io/api/resize
+                    // resize the image to a width of 300 and constrain aspect ratio (auto height)
+                    $img->resize($imgwidth, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                    
+                }
+
+                $img->save($path);
         
                 //Upload File to s3
-                Storage::disk('s3')->put($filenametostore, file_get_contents($key), 'public');
-                //Storage::disk('s3')->put($filenametostore, fopen($request->file('car_image'), 'r+'));
-        
-                $url = Storage::disk('s3')->url($filenametostore);
+                //Storage::disk('s3')->put($filenametostore, file_get_contents($key), 'public');
+                //Storage::disk('s3')->put($filenametostore, fopen($request->file('car_image'), 'r+'));        
+                //$url = Storage::disk('s3')->url($filenametostore);
                 
                 $imagegallery = new ImageGallery;
                 $imagegallery->gallery_id = $newgallery->id;
                 $imagegallery->image_name = $filenametostore;
                 $imagegallery->image_size = $filesize;
-                $imagegallery->image_url = $url;
+                $imagegallery->image_url = $path;
                 $imagegallery->save();
 
             }
@@ -143,18 +158,27 @@ class ManagegalleryController extends Controller
 
                 //get file size
                 $filesize = filesize($key);
-        
-                //Upload File to s3
-                Storage::disk('s3')->put($filenametostore, file_get_contents($key), 'public');
-                //Storage::disk('s3')->put($filenametostore, fopen($request->file('car_image'), 'r+'));
-        
-                $url = Storage::disk('s3')->url($filenametostore);
+
+                //Upload File
+                $imgwidth = 1170;
+                $path = 'image_car/'.$filenametostore;
+                $img = Image::make($key->getRealPath());
+                if($img->width()>$imgwidth){ 
+                    // See the docs - http://image.intervention.io/api/resize
+                    // resize the image to a width of 300 and constrain aspect ratio (auto height)
+                    $img->resize($imgwidth, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                    
+                }
+
+                $img->save($path);
                 
                 $imagegallery = new ImageGallery;
                 $imagegallery->gallery_id = $editgallery->id;
                 $imagegallery->image_name = $filenametostore;
                 $imagegallery->image_size = $filesize;
-                $imagegallery->image_url = $url;
+                $imagegallery->image_url = $path;
                 $imagegallery->save();
 
             }
@@ -178,7 +202,7 @@ class ManagegalleryController extends Controller
 
         foreach ($groupImageGallery as $key) {
             $imageGallery = ImageGallery::findOrFail($key->id);
-            Storage::disk('s3')->delete($imageGallery->image_name);
+            unlink($imageGallery->image_url);
             $imageGallery->delete();
         }
 
@@ -201,7 +225,7 @@ class ManagegalleryController extends Controller
     public function destroyImage(Request $request)
     {
         $ImageGallery = ImageGallery::findOrFail($request->key);
-        Storage::disk('s3')->delete($ImageGallery->image_name);
+        unlink($ImageGallery->image_url);
         $ImageGallery->delete();
         return "{}";
     }
@@ -226,7 +250,7 @@ class ManagegalleryController extends Controller
             }
 
             foreach ($entriesImageGallery as $imagegalleryentry) {
-                Storage::disk('s3')->delete($imagegalleryentry->image_name);
+                unlink($imagegalleryentry->image_url);
                 $imagegalleryentry->delete();
             }
 

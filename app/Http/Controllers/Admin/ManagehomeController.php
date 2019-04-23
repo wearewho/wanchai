@@ -10,6 +10,7 @@ use App\Newcar;
 use App\Promotion;
 use LogActivity;
 use Response;
+use Image;
 
 class ManagehomeController extends Controller
 {
@@ -93,7 +94,7 @@ class ManagehomeController extends Controller
     public function destroyImage(Request $request)
     {
         $ImageNewcar = Newcar::findOrFail(1);
-        Storage::disk('s3')->delete($ImageNewcar->image_name);
+        //unlink($ImageNewcar->image_url);
         $ImageNewcar->image_url = null;
         $ImageNewcar->image_name = null;
         $ImageNewcar->image_size = null;
@@ -205,16 +206,31 @@ class ManagehomeController extends Controller
 
             //get file size
             $filesize = filesize($request->car_image);
+
+            //Upload File
+            $imgwidth = 1170;
+            $path = 'image_car/'.$filenametostore;
+            $img = Image::make($request->car_image->getRealPath());
+            if($img->width()>$imgwidth){ 
+                // See the docs - http://image.intervention.io/api/resize
+                // resize the image to a width of 300 and constrain aspect ratio (auto height)
+                $img->resize($imgwidth, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                
+            }
+
+            $img->save($path);
     
             //Upload File to s3
-            Storage::disk('s3')->put($filenametostore, file_get_contents($request->car_image), 'public');
+            //Storage::disk('s3')->put($filenametostore, file_get_contents($request->car_image), 'public');
             //Storage::disk('s3')->put($filenametostore, fopen($request->file('car_image'), 'r+'));
     
-            $url = Storage::disk('s3')->url($filenametostore);
+            //$url = Storage::disk('s3')->url($filenametostore);
             
             $update_newcar->image_name = $filenametostore;
             $update_newcar->image_size = $filesize;
-            $update_newcar->image_url = $url;
+            $update_newcar->image_url = $path;
 
         }
         

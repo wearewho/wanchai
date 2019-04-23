@@ -71,6 +71,7 @@
                     maxFileCount: 10,
                     validateInitialCount: true,
                     overwriteInitial: false,
+                    maxFileSize: 2048,
                     allowedFileExtensions: ["jpeg", "jpg", "png", "gif"]
                 });
             });

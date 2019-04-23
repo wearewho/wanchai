@@ -63,30 +63,30 @@ class ManageblogController extends Controller
         
                 //filename to store
                 $filenametostore = 'blog/'.$filename.'_'.time().'.'.$extension;
-                //$filenametostore = 'blog/'.time();
 
                 //get file size
                 $filesize = filesize($key);
 
                 //Upload File
-                $key->storeAs('public/tempImage', $filenametostore);
-                $thumbnailpath = public_path('storage/tempImage/'.$filenametostore);
-                $img = Image::make($thumbnailpath)->resize(400, 150, function($constraint) {
-                    $constraint->aspectRatio();
-                });
-                $img->save($thumbnailpath);
-        
-                //Upload File to s3
-                Storage::disk('s3')->put($filenametostore, file_get_contents($key), 'public');
-                //Storage::disk('s3')->put($filenametostore, fopen($request->file('car_image'), 'r+'));
-        
-                $url = Storage::disk('s3')->url($filenametostore);
+                $imgwidth = 1170;
+                $path = 'image_car/'.$filenametostore;
+                $img = Image::make($key->getRealPath());
+                if($img->width()>$imgwidth){ 
+                    // See the docs - http://image.intervention.io/api/resize
+                    // resize the image to a width of 300 and constrain aspect ratio (auto height)
+                    $img->resize($imgwidth, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                    
+                }
+
+                $img->save($path);
                 
                 $imageblog = new ImageBlog;
                 $imageblog->blog_id = $newblog->id;
                 $imageblog->image_name = $filenametostore;
                 $imageblog->image_size = $filesize;
-                $imageblog->image_url = $url;
+                $imageblog->image_url = $path;
                 $imageblog->save();
 
             }
@@ -154,18 +154,27 @@ class ManageblogController extends Controller
 
                 //get file size
                 $filesize = filesize($key);
-        
-                //Upload File to s3
-                Storage::disk('s3')->put($filenametostore, file_get_contents($key), 'public');
-                //Storage::disk('s3')->put($filenametostore, fopen($request->file('car_image'), 'r+'));
-        
-                $url = Storage::disk('s3')->url($filenametostore);
+
+                //Upload File
+                $imgwidth = 1170;
+                $path = 'image_car/'.$filenametostore;
+                $img = Image::make($key->getRealPath());
+                if($img->width()>$imgwidth){ 
+                    // See the docs - http://image.intervention.io/api/resize
+                    // resize the image to a width of 300 and constrain aspect ratio (auto height)
+                    $img->resize($imgwidth, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+
+                }
+
+                $img->save($path);
                 
                 $imageblog = new ImageBlog;
                 $imageblog->blog_id = $editblog->id;
                 $imageblog->image_name = $filenametostore;
                 $imageblog->image_size = $filesize;
-                $imageblog->image_url = $url;
+                $imageblog->image_url = $path;
                 $imageblog->save();
 
             }
@@ -189,7 +198,7 @@ class ManageblogController extends Controller
 
         foreach ($groupImageBlog as $key) {
             $imageBlog = ImageBlog::findOrFail($key->id);
-            Storage::disk('s3')->delete($imageBlog->image_name);
+            unlink($imageBlog->image_url);
             $imageBlog->delete();
         }
 
@@ -212,7 +221,7 @@ class ManageblogController extends Controller
     public function destroyImage(Request $request)
     {
         $imageBlog = ImageBlog::findOrFail($request->key);
-        Storage::disk('s3')->delete($imageBlog->image_name);
+        unlink($imageBlog->image_url);
         $imageBlog->delete();
         return "{}";
     }
@@ -237,7 +246,7 @@ class ManageblogController extends Controller
             }
 
             foreach ($entriesImageBlog as $imageblogentry) {
-                Storage::disk('s3')->delete($imageblogentry->image_name);
+                unlink($imageblogentry->image_url);
                 $imageblogentry->delete();
             }
         }

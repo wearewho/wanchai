@@ -83,7 +83,7 @@
             let imgDetail = "";
 
             if (images.image_url != null) {
-                imgUrl = "<img class='kv-preview-data file-preview-image' src='"+images.image_url+"'>";
+                imgUrl = "<img class='kv-preview-data file-preview-image' src='../../../"+images.image_url+"'>";
                 imgDetail = {};
                 imgDetail.caption = images.image_name;
                 imgDetail.size = images.image_size;
@@ -104,7 +104,7 @@
                 initialPreview: imgUrl,
                 initialPreviewConfig: imgDetail,
                 deleteUrl: '{{url("admin/destroyImageNewcar")}}',
-                allowedFileExtensions: ["jpg", "png", "gif"]
+                allowedFileExtensions: ["jpeg", "jpg", "png", "gif"]
             }).on('fileselect', function() {
                 type = 'add';
                 checkRequired(type);

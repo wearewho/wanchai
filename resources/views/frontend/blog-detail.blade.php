@@ -17,7 +17,7 @@
                     </div>
                     <div class="blg-dtl-thmb">
                         {{-- <span class="pst-cat"><a href="#" title="" itemprop="url">Marketing</a></span> --}}
-                        <img src="{{$blog->imageblog[0]->image_url}}" alt="{{$blog->imageblog[0]->image_name}}" itemprop="image">
+                        <img src="../{{$blog->imageblog[0]->image_url}}" alt="{{$blog->imageblog[0]->image_name}}" itemprop="image">
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                                         <div class="tem-car5 owl-carousel text-center">
                                             @foreach ($blog->imageblog as $item)
                                             <div class="tem-box3 style2">
-                                                <img src="{{$item->image_url}}" alt="{{$item->image_name}}" itemprop="image">
+                                                <img src="../{{$item->image_url}}" alt="{{$item->image_name}}" itemprop="image">
                                                 {{-- <div class="tem-scl">
                                                     <a class="facebook-hvr-clr" href="#" title="Facebook" itemprop="url" target="_self"><i class="fa fa-facebook"></i></a>
                                                     <a class="twitter-hvr-clr" href="#" title="Twitter" itemprop="url" target="_self"><i class="fa fa-twitter"></i></a>
