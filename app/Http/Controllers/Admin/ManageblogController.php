@@ -41,6 +41,7 @@ class ManageblogController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $newblog = new Blog;
         $newblog->header = $request->header;
         $newblog->detail = $request->detail;
@@ -48,12 +49,12 @@ class ManageblogController extends Controller
         $newblog->save();
 
         if($request->hasFile('car_image')) {
- 
+            
             foreach ($request->car_image as $key) {
 
                 //get filename with extension
                 $filenamewithextension = $key->getClientOriginalName();
-        
+                
                 //get filename without extension
                 $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
         
@@ -79,6 +80,20 @@ class ManageblogController extends Controller
                 $imageblog->image_size = $filesize;
                 $imageblog->image_url = $url;
                 $imageblog->save();
+                
+	                // $images = "mygirl.jpg";
+                    // $new_images = "MyResize/mygirl.jpg";
+                    // $width=200; //*** Fix Width & Heigh (Autu caculate) ***//
+                    // $size=GetimageSize($images);
+                    // $height=round($width*$size[1]/$size[0]);
+                    // $images_orig = ImageCreateFromJPEG($images);
+                    // $photoX = ImagesX($images_orig);
+                    // $photoY = ImagesY($images_orig);
+                    // $images_fin = ImageCreateTrueColor($width, $height);
+                    // ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
+                    // ImageJPEG($images_fin,$new_images);
+                    // ImageDestroy($images_orig);
+                    // ImageDestroy($images_fin);
 
             }
         }
