@@ -70,8 +70,7 @@
         iconColor = opts.iconColor == 'b' ? 'b' : 'w';
         
         // image path
-        //imgPath = 'frontend/assets/images/' + opts.imagePath + '/' + iconColor + '/' + opts.arrowType + '.svg';
-        imgPath = 'frontend/assets/images/icons/' + iconColor + '/' + opts.arrowType + '.svg';
+        imgPath = opts.imagePath + '/' + iconColor + '/' + opts.arrowType + '.svg';
         
         // border
         bwClass = bwClass + iconColor;
@@ -113,7 +112,7 @@
                     
         imgClasses = imgClass + isClass + ' ' + opts.arrowType + '-img' + imgCClasses;
         
-        // append to DOM
+        // append to DOM 
         $(that).prepend('<a href="#" class="' + linkClasses + '"' + linkStyle 
                         + '><img src="' + imgPath + '" class="' + imgClasses + '"></a>');
     }
@@ -160,7 +159,7 @@
     *
     */
     $.fn.toTopButton.defaults = {
-        imagePath: './img/icons',
+        imagePath: '/frontend/assets/images/icons',
         arrowType: 'arrow', //
         scrollTrigger: 300,
         animationTime: 700,

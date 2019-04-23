@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use Response;
 use App\Blog;
 use App\ImageBlog;
+use Response;
+use Image;
 
 class ManageblogController extends Controller
 {
@@ -67,6 +68,14 @@ class ManageblogController extends Controller
 
                 //get file size
                 $filesize = filesize($key);
+
+                //Upload File
+                $key->storeAs('public/tempImage', $filenametostore);
+                $thumbnailpath = public_path('storage/tempImage/'.$filenametostore);
+                $img = Image::make($thumbnailpath)->resize(400, 150, function($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $img->save($thumbnailpath);
         
                 //Upload File to s3
                 Storage::disk('s3')->put($filenametostore, file_get_contents($key), 'public');

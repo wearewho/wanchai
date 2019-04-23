@@ -240,7 +240,7 @@
                                 <div class="pst-box-styl1">
                                     <div class="pst-thmb-styl1">
                                     <span class="pst-dat">{{ date("d/m/Y", strtotime($item->created_at)) }}</span>
-                                        <a href="blog-detail-right-sidebar.html" title="" itemprop="url"><img src="{{$item->imageblog[0]->image_url}}" alt="{{$item->imageblog[0]->image_name}}" itemprop="image"></a>
+                                        <a href="{{ route('blog-detail',[$item->id]) }}" title="" itemprop="url"><img src="{{$item->imageblog[0]->image_url}}" alt="{{$item->imageblog[0]->image_name}}" itemprop="image"></a>
                                     </div>
                                     <div class="pst-inf-styl1">
                                         <h4 itemprop="headline"><a href="{{ route('blog-detail',[$item->id]) }}" title="" itemprop="url">{{$item->header}}</a></h4>

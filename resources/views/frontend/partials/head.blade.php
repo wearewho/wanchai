@@ -16,8 +16,8 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- REVOLUTION STYLE SHEETS -->
-<link rel="stylesheet" href="{{ url('frontend/assets/css/revolution/settings.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/revolution/settings.css') }}">
 <!-- REVOLUTION LAYERS STYLES -->
-<link rel="stylesheet" href="{{ url('frontend/assets/css/revolution/layers.css') }}">    
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/revolution/layers.css') }}">    
 <!-- REVOLUTION NAVIGATION STYLES -->
-<link rel="stylesheet" href="{{ url('frontend/assets/css/revolution/navigation.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/revolution/navigation.css') }}">
