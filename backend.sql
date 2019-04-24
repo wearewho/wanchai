@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 21, 2019 at 05:44 PM
+-- Generation Time: Apr 24, 2019 at 05:13 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -42,10 +42,10 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id`, `header`, `detail`, `status`, `created_at`, `updated_at`) VALUES
-(6, 'Toyota Fortuner 2.5 (ปี 12-15) G SUV MT', 'ยี่ห้อ - Toyota\r\nรุ่น - Fortuner\r\nโฉมรถยนต์ - (ปี 12-15)\r\nรายละเอียดรุ่น - G\r\nปี - 2012\r\nขนาดเครื่องยนต์ - 2494 ซีซี\r\nระบบเกียร์ - เกียร์ธรรมดา\r\nจำนวนที่นั่ง - 7\r\nเลขไมล์ (กม.) - 100\r\nสี - สีดำ', 'publish', '2019-04-19 19:57:20', '2019-04-21 06:23:56'),
-(7, 'Mazda 2 1.3 (ปี 15-18) High Connect Sedan AT', 'เครื่องยนต์เบนซิน 1.3 การรันตรีศูนย์ อยู่ในเชคระยะฟรี ออกห้างมือเดียว กดปุ่มสตาทร์ กุญแจรีโมทแท้ไมล์ดิจิตอลแท้พวงมาลัย Multifunction เบาะหนังเครื่อ เสียงเชื่อมต่อโทรศัพท์ พร้อมสปิกเกอร์ เบาะหลังพับได้ เชื่อมต่อท้ายกระโปรง ฟรีประกันภัยรถยนต์ปีแรก ดอกเบี้ยต่ำสุด 0% 12เดือน', 'publish', '2019-04-19 19:57:37', '2019-04-21 06:38:21'),
-(8, 'Honda Accord 2.0 (ปี 07-13) E i-VTEC Sedan AT', 'พวงมาลัย Multifunction AIRBAG +ABS เบาะหนังแท้ ปรับไฟฟ้า เครื่องเดิม2.4 น้ำมันล้วน เครื่องฟิต สตาร์ทติดง่าย กระจกไฟฟ้า กุญแจรีโมท พร้อมหล่อ ทุกสถานการณ์', 'publish', '2019-04-19 19:58:01', '2019-04-21 06:44:06'),
-(9, 'Toyota Hilux Vigo 2.5 CHAMP DOUBLE CAB (ปี 11-15) E', 'เครื่องยนต์ดีเซล 2.5 กุญแจรีโมทแท้ AIR bag +ABS พวงมาลัย Multifunction ล้อแม๊ค เครื่องเดิม ของเหลวใหม่ ท่อลั่น พร้อมบวก', 'publish', '2019-04-21 06:50:52', '2019-04-21 06:50:52');
+(28, 'Toyota Hilux Vigo 2.5 CHAMP DOUBLE CAB (ปี 11-15) E', 'เครื่องยนต์ดีเซล 2.5 กุญแจรีโมทแท้ AIR bag +ABS พวงมาลัย Multifunction ล้อแม๊ค เครื่องเดิม ของเหลวใหม่ ท่อลั่น พร้อมบวก', 'publish', '2019-04-23 08:10:40', '2019-04-23 08:10:40'),
+(29, 'Honda Accord 2.0 (ปี 07-13) E i-VTEC Sedan AT', 'พวงมาลัย Multifunction AIRBAG +ABS เบาะหนังแท้ ปรับไฟฟ้า เครื่องเดิม2.4 น้ำมันล้วน เครื่องฟิต สตาร์ทติดง่าย กระจกไฟฟ้า กุญแจรีโมท พร้อมหล่อ ทุกสถานการณ์', 'publish', '2019-04-23 09:04:48', '2019-04-23 09:04:48'),
+(30, 'Toyota Fortuner 2.5 (ปี 12-15) G SUV MT', 'ยี่ห้อ - Toyota รุ่น - Fortuner โฉมรถยนต์ - (ปี 12-15) รายละเอียดรุ่น - G ปี - 2012 ขนาดเครื่องยนต์ - 2494 ซีซี ระบบเกียร์ - เกียร์ธรรมดา จำนวนที่นั่ง - 7 เลขไมล์ (กม.) - 100 สี - สีดำ', 'publish', '2019-04-23 09:06:00', '2019-04-23 09:06:00'),
+(31, 'Mercedes-Benz CLA200 1.6 Urban Sedan AT', 'ยี่ห้อ - Mercedes-Benz\r\nรุ่น - CLA200\r\nรายละเอียดรุ่น - Urban\r\nปี - 2017\r\nขนาดเครื่องยนต์ - 1595 ซีซี\r\nระบบเกียร์ - เกียร์อัตโนมัติ\r\nจำนวนที่นั่ง - 5\r\nเลขไมล์ (กม.) - 32500\r\nสี - สีดำ', 'publish', '2019-04-23 09:08:35', '2019-04-23 09:08:35');
 
 -- --------------------------------------------------------
 
@@ -94,7 +94,39 @@ INSERT INTO `blog_image` (`id`, `blog_id`, `image_name`, `image_size`, `image_ur
 (60, 9, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_P1rLKLUWXGZsIPbJtH4ESA_1555829455.jpg', 97999, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_P1rLKLUWXGZsIPbJtH4ESA_1555829455.jpg', '2019-04-21 06:50:55', '2019-04-21 06:50:55'),
 (61, 9, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_T2ExOHiGAXitv09izxUQWQ_1555829455.jpg', 75753, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_T2ExOHiGAXitv09izxUQWQ_1555829455.jpg', '2019-04-21 06:50:55', '2019-04-21 06:50:55'),
 (62, 9, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_VrqQC0V5LdXEL25pGAkC8L_1555829455.jpg', 66651, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_VrqQC0V5LdXEL25pGAkC8L_1555829455.jpg', '2019-04-21 06:50:55', '2019-04-21 06:50:55'),
-(63, 9, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_wGbvG8lkrs53WR8j1ANjzt_1555829455.jpg', 65637, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_wGbvG8lkrs53WR8j1ANjzt_1555829455.jpg', '2019-04-21 06:50:55', '2019-04-21 06:50:55');
+(63, 9, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_wGbvG8lkrs53WR8j1ANjzt_1555829455.jpg', 65637, 'https://porjai.s3.ap-southeast-1.amazonaws.com/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_wGbvG8lkrs53WR8j1ANjzt_1555829455.jpg', '2019-04-21 06:50:55', '2019-04-21 06:50:55'),
+(105, 26, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_e7oAafoZvDRSKSoszFqqRT_1556006729.jpg', 91371, 'image_car/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_e7oAafoZvDRSKSoszFqqRT_1556006729.jpg', '2019-04-23 08:05:29', '2019-04-23 08:05:29'),
+(106, 26, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_Kq8PxO91uuqIoqVifOOG9I_1556006729.jpg', 83703, 'image_car/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_Kq8PxO91uuqIoqVifOOG9I_1556006729.jpg', '2019-04-23 08:05:29', '2019-04-23 08:05:29'),
+(107, 26, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_oKFB4KW72IMI9Wcjv8vwEt_1556006729.jpg', 93946, 'image_car/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_oKFB4KW72IMI9Wcjv8vwEt_1556006729.jpg', '2019-04-23 08:05:30', '2019-04-23 08:05:30'),
+(108, 26, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_P1rLKLUWXGZsIPbJtH4ESA_1556006730.jpg', 97999, 'image_car/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_P1rLKLUWXGZsIPbJtH4ESA_1556006730.jpg', '2019-04-23 08:05:30', '2019-04-23 08:05:30'),
+(109, 27, 'blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_S695qU3NJ5JQorj1467ZpJ_1556006747.jpeg', 96742, 'image_car/blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_S695qU3NJ5JQorj1467ZpJ_1556006747.jpeg', '2019-04-23 08:05:47', '2019-04-23 08:05:47'),
+(110, 27, 'blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_YbAbjvmLiSKQFLYKwV1x2o_1556006747.jpeg', 107088, 'image_car/blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_YbAbjvmLiSKQFLYKwV1x2o_1556006747.jpeg', '2019-04-23 08:05:47', '2019-04-23 08:05:47'),
+(121, 28, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_e7oAafoZvDRSKSoszFqqRT_1556008954.jpg', 91371, 'image_car/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_e7oAafoZvDRSKSoszFqqRT_1556008954.jpg', '2019-04-23 08:42:34', '2019-04-23 08:42:34'),
+(122, 28, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_6Nuq7uGshaEZQJ79oYpyx2_1556008969.jpg', 83582, 'image_car/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_6Nuq7uGshaEZQJ79oYpyx2_1556008969.jpg', '2019-04-23 08:42:49', '2019-04-23 08:42:49'),
+(123, 28, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_9QePbyWJCHoVEw1YGoIfzt_1556008969.jpg', 106608, 'image_car/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_9QePbyWJCHoVEw1YGoIfzt_1556008969.jpg', '2019-04-23 08:42:49', '2019-04-23 08:42:49'),
+(124, 28, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_e1MOeeghWekDF4cvrUAxYQ_1556008969.jpg', 98989, 'image_car/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_e1MOeeghWekDF4cvrUAxYQ_1556008969.jpg', '2019-04-23 08:42:49', '2019-04-23 08:42:49'),
+(125, 28, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_Kq8PxO91uuqIoqVifOOG9I_1556008969.jpg', 83703, 'image_car/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_Kq8PxO91uuqIoqVifOOG9I_1556008969.jpg', '2019-04-23 08:42:49', '2019-04-23 08:42:49'),
+(126, 28, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_oKFB4KW72IMI9Wcjv8vwEt_1556008969.jpg', 93946, 'image_car/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_oKFB4KW72IMI9Wcjv8vwEt_1556008969.jpg', '2019-04-23 08:42:49', '2019-04-23 08:42:49'),
+(127, 28, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_P1rLKLUWXGZsIPbJtH4ESA_1556008969.jpg', 97999, 'image_car/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_P1rLKLUWXGZsIPbJtH4ESA_1556008969.jpg', '2019-04-23 08:42:49', '2019-04-23 08:42:49'),
+(128, 28, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_T2ExOHiGAXitv09izxUQWQ_1556008969.jpg', 75753, 'image_car/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_T2ExOHiGAXitv09izxUQWQ_1556008969.jpg', '2019-04-23 08:42:49', '2019-04-23 08:42:49'),
+(129, 28, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_VrqQC0V5LdXEL25pGAkC8L_1556008969.jpg', 66651, 'image_car/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_VrqQC0V5LdXEL25pGAkC8L_1556008969.jpg', '2019-04-23 08:42:49', '2019-04-23 08:42:49'),
+(130, 28, 'blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_wGbvG8lkrs53WR8j1ANjzt_1556008969.jpg', 65637, 'image_car/blog/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_wGbvG8lkrs53WR8j1ANjzt_1556008969.jpg', '2019-04-23 08:42:49', '2019-04-23 08:42:49'),
+(131, 29, 'blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_kPrnTBIgJLe2SzbN4m7bmk_1556010288.jpeg', 115896, 'image_car/blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_kPrnTBIgJLe2SzbN4m7bmk_1556010288.jpeg', '2019-04-23 09:04:48', '2019-04-23 09:04:48'),
+(132, 29, 'blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_cPRJKwFffkrRsa6gHCpHzZ_1556010304.jpeg', 87747, 'image_car/blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_cPRJKwFffkrRsa6gHCpHzZ_1556010304.jpeg', '2019-04-23 09:05:04', '2019-04-23 09:05:04'),
+(133, 29, 'blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_D8msxDa5Y7oB46gOqMRk0P_1556010304.jpeg', 97080, 'image_car/blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_D8msxDa5Y7oB46gOqMRk0P_1556010304.jpeg', '2019-04-23 09:05:04', '2019-04-23 09:05:04'),
+(134, 29, 'blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_S695qU3NJ5JQorj1467ZpJ_1556010304.jpeg', 96742, 'image_car/blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_S695qU3NJ5JQorj1467ZpJ_1556010304.jpeg', '2019-04-23 09:05:05', '2019-04-23 09:05:05'),
+(135, 29, 'blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_YbAbjvmLiSKQFLYKwV1x2o_1556010305.jpeg', 107088, 'image_car/blog/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_YbAbjvmLiSKQFLYKwV1x2o_1556010305.jpeg', '2019-04-23 09:05:05', '2019-04-23 09:05:05'),
+(136, 30, 'blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_zfbtESLzFa6lv5sbkSXa8M_1556010360.jpg', 116983, 'image_car/blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_zfbtESLzFa6lv5sbkSXa8M_1556010360.jpg', '2019-04-23 09:06:00', '2019-04-23 09:06:00'),
+(137, 30, 'blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_CuKm0UUUOz5AhkuowkDSYd_1556010374.jpg', 110785, 'image_car/blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_CuKm0UUUOz5AhkuowkDSYd_1556010374.jpg', '2019-04-23 09:06:14', '2019-04-23 09:06:14'),
+(138, 30, 'blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_inyJjiprGd00tKnrBYfHmG_1556010374.jpg', 105544, 'image_car/blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_inyJjiprGd00tKnrBYfHmG_1556010374.jpg', '2019-04-23 09:06:14', '2019-04-23 09:06:14'),
+(139, 30, 'blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_mF4iUF9eyFbsbFiXKTFf7r_1556010374.jpg', 89459, 'image_car/blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_mF4iUF9eyFbsbFiXKTFf7r_1556010374.jpg', '2019-04-23 09:06:14', '2019-04-23 09:06:14'),
+(140, 30, 'blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_MfMcF1Dos3agy9pK6mCIIn_1556010374.jpg', 117977, 'image_car/blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_MfMcF1Dos3agy9pK6mCIIn_1556010374.jpg', '2019-04-23 09:06:14', '2019-04-23 09:06:14'),
+(141, 30, 'blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_r1m5yEqUX0JjL4WqaM4Duj_1556010374.jpg', 106648, 'image_car/blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_r1m5yEqUX0JjL4WqaM4Duj_1556010374.jpg', '2019-04-23 09:06:14', '2019-04-23 09:06:14'),
+(142, 30, 'blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_yCfh17LHSWfSS1DzaiPT3o_1556010374.jpg', 113999, 'image_car/blog/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_yCfh17LHSWfSS1DzaiPT3o_1556010374.jpg', '2019-04-23 09:06:14', '2019-04-23 09:06:14'),
+(143, 31, 'blog/gallery_used-car-one2car-mercedes-benz-cla-class-cla200-urban-sedan-thailand_4752975_jbobdbrTBiIIUwbElQnRFo (1)_1556010515.jpeg', 119362, 'image_car/blog/gallery_used-car-one2car-mercedes-benz-cla-class-cla200-urban-sedan-thailand_4752975_jbobdbrTBiIIUwbElQnRFo (1)_1556010515.jpeg', '2019-04-23 09:08:35', '2019-04-23 09:08:35'),
+(144, 31, 'blog/gallery_used-car-one2car-mercedes-benz-cla-class-cla200-urban-sedan-thailand_4752975_bJhPFavSkhrF1EUwHimW4Z_1556010537.jpeg', 123206, 'image_car/blog/gallery_used-car-one2car-mercedes-benz-cla-class-cla200-urban-sedan-thailand_4752975_bJhPFavSkhrF1EUwHimW4Z_1556010537.jpeg', '2019-04-23 09:08:57', '2019-04-23 09:08:57'),
+(145, 31, 'blog/gallery_used-car-one2car-mercedes-benz-cla-class-cla200-urban-sedan-thailand_4752975_HJ8u32lCAwFAhiBCq7hK9e_1556010537.jpeg', 98413, 'image_car/blog/gallery_used-car-one2car-mercedes-benz-cla-class-cla200-urban-sedan-thailand_4752975_HJ8u32lCAwFAhiBCq7hK9e_1556010537.jpeg', '2019-04-23 09:08:57', '2019-04-23 09:08:57'),
+(146, 31, 'blog/gallery_used-car-one2car-mercedes-benz-cla-class-cla200-urban-sedan-thailand_4752975_vSkzIsbzsIfYvvO4MMwMY6_1556010537.jpeg', 113494, 'image_car/blog/gallery_used-car-one2car-mercedes-benz-cla-class-cla200-urban-sedan-thailand_4752975_vSkzIsbzsIfYvvO4MMwMY6_1556010537.jpeg', '2019-04-23 09:08:57', '2019-04-23 09:08:57');
 
 -- --------------------------------------------------------
 
@@ -147,9 +179,10 @@ CREATE TABLE `gallery` (
 --
 
 INSERT INTO `gallery` (`id`, `detail`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'ดีจริง ดีจัง', 'publish', '2019-04-19 17:14:42', '2019-04-19 17:14:42'),
-(4, 'ใช้ดีมากๆ', 'publish', '2019-04-19 17:54:20', '2019-04-19 20:13:44'),
-(10, 'ใช้ดีจริงๆนะ', 'publish', '2019-04-19 20:14:13', '2019-04-21 08:38:21');
+(14, 'บริการทุกระดับ ประทับใจ', 'publish', '2019-04-23 08:46:02', '2019-04-23 08:46:02'),
+(15, 'ใช้ดีจริงๆคะ', 'publish', '2019-04-23 08:46:29', '2019-04-23 08:46:29'),
+(16, 'ช่างตรวจทุกซอกทุกมุมคะ', 'publish', '2019-04-23 08:47:02', '2019-04-23 08:47:02'),
+(17, 'สวยงามตามท้องเรื่อง', 'publish', '2019-04-23 08:48:35', '2019-04-23 08:48:35');
 
 -- --------------------------------------------------------
 
@@ -173,8 +206,12 @@ CREATE TABLE `gallery_image` (
 
 INSERT INTO `gallery_image` (`id`, `gallery_id`, `image_name`, `image_size`, `image_url`, `created_at`, `updated_at`) VALUES
 (8, 4, 'gallery/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_zfbtESLzFa6lv5sbkSXa8M_1555696460.jpg', 116983, 'https://porjai.s3.ap-southeast-1.amazonaws.com/gallery/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_zfbtESLzFa6lv5sbkSXa8M_1555696460.jpg', '2019-04-19 17:54:20', '2019-04-19 17:54:20'),
-(14, 1, 'gallery/e877d1da-2020-nissan-sylphy-1_1555704796.jpg', 151975, 'https://porjai.s3.ap-southeast-1.amazonaws.com/gallery/e877d1da-2020-nissan-sylphy-1_1555704796.jpg', '2019-04-19 20:13:17', '2019-04-19 20:13:17'),
-(15, 10, 'gallery/พอใจ_1555704853.jpg', 133968, 'https://porjai.s3.ap-southeast-1.amazonaws.com/gallery/%E0%B8%9E%E0%B8%AD%E0%B9%83%E0%B8%88_1555704853.jpg', '2019-04-19 20:14:15', '2019-04-19 20:14:15');
+(19, 10, 'gallery/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_e7oAafoZvDRSKSoszFqqRT_1555863134.jpg', 91371, 'https://porjai.s3.ap-southeast-1.amazonaws.com/gallery/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_e7oAafoZvDRSKSoszFqqRT_1555863134.jpg', '2019-04-21 16:12:15', '2019-04-21 16:12:15'),
+(20, 1, 'gallery/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_kPrnTBIgJLe2SzbN4m7bmk_1555863415.jpeg', 115896, 'https://porjai.s3.ap-southeast-1.amazonaws.com/gallery/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_kPrnTBIgJLe2SzbN4m7bmk_1555863415.jpeg', '2019-04-21 16:16:57', '2019-04-21 16:16:57'),
+(21, 14, 'gallery/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_T2ExOHiGAXitv09izxUQWQ_1556009162.jpg', 75753, 'image_car/gallery/gallery_used-car-one2car-toyota-hilux-vigo-e-prerunner-vn-turbo-pickup-thailand_0784865_T2ExOHiGAXitv09izxUQWQ_1556009162.jpg', '2019-04-23 08:46:02', '2019-04-23 08:46:02'),
+(22, 15, 'gallery/alloy-asphalt-auto-241316_1556009189.jpg', 79122, 'image_car/gallery/alloy-asphalt-auto-241316_1556009189.jpg', '2019-04-23 08:46:29', '2019-04-23 08:46:29'),
+(23, 16, 'gallery/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_zfbtESLzFa6lv5sbkSXa8M_1556009222.jpg', 116983, 'image_car/gallery/gallery_used-car-one2car-toyota-fortuner-g-suv-thailand_9332875_zfbtESLzFa6lv5sbkSXa8M_1556009222.jpg', '2019-04-23 08:47:02', '2019-04-23 08:47:02'),
+(25, 17, 'gallery/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_D8msxDa5Y7oB46gOqMRk0P_1556009339.jpeg', 97080, 'image_car/gallery/gallery_used-car-one2car-honda-accord-e-i-vtec-sedan-thailand_B1C87C6D8A9646B8AFA3CBED844A825E_0707315_D8msxDa5Y7oB46gOqMRk0P_1556009339.jpeg', '2019-04-23 08:48:59', '2019-04-23 08:48:59');
 
 -- --------------------------------------------------------
 
@@ -202,7 +239,7 @@ CREATE TABLE `home_new_car` (
 --
 
 INSERT INTO `home_new_car` (`id`, `image_url`, `image_name`, `image_size`, `newcar_header`, `newcar_detail`, `property_header`, `property_detail`, `review_header`, `review_detail`, `created_at`, `updated_at`) VALUES
-(1, 'https://porjai.s3.ap-southeast-1.amazonaws.com/newcar/newcar_1555860083.png', 'newcar/newcar_1555860083.png', 135899, 'โตโยต้า แข็งแกร่งสุด ๆ นะจ๊ะ', 'ล้อแม็กเต็มขอบทองประตูเหลือบเงินสะท้อนแสงได้', 'ตัวถังของรถ', 'ด้วยเครื่องยนต์ที่ไม่มีการย้อมแมวจึงทำให้คุณภาพรถ เยี่ยมยอดกระเทียมดอง', 'รีวิว จากคุณ ประยุทธ์', 'ใช้แล้วดี ใช้ๆ ไปเหอะ ช่วยๆ กันหน่อย นะ เข้าใจกันด้วยว่า รถเนี่ยดีมาก', '2019-04-20 17:00:00', '2019-04-21 15:21:25');
+(1, 'image_car/newcar/newcar_1556009837.png', 'newcar/newcar_1556009837.png', 135899, 'โตโยต้า แข็งแกร่งสุด ๆ นะจ๊ะ', 'ล้อแม็กเต็มขอบทองประตูเหลือบเงินสะท้อนแสงได้', 'ตัวถังของรถ', 'ด้วยเครื่องยนต์ที่ไม่มีการย้อมแมวจึงทำให้คุณภาพรถ เยี่ยมยอดกระเทียมดอง', 'รีวิว จากคุณ ประยุทธ์ อาทิตย์โอชา', 'ใช้แล้วดี ใช้ๆ ไปเหอะ ช่วยๆ กันหน่อย นะ เข้าใจกันด้วยว่า รถเนี่ยดีมาก', '2019-04-20 17:00:00', '2019-04-23 08:57:18');
 
 -- --------------------------------------------------------
 
@@ -565,13 +602,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `blog_image`
 --
 ALTER TABLE `blog_image`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
 
 --
 -- AUTO_INCREMENT for table `contact`
@@ -583,13 +620,13 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `gallery_image`
 --
 ALTER TABLE `gallery_image`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `home_new_car`

@@ -13,7 +13,7 @@
         </div>
         <div class="box-body">
             <div class="row">
-                <div class="col-xs-10 form-group">
+                <div class="col-md-10 col-xs-12 form-group">
                     {!! Form::label('detail', trans('global.website-management.fields.detail').'*', ['class' => 'control-label']) !!}
                     {!! Form::textarea('detail', old('detail'), ['class' => 'form-control', 'required' => '', 'placeholder' => '', 'rows' => 4, 'cols' => 12, 'style' => 'resize:none']) !!}
                     <p class="help-block"></p>
@@ -23,7 +23,7 @@
                         </p>
                     @endif
                 </div>
-                <div class="col-xs-2 form-group">
+                <div class="col-md-2 col-xs-12 form-group">
                     {!! Form::label('status', trans('global.website-management.fields.home_promotion_status').'*', ['class' => 'control-label']) !!}
                     <select id="status" class="form-control" name="status">
                         <option value="publish" selected>@lang('global.website-management.fields.home_promotion_publish')</option>
