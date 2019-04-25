@@ -230,7 +230,7 @@
             <div class="fixed-bg" style="background-image:url(frontend/assets/images/bgtwohand.png);"></div>
             <div class="container">
                 <div class="sec-title text-center">
-                    <h2 itemprop="headline">เลือกชมรถมือสองนะจ๊ะ</h2>
+                    <h2 itemprop="headline">เลือกชมรถมือสอง</h2>
                     {{-- <span>New stunning projects for our amazing clients.</span> --}}
                 </div>
                 <div class="remove-ext5">
