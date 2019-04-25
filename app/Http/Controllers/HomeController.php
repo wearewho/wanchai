@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
+use Spatie\Permission\Models\Role;
 use Session;
+use LogActivity;
 
 class HomeController extends Controller
 {
@@ -28,7 +31,19 @@ class HomeController extends Controller
     {
         //$message = "Just media";
         //$this->sendNotify($message);
-        return view('home');
+        //return view('home');
+
+        $role = Auth::user()->roles[0]->name;
+
+        if($role == "administrator")
+        {
+            $logs = LogActivity::logActivityLists();
+            return view('admin.log.index',compact('logs'));
+            
+        }else{
+            return view('home');
+        }
+
     }
 
     public function sendNotify($message)

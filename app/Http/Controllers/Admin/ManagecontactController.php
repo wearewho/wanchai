@@ -18,6 +18,10 @@ class ManagecontactController extends Controller
      */
     public function index()
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         $contact = contact::where('id',1)->first();
         return view('admin.contact.index',compact('contact'));
     }
@@ -74,6 +78,9 @@ class ManagecontactController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
         
         // $editcontact = Contact::findOrFail($id);
         // $editcontact =  $request->input('lat_map');

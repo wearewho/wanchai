@@ -20,6 +20,10 @@ class ManagegalleryController extends Controller
      */
     public function index()
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         $gallery = Gallery::all();
         return view('admin.gallery.index',compact('gallery'));
     }
@@ -31,6 +35,10 @@ class ManagegalleryController extends Controller
      */
     public function create()
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         return view('admin.gallery.create');
     }
 
@@ -42,6 +50,10 @@ class ManagegalleryController extends Controller
      */
     public function store(Request $request)
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         $newgallery = new Gallery;
         $newgallery->detail = $request->detail;
         $newgallery->status = $request->status;
@@ -120,6 +132,10 @@ class ManagegalleryController extends Controller
      */
     public function edit($id)
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         $gallery = Gallery::findOrFail($id);
         $imagegallery = ImageGallery::where('gallery_id',$id)->get();
         return view('admin.gallery.edit', compact('gallery','imagegallery'));
@@ -134,6 +150,10 @@ class ManagegalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         $editgallery = Gallery::findOrFail($id);
         $editgallery->detail = $request->detail;
         $editgallery->status = $request->status;
@@ -196,6 +216,10 @@ class ManagegalleryController extends Controller
      */
     public function destroy($id)
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         $oldgallery = Gallery::findOrFail($id);
         $groupImageGallery = ImageGallery::where('gallery_id',$id)->get();
         $oldgallery->delete();
@@ -237,7 +261,7 @@ class ManagegalleryController extends Controller
      */
     public function massDestroy(Request $request)
     {
-        if (! Gate::allows('users_manage')) {
+        if (! Gate::allows('website_manage')) {
             return abort(401);
         }
 

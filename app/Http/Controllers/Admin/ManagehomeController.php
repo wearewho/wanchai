@@ -11,9 +11,16 @@ use App\Promotion;
 use LogActivity;
 use Response;
 use Image;
+use Auth;
 
 class ManagehomeController extends Controller
 {
+    public function user()
+    {
+        $user = Auth::user();
+        return $user;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,12 +33,20 @@ class ManagehomeController extends Controller
 
     public function index_newcar()
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         $newcar = Newcar::where('id',1)->first();
         return view('admin.home.newcar.index',compact('newcar'));
     }
 
     public function index_promotion()
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         $promotion = Promotion::all();
         return view('admin.home.promotion.index',compact('promotion'));
     }
@@ -48,11 +63,19 @@ class ManagehomeController extends Controller
 
     public function create_newcar()
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         return view('admin.home.newcar.create');
     }
 
     public function create_promotion()
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         $countPromotion = Promotion::where('status', '=', 'publish')->count();
         return view('admin.home.promotion.create',compact('countPromotion'));
     }
@@ -70,9 +93,10 @@ class ManagehomeController extends Controller
 
     public function store_newcar(Request $request)
     {
-        if (! Gate::allows('users_manage')) {
+        if (! Gate::allows('website_manage')) {
             return abort(401);
         }
+
         
         //$newcar = Newcar::create($request->all());
 
@@ -104,7 +128,7 @@ class ManagehomeController extends Controller
 
     public function store_promotion(Request $request)
     {
-        if (! Gate::allows('users_manage')) {
+        if (! Gate::allows('website_manage')) {
             return abort(401);
         }
 
@@ -113,6 +137,8 @@ class ManagehomeController extends Controller
         $promotion->detail = $request->detail;
         $promotion->status = $request->status;
         $promotion->save();
+
+        LogActivity::addToLog('Create Promotion By '.$this->user()->name);
 
         return redirect()->route('admin.managehome.index_promotion');
     }
@@ -141,7 +167,7 @@ class ManagehomeController extends Controller
 
     public function edit_newcar($id)
     {
-        if (! Gate::allows('users_manage')) {
+        if (! Gate::allows('website_manage')) {
             return abort(401);
         }
 
@@ -153,7 +179,7 @@ class ManagehomeController extends Controller
 
     public function edit_promotion($id)
     {
-        if (! Gate::allows('users_manage')) {
+        if (! Gate::allows('website_manage')) {
             return abort(401);
         }
 
@@ -177,10 +203,10 @@ class ManagehomeController extends Controller
 
     public function update_newcar(Request $request, $id)
     {
-        if (! Gate::allows('users_manage')) {
+        if (! Gate::allows('website_manage')) {
             return abort(401);
         }
-        
+
         $update_newcar = Newcar::findOrFail($id);
         $update_newcar->newcar_header = $request->newcar_header;
         $update_newcar->newcar_detail = $request->newcar_detail;
@@ -235,13 +261,14 @@ class ManagehomeController extends Controller
         }
         
         $update_newcar->save();
+        LogActivity::addToLog('Update New Car ID:'.$id.' By '.$this->user()->name);
         
         return redirect()->route('admin.managehome.index_newcar')->with('success','Data Updated');
     }
 
     public function update_promotion(Request $request, $id)
     {
-        if (! Gate::allows('users_manage')) {
+        if (! Gate::allows('website_manage')) {
             return abort(401);
         }
 
@@ -250,7 +277,7 @@ class ManagehomeController extends Controller
         $promotion->detail = $request->detail;
         $promotion->status = $request->status;
         $promotion->save();
-        LogActivity::addToLog('Update Promotion Successfully.');
+        LogActivity::addToLog('Update Promotion ID:'.$id.' By '.$this->user()->name);
 
         return redirect()->route('admin.managehome.index_promotion');
     }
@@ -267,33 +294,36 @@ class ManagehomeController extends Controller
 
     public function destroy_newcar($id)
     {
-        if (! Gate::allows('users_manage')) {
+        if (! Gate::allows('website_manage')) {
             return abort(401);
         }
+
         $newcar = Newcar::findOrFail($id);
         $newcar->delete();
-        LogActivity::addToLog('Delete New Car Successfully.');
+        LogActivity::addToLog('Delete New Car By '.$this->user()->name);
 
         return redirect()->route('admin.managehome.index_newcar');
     }
 
     public function destroy_promotion($id)
     {
-        if (! Gate::allows('users_manage')) {
+        if (! Gate::allows('website_manage')) {
             return abort(401);
         }
+
         $promotion = Promotion::findOrFail($id);
         $promotion->delete();
-        LogActivity::addToLog('Delete Promotion Successfully.');
+        LogActivity::addToLog('Delete Promotion By '.$this->user()->name);
 
         return redirect()->route('admin.managehome.index_promotion');
     }
     
     public function massDestroy_newcar(Request $request)
     {
-        if (! Gate::allows('users_manage')) {
+        if (! Gate::allows('website_manage')) {
             return abort(401);
         }
+
         if ($request->input('ids')) {
             $entries = Newcar::whereIn('id', $request->input('ids'))->get();
 
@@ -302,14 +332,15 @@ class ManagehomeController extends Controller
             }
         }
         
-        LogActivity::addToLog('Delete New Car Successfully.');
+        LogActivity::addToLog('Mass Delete New Car By '.$this->user()->name);
     }
     
     public function massDestroy_promotion(Request $request)
     {
-        if (! Gate::allows('users_manage')) {
+        if (! Gate::allows('website_manage')) {
             return abort(401);
         }
+
         if ($request->input('ids')) {
             $entries = Promotion::whereIn('id', $request->input('ids'))->get();
 
@@ -318,6 +349,6 @@ class ManagehomeController extends Controller
             }
         }
         
-        LogActivity::addToLog('Delete Promotion Successfully.');
+        LogActivity::addToLog('Mass Delete Promotion By '.$this->user()->name);
     }
 }
