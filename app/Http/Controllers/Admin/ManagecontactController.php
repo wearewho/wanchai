@@ -8,9 +8,16 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Contact;
 use Response;
+use Auth;
+use LogActivity;
 
 class ManagecontactController extends Controller
 {
+    public function user()
+    {
+        $user = Auth::user();
+        return $user;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -116,8 +123,8 @@ class ManagecontactController extends Controller
         $editcontact->save();
 
         
+        LogActivity::addToLog('Update Contact By '.$this->user()->name);
         return redirect()->route('admin.managecontact.index')->with('success','บันทึกข้อมูลสำเร็จ');
-        
     }
 
     /**

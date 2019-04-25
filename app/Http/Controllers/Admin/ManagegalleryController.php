@@ -10,9 +10,16 @@ use Response;
 use App\Gallery;
 use App\ImageGallery;
 use Image;
+use LogActivity;
+use Auth;
 
 class ManagegalleryController extends Controller
 {
+    public function user()
+    {
+        $user = Auth::user();
+        return $user;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -25,6 +32,7 @@ class ManagegalleryController extends Controller
         }
 
         $gallery = Gallery::all();
+              
         return view('admin.gallery.index',compact('gallery'));
     }
 
@@ -110,6 +118,7 @@ class ManagegalleryController extends Controller
         }
 
         $gallery = Gallery::all();
+        LogActivity::addToLog('Create Gallery By '.$this->user()->name); 
         return redirect()->route('admin.managegallery.index', compact('gallery'))->with('success','บันทึกข้อมูลสำเร็จ');
     }
 
@@ -205,6 +214,7 @@ class ManagegalleryController extends Controller
         }
 
         $gallery = Gallery::all();
+        LogActivity::addToLog('Update Gallery By '.$this->user()->name); 
         return redirect()->route('admin.managegallery.index', compact('gallery'))->with('success','บันทึกข้อมูลสำเร็จ');
     }
 
@@ -231,6 +241,7 @@ class ManagegalleryController extends Controller
         }
 
         $gallery = Gallery::all();
+        LogActivity::addToLog('Delete Gallery By '.$this->user()->name); 
         return redirect()->route('admin.managegallery.index', compact('gallery'))->with('del-success','ลบข้อมูลสำเร็จ');
     }
 
@@ -279,6 +290,6 @@ class ManagegalleryController extends Controller
             }
 
         }
-
+        LogActivity::addToLog('Mass Delete Gallery By '.$this->user()->name);
     }
 }

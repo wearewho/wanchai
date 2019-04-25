@@ -8,9 +8,16 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StorePermissionsRequest;
 use App\Http\Requests\Admin\UpdatePermissionsRequest;
+use LogActivity;
+use Auth;
 
 class PermissionsController extends Controller
 {
+    public function user()
+    {
+        $user = Auth::user();
+        return $user;
+    }
     /**
      * Display a listing of Permission.
      *
@@ -52,7 +59,7 @@ class PermissionsController extends Controller
             return abort(401);
         }
         Permission::create($request->all());
-
+        LogActivity::addToLog('Create Permissions'.$this->user()->name);
         return redirect()->route('admin.permissions.index');
     }
 
@@ -87,7 +94,7 @@ class PermissionsController extends Controller
         }
         $permission = Permission::findOrFail($id);
         $permission->update($request->all());
-
+        LogActivity::addToLog('Create Permissions By '.$this->user()->name);
         return redirect()->route('admin.permissions.index')->with('success','บันทึกข้อมูลสำเร็จ');
     }
 
@@ -106,6 +113,7 @@ class PermissionsController extends Controller
         $permission = Permission::findOrFail($id);
         $permission->delete();
 
+        LogActivity::addToLog('Delete Permissions By '.$this->user()->name);
         return redirect()->route('admin.permissions.index');
     }
 
@@ -126,6 +134,8 @@ class PermissionsController extends Controller
                 $entry->delete();
             }
         }
+        LogActivity::addToLog('Mass Delete Permissions By '.$this->user()->name);
+
     }
 
 }

@@ -9,9 +9,16 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreRolesRequest;
 use App\Http\Requests\Admin\UpdateRolesRequest;
+use LogActivity;
+use Auth;
 
 class RolesController extends Controller
 {
+    public function user()
+    {
+        $user = Auth::user();
+        return $user;
+    }
     /**
      * Display a listing of Role.
      *
@@ -57,7 +64,7 @@ class RolesController extends Controller
         $role = Role::create($request->except('permission'));
         $permissions = $request->input('permission') ? $request->input('permission') : [];
         $role->givePermissionTo($permissions);
-
+        LogActivity::addToLog('Create Roles By '.$this->user()->name);
         return redirect()->route('admin.roles.index');
     }
 
@@ -97,6 +104,7 @@ class RolesController extends Controller
         $permissions = $request->input('permission') ? $request->input('permission') : [];
         $role->syncPermissions($permissions);
 
+        LogActivity::addToLog('Update Roles By '.$this->user()->name);
         return redirect()->route('admin.roles.index')->with('success','บันทึกข้อมูลสำเร็จ');
     }
 
@@ -115,6 +123,7 @@ class RolesController extends Controller
         $role = Role::findOrFail($id);
         $role->delete();
 
+        LogActivity::addToLog('Delete Roles By '.$this->user()->name);
         return redirect()->route('admin.roles.index');
     }
 
@@ -135,6 +144,7 @@ class RolesController extends Controller
                 $entry->delete();
             }
         }
+        LogActivity::addToLog('Mass Delete Roles By '.$this->user()->name);
     }
 
 }

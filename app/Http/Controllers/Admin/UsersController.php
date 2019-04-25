@@ -11,9 +11,15 @@ use App\Http\Requests\Admin\StoreUsersRequest;
 use App\Http\Requests\Admin\UpdateUsersRequest;
 //use Log;
 use LogActivity;
+use Auth;
 
 class UsersController extends Controller
 {
+    public function user()
+    {
+        $user = Auth::user();
+        return $user;
+    }
     /**
      * Display a listing of User.
      *
@@ -42,8 +48,7 @@ class UsersController extends Controller
         }
         $roles = Role::get()->pluck('name', 'name');
         //Log::info('info');
-        LogActivity::addToLog('Create User successfully.');
-
+        
         return view('admin.users.create', compact('roles'));
     }
 
@@ -62,6 +67,7 @@ class UsersController extends Controller
         $roles = $request->input('roles') ? $request->input('roles') : [];
         $user->assignRole($roles);
 
+        LogActivity::addToLog('Create Users By '.$this->user()->name);
         return redirect()->route('admin.users.index');
     }
 
@@ -100,7 +106,7 @@ class UsersController extends Controller
         $user->update($request->all());
         $roles = $request->input('roles') ? $request->input('roles') : [];
         $user->syncRoles($roles);
-        LogActivity::addToLog('Update User successfully.');
+        LogActivity::addToLog('Update Users By.'.$this->user()->name);
 
         return redirect()->route('admin.users.index')->with('success','บันทึกข้อมูลสำเร็จ');
     }
@@ -118,7 +124,7 @@ class UsersController extends Controller
         }
         $user = User::findOrFail($id);
         $user->delete();
-        LogActivity::addToLog('Delete User successfully.');
+        LogActivity::addToLog('Delete Users successfully.'.$this->user()->name);
 
         return redirect()->route('admin.users.index');
     }
@@ -141,7 +147,7 @@ class UsersController extends Controller
             }
         }
         
-        LogActivity::addToLog('Delete Users successfully.');
+        LogActivity::addToLog('Mass Delete Users successfully.'.$this->user()->name);
     }
 
 }
