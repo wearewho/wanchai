@@ -4,15 +4,28 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <ul class="sidebar-menu">
-            <div class="user-panel">
-                <div class="pull-left image">
-                <img src="{{ url('backend/images/admin.png') }}" class="img-circle" alt="User Image">
+            
+            @if (Auth::user()->roles[0]->name == "administrator")
+                <div class="user-panel">
+                    <div class="pull-left image">
+                    <img src="{{ url('backend/images/admin.png') }}" class="img-circle" alt="Admin Image">
+                    </div>
+                    <div class="pull-left info">
+                    <p>Administrator</p>
+                    <a href="#"><i class="fa fa-circle text-success"></i> @lang('global.app_online')</a>
+                    </div>
                 </div>
-                <div class="pull-left info">
-                <p>Administrator</p>
-                <a href="#"><i class="fa fa-circle text-success"></i> @lang('global.app_online')</a>
+            @else
+                <div class="user-panel">
+                    <div class="pull-left image">
+                    <img src="{{ url('backend/images/manager.png') }}" class="img-circle" alt="Manager Image">
+                    </div>
+                    <div class="pull-left info">
+                    <p>Manager</p>
+                    <a href="#"><i class="fa fa-circle text-success"></i> @lang('global.app_online')</a>
+                    </div>
                 </div>
-            </div>
+            @endif
 
             <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
                 <a href="{{ url('/admin') }}">
@@ -21,6 +34,7 @@
                 </a>
             </li>
             
+            @can('website_manage')
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-globe"></i>
@@ -79,6 +93,7 @@
                     </li>
                 </ul>
             </li>
+            @endcan
             
             @can('users_manage')
             <li class="treeview">

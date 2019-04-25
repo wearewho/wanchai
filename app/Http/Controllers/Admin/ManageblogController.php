@@ -10,9 +10,17 @@ use App\Blog;
 use App\ImageBlog;
 use Response;
 use Image;
+use Auth;
+use LogActivity;
 
 class ManageblogController extends Controller
 {
+    public function user()
+    {
+        $user = Auth::user();
+        return $user;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +28,10 @@ class ManageblogController extends Controller
      */
     public function index()
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         $blog = Blog::all();
         return view('admin.blog.index',compact('blog'));
     }
@@ -31,6 +43,10 @@ class ManageblogController extends Controller
      */
     public function create()
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         return view('admin.blog.create');
     }
 
@@ -42,6 +58,10 @@ class ManageblogController extends Controller
      */
     public function store(Request $request)
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         $newblog = new Blog;
         $newblog->header = $request->header;
         $newblog->detail = $request->detail;
@@ -106,8 +126,10 @@ class ManageblogController extends Controller
             }
         }
 
+        LogActivity::addToLog('Create Blog By '.$this->user()->name);
+
         $blog = Blog::all();
-        return redirect()->route('admin.manageblog.index', compact('blog'))->with('success','บันทึกข้อมูลสำเร็จ');
+        return redirect()->route('admin.manageblog.index', compact('blog'));
     }
 
     /**
@@ -129,6 +151,10 @@ class ManageblogController extends Controller
      */
     public function edit($id)
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         $blog = Blog::findOrFail($id);
         $imageblog = ImageBlog::where('blog_id',$id)->get();
         return view('admin.blog.edit', compact('blog','imageblog'));
@@ -143,6 +169,10 @@ class ManageblogController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         $editblog = Blog::findOrFail($id);
         $editblog->header = $request->header;
         $editblog->detail = $request->detail;
@@ -194,8 +224,10 @@ class ManageblogController extends Controller
             }
         }
 
+        LogActivity::addToLog('Update Blog ID:'.$id.' By '.$this->user()->name);
+
         $blog = Blog::all();
-        return redirect()->route('admin.manageblog.index', compact('blog'))->with('success','บันทึกข้อมูลสำเร็จ');
+        return redirect()->route('admin.manageblog.index', compact('blog'));
     }
 
     /**
@@ -206,6 +238,10 @@ class ManageblogController extends Controller
      */
     public function destroy($id)
     {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
         $oldblog = Blog::findOrFail($id);
         $groupImageBlog = ImageBlog::where('blog_id',$id)->get();
         $oldblog->delete();
@@ -216,8 +252,10 @@ class ManageblogController extends Controller
             $imageBlog->delete();
         }
 
+        LogActivity::addToLog('Delete Blog By '.$this->user()->name);
+
         $blog = Blog::all();
-        return redirect()->route('admin.manageblog.index', compact('blog'))->with('del-success','ลบข้อมูลสำเร็จ');
+        return redirect()->route('admin.manageblog.index', compact('blog'));
     }
 
     public function countImgBlog(Request $request)
@@ -237,6 +275,7 @@ class ManageblogController extends Controller
         $imageBlog = ImageBlog::findOrFail($request->key);
         unlink($imageBlog->image_url);
         $imageBlog->delete();
+        LogActivity::addToLog('Delete Image in Blog By '.$this->user()->name);
         return "{}";
     }
 
@@ -247,7 +286,7 @@ class ManageblogController extends Controller
      */
     public function massDestroy(Request $request)
     {
-        if (! Gate::allows('users_manage')) {
+        if (! Gate::allows('website_manage')) {
             return abort(401);
         }
 
@@ -264,6 +303,8 @@ class ManageblogController extends Controller
                 $imageblogentry->delete();
             }
         }
+
+        LogActivity::addToLog('Mass Delete Blog By '.$this->user()->name);
 
     }
     
