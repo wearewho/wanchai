@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use App\Blog;
+use App\ImageBlog;
 use Response;
-use App\Gallery;
-use App\ImageGallery;
 use Image;
 
-class ManagegalleryController extends Controller
+class ManageblogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +20,8 @@ class ManagegalleryController extends Controller
      */
     public function index()
     {
-        $gallery = Gallery::all();
-        return view('admin.gallery.index',compact('gallery'));
+        $blog = Blog::all();
+        return view('admin.blog.index',compact('blog'));
     }
 
     /**
@@ -31,7 +31,7 @@ class ManagegalleryController extends Controller
      */
     public function create()
     {
-        return view('admin.gallery.create');
+        return view('admin.blog.create');
     }
 
     /**
@@ -42,18 +42,19 @@ class ManagegalleryController extends Controller
      */
     public function store(Request $request)
     {
-        $newgallery = new Gallery;
-        $newgallery->detail = $request->detail;
-        $newgallery->status = $request->status;
-        $newgallery->save();
+        $newblog = new Blog;
+        $newblog->header = $request->header;
+        $newblog->detail = $request->detail;
+        $newblog->status = $request->status;
+        $newblog->save();
 
         if($request->hasFile('car_image')) {
- 
+            
             foreach ($request->car_image as $key) {
 
                 //get filename with extension
                 $filenamewithextension = $key->getClientOriginalName();
-        
+                
                 //get filename without extension
                 $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
         
@@ -61,8 +62,7 @@ class ManagegalleryController extends Controller
                 $extension = $key->getClientOriginalExtension();
         
                 //filename to store
-                $filenametostore = 'gallery/'.$filename.'_'.time().'.'.$extension;
-                //$filenametostore = 'gallery/'.time();
+                $filenametostore = 'blog/'.$filename.'_'.time().'.'.$extension;
 
                 //get file size
                 $filesize = filesize($key);
@@ -81,24 +81,33 @@ class ManagegalleryController extends Controller
                 }
 
                 $img->save($path);
-        
-                //Upload File to s3
-                //Storage::disk('s3')->put($filenametostore, file_get_contents($key), 'public');
-                //Storage::disk('s3')->put($filenametostore, fopen($request->file('car_image'), 'r+'));        
-                //$url = Storage::disk('s3')->url($filenametostore);
                 
-                $imagegallery = new ImageGallery;
-                $imagegallery->gallery_id = $newgallery->id;
-                $imagegallery->image_name = $filenametostore;
-                $imagegallery->image_size = $filesize;
-                $imagegallery->image_url = $path;
-                $imagegallery->save();
+                $imageblog = new ImageBlog;
+                $imageblog->blog_id = $newblog->id;
+                $imageblog->image_name = $filenametostore;
+                $imageblog->image_size = $filesize;
+                $imageblog->image_url = $path;
+                $imageblog->save();
+                
+	                // $images = "mygirl.jpg";
+                    // $new_images = "MyResize/mygirl.jpg";
+                    // $width=200; //*** Fix Width & Heigh (Autu caculate) ***//
+                    // $size=GetimageSize($images);
+                    // $height=round($width*$size[1]/$size[0]);
+                    // $images_orig = ImageCreateFromJPEG($images);
+                    // $photoX = ImagesX($images_orig);
+                    // $photoY = ImagesY($images_orig);
+                    // $images_fin = ImageCreateTrueColor($width, $height);
+                    // ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
+                    // ImageJPEG($images_fin,$new_images);
+                    // ImageDestroy($images_orig);
+                    // ImageDestroy($images_fin);
 
             }
         }
 
-        $gallery = Gallery::all();
-        return redirect()->route('admin.managegallery.index', compact('gallery'))->with('success','บันทึกข้อมูลสำเร็จ');
+        $blog = Blog::all();
+        return redirect()->route('admin.manageblog.index', compact('blog'))->with('success','บันทึกข้อมูลสำเร็จ');
     }
 
     /**
@@ -120,9 +129,9 @@ class ManagegalleryController extends Controller
      */
     public function edit($id)
     {
-        $gallery = Gallery::findOrFail($id);
-        $imagegallery = ImageGallery::where('gallery_id',$id)->get();
-        return view('admin.gallery.edit', compact('gallery','imagegallery'));
+        $blog = Blog::findOrFail($id);
+        $imageblog = ImageBlog::where('blog_id',$id)->get();
+        return view('admin.blog.edit', compact('blog','imageblog'));
     }
 
     /**
@@ -134,10 +143,11 @@ class ManagegalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $editgallery = Gallery::findOrFail($id);
-        $editgallery->detail = $request->detail;
-        $editgallery->status = $request->status;
-        $editgallery->save();
+        $editblog = Blog::findOrFail($id);
+        $editblog->header = $request->header;
+        $editblog->detail = $request->detail;
+        $editblog->status = $request->status;
+        $editblog->save();
 
         if($request->hasFile('car_image')) {
  
@@ -153,8 +163,8 @@ class ManagegalleryController extends Controller
                 $extension = $key->getClientOriginalExtension();
         
                 //filename to store
-                $filenametostore = 'gallery/'.$filename.'_'.time().'.'.$extension;
-                //$filenametostore = 'gallery/'.time();
+                $filenametostore = 'blog/'.$filename.'_'.time().'.'.$extension;
+                //$filenametostore = 'blog/'.time();
 
                 //get file size
                 $filesize = filesize($key);
@@ -169,23 +179,23 @@ class ManagegalleryController extends Controller
                     $img->resize($imgwidth, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
-                    
+
                 }
 
                 $img->save($path);
                 
-                $imagegallery = new ImageGallery;
-                $imagegallery->gallery_id = $editgallery->id;
-                $imagegallery->image_name = $filenametostore;
-                $imagegallery->image_size = $filesize;
-                $imagegallery->image_url = $path;
-                $imagegallery->save();
+                $imageblog = new ImageBlog;
+                $imageblog->blog_id = $editblog->id;
+                $imageblog->image_name = $filenametostore;
+                $imageblog->image_size = $filesize;
+                $imageblog->image_url = $path;
+                $imageblog->save();
 
             }
         }
 
-        $gallery = Gallery::all();
-        return redirect()->route('admin.managegallery.index', compact('gallery'))->with('success','บันทึกข้อมูลสำเร็จ');
+        $blog = Blog::all();
+        return redirect()->route('admin.manageblog.index', compact('blog'))->with('success','บันทึกข้อมูลสำเร็จ');
     }
 
     /**
@@ -196,24 +206,24 @@ class ManagegalleryController extends Controller
      */
     public function destroy($id)
     {
-        $oldgallery = Gallery::findOrFail($id);
-        $groupImageGallery = ImageGallery::where('gallery_id',$id)->get();
-        $oldgallery->delete();
+        $oldblog = Blog::findOrFail($id);
+        $groupImageBlog = ImageBlog::where('blog_id',$id)->get();
+        $oldblog->delete();
 
-        foreach ($groupImageGallery as $key) {
-            $imageGallery = ImageGallery::findOrFail($key->id);
-            unlink($imageGallery->image_url);
-            $imageGallery->delete();
+        foreach ($groupImageBlog as $key) {
+            $imageBlog = ImageBlog::findOrFail($key->id);
+            unlink($imageBlog->image_url);
+            $imageBlog->delete();
         }
 
-        $gallery = Gallery::all();
-        return redirect()->route('admin.managegallery.index', compact('gallery'))->with('del-success','ลบข้อมูลสำเร็จ');
+        $blog = Blog::all();
+        return redirect()->route('admin.manageblog.index', compact('blog'))->with('del-success','ลบข้อมูลสำเร็จ');
     }
 
-    public function countImgGallery(Request $request)
+    public function countImgBlog(Request $request)
     {
-        $countImageGallery = ImageGallery::where('gallery_id',$request->id)->count();
-        return Response::json(array($countImageGallery)); 
+        $countImageBlog = ImageBlog::where('blog_id',$request->id)->count();
+        return Response::json(array($countImageBlog)); 
     }
 
     /**
@@ -224,9 +234,9 @@ class ManagegalleryController extends Controller
      */
     public function destroyImage(Request $request)
     {
-        $ImageGallery = ImageGallery::findOrFail($request->key);
-        unlink($ImageGallery->image_url);
-        $ImageGallery->delete();
+        $imageBlog = ImageBlog::findOrFail($request->key);
+        unlink($imageBlog->image_url);
+        $imageBlog->delete();
         return "{}";
     }
 
@@ -242,19 +252,19 @@ class ManagegalleryController extends Controller
         }
 
         if ($request->input('ids')) {
-            $entriesGallery = Gallery::whereIn('id', $request->input('ids'))->get();
-            $entriesImageGallery = ImageGallery::whereIn('gallery_id', $request->input('ids'))->get();
+            $entriesBlog = Blog::whereIn('id', $request->input('ids'))->get();
+            $entriesImageBlog = ImageBlog::whereIn('blog_id', $request->input('ids'))->get();
 
-            foreach ($entriesGallery as $galleryentry) {
-                $galleryentry->delete();
+            foreach ($entriesBlog as $blogentry) {
+                $blogentry->delete();
             }
 
-            foreach ($entriesImageGallery as $imagegalleryentry) {
-                unlink($imagegalleryentry->image_url);
-                $imagegalleryentry->delete();
+            foreach ($entriesImageBlog as $imageblogentry) {
+                unlink($imageblogentry->image_url);
+                $imageblogentry->delete();
             }
-
         }
 
     }
+    
 }

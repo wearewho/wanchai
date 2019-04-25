@@ -109,7 +109,7 @@ class ManagecontactController extends Controller
         $editcontact->save();
 
         
-        return redirect()->route('admin.managecontact.index')->with('success','Data Updated');
+        return redirect()->route('admin.managecontact.index')->with('success','บันทึกข้อมูลสำเร็จ');
         
     }
 

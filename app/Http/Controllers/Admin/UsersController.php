@@ -102,7 +102,7 @@ class UsersController extends Controller
         $user->syncRoles($roles);
         LogActivity::addToLog('Update User successfully.');
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->with('success','บันทึกข้อมูลสำเร็จ');
     }
 
     /**

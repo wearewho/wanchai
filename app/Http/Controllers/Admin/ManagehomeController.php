@@ -114,7 +114,7 @@ class ManagehomeController extends Controller
         $promotion->status = $request->status;
         $promotion->save();
 
-        return redirect()->route('admin.managehome.index_promotion');
+        return redirect()->route('admin.managehome.index_promotion')->with('success','บันทึกข้อมูลสำเร็จ');
     }
 
     /**
@@ -236,7 +236,7 @@ class ManagehomeController extends Controller
         
         $update_newcar->save();
         
-        return redirect()->route('admin.managehome.index_newcar')->with('success','Data Updated');
+        return redirect()->route('admin.managehome.index_newcar')->with('success','บันทึกข้อมูลสำเร็จ');
     }
 
     public function update_promotion(Request $request, $id)
@@ -252,7 +252,7 @@ class ManagehomeController extends Controller
         $promotion->save();
         LogActivity::addToLog('Update Promotion Successfully.');
 
-        return redirect()->route('admin.managehome.index_promotion');
+        return redirect()->route('admin.managehome.index_promotion')->with('success','บันทึกข้อมูลสำเร็จ');
     }
     /**
      * Remove the specified resource from storage.
@@ -286,7 +286,7 @@ class ManagehomeController extends Controller
         $promotion->delete();
         LogActivity::addToLog('Delete Promotion Successfully.');
 
-        return redirect()->route('admin.managehome.index_promotion');
+        return redirect()->route('admin.managehome.index_promotion')->with('del-success','ลบข้อมูลสำเร็จ');
     }
     
     public function massDestroy_newcar(Request $request)

@@ -8,12 +8,16 @@
             <h3 class="box-title">@lang('global.website-management.fields.newcar_header')</h3>
         </div>
         <div class="box-body">
-            @if($message = Session::get('success'))
-            <div class="alert alert-success alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <h4><i class="icon fa fa-check"></i>{{$message}}</h4>
-            </div>
-            @endif
+                @if($message = Session::get('success'))
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <h5><i class="icon fa fa-check"></i>{{$message}}</h5>
+                        </div>
+                    </div>
+                </div>
+                @endif
             <div class="row">
                 <div class="col-xs-12 form-group">
                     <div class="file-loading">
@@ -230,6 +234,9 @@
                 alert("โปรดกรอกข้อมูลให้ครบ");  
                 event.preventDefault();             
             }
+        });
+        $(document).ready(function(){
+            $('.alert-dismissible').fadeOut(2500);
         });
     </script>    
 @endsection

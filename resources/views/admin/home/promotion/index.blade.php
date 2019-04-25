@@ -11,6 +11,26 @@
             </div>
         </div>
         <div class="box-body table-responsive">
+                @if($message = Session::get('success'))
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <h5><i class="icon fa fa-check"></i>{{$message}}</h5>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @if($message = Session::get('del-success'))
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <h5><i class="icon fa fa-check"></i>{{$message}}</h5>
+                        </div>
+                    </div>
+                </div>
+                @endif
             <table class="table table-bordered table-striped {{ count($promotion) > 0 ? 'datatable' : '' }} dt-select">
                 <thead>
                     <tr>
@@ -58,5 +78,8 @@
 @section('javascript') 
     <script>
         window.route_mass_crud_entries_destroy = '{{ route('admin.managehome.mass_promotion_destroy') }}';
+        $(document).ready(function(){
+            $('.alert-dismissible').fadeOut(2500);
+        });
     </script>
 @endsection

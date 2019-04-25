@@ -88,7 +88,7 @@ class PermissionsController extends Controller
         $permission = Permission::findOrFail($id);
         $permission->update($request->all());
 
-        return redirect()->route('admin.permissions.index');
+        return redirect()->route('admin.permissions.index')->with('success','บันทึกข้อมูลสำเร็จ');
     }
 
 

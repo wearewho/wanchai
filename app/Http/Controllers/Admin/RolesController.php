@@ -97,7 +97,7 @@ class RolesController extends Controller
         $permissions = $request->input('permission') ? $request->input('permission') : [];
         $role->syncPermissions($permissions);
 
-        return redirect()->route('admin.roles.index');
+        return redirect()->route('admin.roles.index')->with('success','บันทึกข้อมูลสำเร็จ');
     }
 
 
