@@ -98,6 +98,7 @@
 @stop
 
 @section('javascript') 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBINVRX-GNF4z1l8CPFrJL5dhIGY96a9-k&callback=initMap" async defer></script>
 
     <script>
         function Get_LatitudeAndLongtitude(){

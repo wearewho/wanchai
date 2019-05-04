@@ -53,4 +53,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('destroyImageGallery', ['uses' => 'Admin\ManagegalleryController@destroyImage', 'as' => 'managegallery.destroyImage']);
     Route::post('countImgGallery', ['uses' => 'Admin\ManagegalleryController@countImgGallery', 'as' => 'managegallery.countImgGallery']);
     Route::post('gallery_mass_destroy', ['uses' => 'Admin\ManagegalleryController@massDestroy', 'as' => 'managegallery.mass_destroy']);
+
+    Route::get('getAnalyticRealtime', 'HomeController@getAnalyticRealtime');
+    
  });
