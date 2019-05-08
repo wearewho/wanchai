@@ -9,7 +9,13 @@
 
             <div class="info-box-content">
                 <span class="info-box-text">การใช้งานมือถือ <small>(1 เดือนที่ผ่านมา)</small></span>
-                <span class="info-box-number">{{$mobileView->rows[0][1]}}</span>
+                <span class="info-box-number">
+                    @if ($mobileView->rows[0][1] == null)
+                        ไม่พบข้อมูล
+                    @else
+                        {{$mobileView->rows[0][1]}}
+                    @endif
+                </span>
             </div>
             <!-- /.info-box-content -->
             </div>
@@ -22,7 +28,13 @@
 
             <div class="info-box-content">
                 <span class="info-box-text">การใช้งานคอมพิวเตอร์ <small>(1 เดือนที่ผ่านมา)</small></span>
-                <span class="info-box-number">{{$desktopView->rows[0][1]}}</span>
+                <span class="info-box-number"> 
+                    @if ($desktopView->rows[0][1] == null)
+                        ไม่พบข้อมูล
+                    @else
+                        {{$desktopView->rows[0][1]}}
+                    @endif
+                </span>
             </div>
             <!-- /.info-box-content -->
             </div>
@@ -39,7 +51,13 @@
 
             <div class="info-box-content">
                 <span class="info-box-text">ผู้ใช้ใหม่ <small>(1 เดือนที่ผ่านมา)</small></span>
-                <span class="info-box-number">{{$newUsers->rows[0][0]}}</span>
+                <span class="info-box-number">
+                    @if ($newUsers->rows[0][0] == null)
+                        ไม่พบข้อมูล
+                    @else
+                        {{$newUsers->rows[0][0]}}
+                    @endif
+                </span>
             </div>
             <!-- /.info-box-content -->
             </div>
@@ -52,7 +70,13 @@
 
             <div class="info-box-content">
                 <span class="info-box-text">ช่วงอายุผู้ใช้งานที่เข้าชมมากที่สุด <small>(1 เดือนที่ผ่านมา)</small></span>
-                <span class="info-box-number">{{$ageUsers->rows[0][0]}} ปี</span>
+                <span class="info-box-number">
+                    @if ($ageUsers->rows[0][0] == null)
+                        ไม่พบข้อมูล
+                    @else
+                        {{$ageUsers->rows[0][0]}} ปี
+                    @endif
+                </span>
             </div>
             <!-- /.info-box-content -->
             </div>
@@ -158,17 +182,17 @@
                 <div class="tab-content">
                     <div class="tab-pane" id="tab_1-1">
                         <h4 style="text-align:center;">ผู้ใช้ที่ใช้งานใน 1 ปีที่ผ่านมา</h4>
-                        <h1 style="text-align:center;">{{$view1year}}</h1>
+                        <h1 style="text-align:center;">{{ is_null($view1year) ? '0' : $view1year }}</h1>
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_2-1">
                         <h4 style="text-align:center;">ผู้ใช้ที่ใช้งานใน 1 เดือนที่ผ่านมา</h4>
-                        <h1 style="text-align:center;">{{$view1month}}</h1>
+                        <h1 style="text-align:center;">{{ is_null($view1month) ? '0' : $view1month }}</h1>
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_3-1">
                         <h4 style="text-align:center;">ผู้ใช้ที่ใช้งานใน 7 วันที่ผ่านมา</h4>
-                        <h1 style="text-align:center;">{{$view1week}}</h1>
+                        <h1 style="text-align:center;">{{ is_null($view1week) ? '0' : $view1week }}</h1>
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane active" id="tab_4-1">
@@ -205,7 +229,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($search1year) > 0)
+                            @if (isset($search1year) > 0)
                                 @foreach ($search1year as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -232,7 +256,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($search1month) > 0)
+                            @if (isset($search1month) > 0)
                                 @foreach ($search1month as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -259,7 +283,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($search1week) > 0)
+                            @if (isset($search1week) > 0)
                                 @foreach ($search1week as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -286,7 +310,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($search1day) > 0)
+                            @if (isset($search1day) > 0)
                                 @foreach ($search1day as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -318,11 +342,17 @@
                     </div>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body">
-                    <div class="chart">
-                        <canvas id="lineChart" style="height:280px"></canvas>
+                @if ($time1week == null)
+                    <div class="box-body" style="height:280px">
+                        <h4 style="text-align:center;">ไม่พบข้อมูล</h4>
                     </div>
-                </div>
+                @else
+                    <div class="box-body">
+                        <div class="chart">
+                            <canvas id="lineChart" style="height:280px"></canvas>
+                        </div>
+                    </div>
+                @endif
                 <!-- /.box-body -->
             </div>
             <!-- /.box -->
@@ -348,7 +378,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($page1year) > 0)
+                            @if (isset($page1year) > 0)
                                 @foreach ($page1year as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -375,7 +405,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($page1month) > 0)
+                            @if (isset($page1month) > 0)
                                 @foreach ($page1month as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -402,7 +432,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($page1week) > 0)
+                            @if (isset($page1week) > 0)
                                 @foreach ($page1week as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -429,7 +459,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($page1day) > 0)
+                            @if (isset($page1day) > 0)
                                 @foreach ($page1day as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -470,7 +500,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($region1year) > 0)
+                            @if (isset($region1year) > 0)
                                 @foreach ($region1year as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -497,7 +527,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($region1month) > 0)
+                            @if (isset($region1month) > 0)
                                 @foreach ($region1month as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -524,7 +554,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($region1week) > 0)
+                            @if (isset($region1week) > 0)
                                 @foreach ($region1week as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -551,7 +581,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($region1day) > 0)
+                            @if (isset($region1day) > 0)
                                 @foreach ($region1day as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -592,7 +622,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($age1year) > 0)
+                            @if (isset($age1year) > 0)
                                 @foreach ($age1year as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -619,7 +649,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($age1month) > 0)
+                            @if (isset($age1month) > 0)
                                 @foreach ($age1month as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -646,7 +676,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($age1week) > 0)
+                            @if (isset($age1week) > 0)
                                 @foreach ($age1week as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -673,7 +703,7 @@
                             @php
                                 $x = 1;
                             @endphp
-                            @if (count($age1day) > 0)
+                            @if (isset($age1day) > 0)
                                 @foreach ($age1day as $item)
                                     <tr>
                                         <td>{{$x++}}</td>
@@ -728,6 +758,8 @@
                     var regions = data[2].rows;
                     var pages = data[3].rows;
                     var userToday = data[4];
+                  
+                    console.log(activeUser,deviceUser,regions,pages,userToday);
 
                     if (oldDataTodayUsers != userToday) {
                         $('#userToday').text(userToday);
@@ -745,60 +777,75 @@
                         $('#displayNonZero').css('display','');
 
                         //Device
-                        let convertOldDataDevices = {};
-                        $.each(oldDataDevices, function (key, val) {
-                            var thisName = this[0];
-                            convertOldDataDevices[thisName] = this[1];
-                        });
+                        if (oldDataDevices != null) {
+                            let convertOldDataDevices = {};
+                            $.each(oldDataDevices, function (key, val) {
+                                var thisName = this[0];
+                                convertOldDataDevices[thisName] = this[1];
+                            });
 
-                        let convertNewDataDevices = {};
-                        $.each(deviceUser, function (key, val) {
-                            var thisName = this[0];
-                            convertNewDataDevices[thisName] = this[1];
-                        });
+                            let convertNewDataDevices = {};
+                            $.each(deviceUser, function (key, val) {
+                                var thisName = this[0];
+                                convertNewDataDevices[thisName] = this[1];
+                            });
 
-                        var resultDevices = _.isEqual(convertOldDataDevices, convertNewDataDevices);
-                        if(resultDevices == false){
-                            piechart(activeUser,deviceUser);
-                            resultDevices == true;
+                            var resultDevices = _.isEqual(convertOldDataDevices, convertNewDataDevices);
+                            if(resultDevices == false){
+                                piechart(activeUser,deviceUser);
+                                resultDevices == true;
+                            }
+                        }else{
+                          piechart(activeUser,deviceUser);
+                          resultDevices == true;
                         }
 
                         //Region
-                        let convertOldDataRegions = {};
-                        $.each(oldDataRegions, function (key, val) {
-                            var thisName = this[0];
-                            convertOldDataRegions[thisName] = this[1];
-                        });
+                        if (oldDataRegions != null) {
+                            let convertOldDataRegions = {};
+                            $.each(oldDataRegions, function (key, val) {
+                                var thisName = this[0];
+                                convertOldDataRegions[thisName] = this[1];
+                            });
 
-                        let convertNewDataRegions = {};
-                        $.each(regions, function (key, val) {
-                            var thisName = this[0];
-                            convertNewDataRegions[thisName] = this[1];
-                        });
+                            let convertNewDataRegions = {};
+                            $.each(regions, function (key, val) {
+                                var thisName = this[0];
+                                convertNewDataRegions[thisName] = this[1];
+                            });
 
-                        var resultRegions = _.isEqual(convertOldDataRegions, convertNewDataRegions);
-                        if(resultRegions == false){
-                            regionchart(activeUser,regions);
-                            resultRegions == true;
+                            var resultRegions = _.isEqual(convertOldDataRegions, convertNewDataRegions);
+                            if(resultRegions == false){
+                                regionchart(activeUser,regions);
+                                resultRegions == true;
+                            }
+                        }else{
+                          regionchart(activeUser,regions);
+                          resultRegions == true;
                         }
 
                         //Page
-                        let convertOldDataPages = {};
-                        $.each(oldDataPages, function (key, val) {
-                            var thisName = this[0];
-                            convertOldDataPages[thisName] = this[1];
-                        });
+                        if (oldDataPages != null) {
+                            let convertOldDataPages = {};
+                            $.each(oldDataPages, function (key, val) {
+                                var thisName = this[0];
+                                convertOldDataPages[thisName] = this[1];
+                            });
 
-                        let convertNewDataPages = {};
-                        $.each(pages, function (key, val) {
-                            var thisName = this[0];
-                            convertNewDataPages[thisName] = this[1];
-                        });
+                            let convertNewDataPages = {};
+                            $.each(pages, function (key, val) {
+                                var thisName = this[0];
+                                convertNewDataPages[thisName] = this[1];
+                            });
 
-                        var resultPages = _.isEqual(convertOldDataPages, convertNewDataPages);
-                        if(resultPages == false){
-                            pagechart(activeUser,pages);
-                            resultPages == true;
+                            var resultPages = _.isEqual(convertOldDataPages, convertNewDataPages);
+                            if(resultPages == false){
+                                pagechart(activeUser,pages);
+                                resultPages == true;
+                            }
+                        }else{
+                          pagechart(activeUser,pages);
+                          resultPages == true;
                         }
 
                     }
@@ -816,7 +863,7 @@
         });
 
     //}, 5000);
-    }, 10000);
+    }, 15000);
 
 });
 
@@ -945,115 +992,118 @@ function hexToRgbA(hex){
 
 function timechart(oldDataTime){
 
-    var x = -1;
-    $.each(oldDataTime, function (key, val) {
-        x++;
+    if (oldDataTime != null) {
+        var x = -1;
+        $.each(oldDataTime, function (key, val) {
+            x++;
 
-        var front = this[0].slice(0, -2);
-        var lasttwo = this[0].slice(-2);
+            var front = this[0].slice(0, -2);
+            var lasttwo = this[0].slice(-2);
 
-        if (lasttwo != n(x)) {
+            if (lasttwo != n(x)) {
 
-            for (let index = x; index < lasttwo; index++) {
-                let objectTemp = [];
-                let newX = 0;
-                let tostring = n(index).toString();
-                objectTemp[0] = front+tostring;
-                objectTemp[1] = "0";
-                oldDataTime.push(objectTemp);
-                x = x+1;
-                newX = n(x);
+                for (let index = x; index < lasttwo; index++) {
+                    let objectTemp = [];
+                    let newX = 0;
+                    let tostring = n(index).toString();
+                    objectTemp[0] = front+tostring;
+                    objectTemp[1] = "0";
+                    oldDataTime.push(objectTemp);
+                    x = x+1;
+                    newX = n(x);
+
+                }
 
             }
 
-        }
-
-        if (n(x) == 23) {
-            x = -1;
-        }
-    });
-
-    var realData = _.chunk(_.orderBy(oldDataTime, [0],['asc']), 24);
-
-    var arrayConvertData = [];
-    var z = 0;
-    $.each(realData, function (key, val) {
-        z++;
-
-        var inArrayConvertData = [];
-        $.each(this, function (key, val) {
-            inArrayConvertData.push(this[1]);
+            if (n(x) == 23) {
+                x = -1;
+            }
         });
-        
-        let front = this[0][0].slice(0, -2);
-        let color = getColor(z);
-        let rgbaColor = hexToRgbA(color);
-        var doubleInArrayConvertData = {};
-        doubleInArrayConvertData.label = moment(front).format('DD/MM/YYYY');
-        doubleInArrayConvertData.fillColor = rgbaColor;
-        doubleInArrayConvertData.strokeColor = rgbaColor;
-        doubleInArrayConvertData.pointColor = color;
-        doubleInArrayConvertData.pointStrokeColor = rgbaColor;
-        doubleInArrayConvertData.pointHighlightFill = '#fff';
-        doubleInArrayConvertData.pointHighlightStroke = rgbaColor;
-        doubleInArrayConvertData.data = inArrayConvertData;
-        arrayConvertData.push(doubleInArrayConvertData);
 
-    });
+        var realData = _.chunk(_.orderBy(oldDataTime, [0],['asc']), 24);
 
-    var areaChartData = {
-      labels  : ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00',
-                '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
-      datasets: arrayConvertData
+        var arrayConvertData = [];
+        var z = 0;
+        $.each(realData, function (key, val) {
+            z++;
+
+            var inArrayConvertData = [];
+            $.each(this, function (key, val) {
+                inArrayConvertData.push(this[1]);
+            });
+            
+            let front = this[0][0].slice(0, -2);
+            let color = getColor(z);
+            let rgbaColor = hexToRgbA(color);
+            var doubleInArrayConvertData = {};
+            doubleInArrayConvertData.label = moment(front).format('DD/MM/YYYY');
+            doubleInArrayConvertData.fillColor = rgbaColor;
+            doubleInArrayConvertData.strokeColor = rgbaColor;
+            doubleInArrayConvertData.pointColor = color;
+            doubleInArrayConvertData.pointStrokeColor = rgbaColor;
+            doubleInArrayConvertData.pointHighlightFill = '#fff';
+            doubleInArrayConvertData.pointHighlightStroke = rgbaColor;
+            doubleInArrayConvertData.data = inArrayConvertData;
+            arrayConvertData.push(doubleInArrayConvertData);
+
+        });
+
+        var areaChartData = {
+        labels  : ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00',
+                    '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+        datasets: arrayConvertData
+        }
+
+        var areaChartOptions = {
+        //Boolean - If we should show the scale at all
+        showScale               : true,
+        //Boolean - Whether grid lines are shown across the chart
+        scaleShowGridLines      : false,
+        //String - Colour of the grid lines
+        scaleGridLineColor      : 'rgba(0,0,0,.05)',
+        //Number - Width of the grid lines
+        scaleGridLineWidth      : 1,
+        //Boolean - Whether to show horizontal lines (except X axis)
+        scaleShowHorizontalLines: true,
+        //Boolean - Whether to show vertical lines (except Y axis)
+        scaleShowVerticalLines  : true,
+        //Boolean - Whether the line is curved between points
+        bezierCurve             : true,
+        //Number - Tension of the bezier curve between points
+        bezierCurveTension      : 0.3,
+        //Boolean - Whether to show a dot for each point
+        pointDot                : false,
+        //Number - Radius of each point dot in pixels
+        pointDotRadius          : 4,
+        //Number - Pixel width of point dot stroke
+        pointDotStrokeWidth     : 1,
+        //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+        pointHitDetectionRadius : 20,
+        //Boolean - Whether to show a stroke for datasets
+        datasetStroke           : true,
+        //Number - Pixel width of dataset stroke
+        datasetStrokeWidth      : 2,
+        //Boolean - Whether to fill the dataset with a color
+        datasetFill             : true,
+        //String - A legend template
+        legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].lineColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
+        //Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+        maintainAspectRatio     : true,
+        //Boolean - whether to make the chart responsive to window resizing
+        responsive              : true
+        }
+
+        //-------------
+        //- LINE CHART -
+        //--------------
+        var lineChartCanvas          = $('#lineChart').get(0).getContext('2d')
+        var lineChart                = new Chart(lineChartCanvas)
+        var lineChartOptions         = areaChartOptions
+        lineChartOptions.datasetFill = false
+        lineChart.Line(areaChartData, lineChartOptions)
     }
 
-    var areaChartOptions = {
-      //Boolean - If we should show the scale at all
-      showScale               : true,
-      //Boolean - Whether grid lines are shown across the chart
-      scaleShowGridLines      : false,
-      //String - Colour of the grid lines
-      scaleGridLineColor      : 'rgba(0,0,0,.05)',
-      //Number - Width of the grid lines
-      scaleGridLineWidth      : 1,
-      //Boolean - Whether to show horizontal lines (except X axis)
-      scaleShowHorizontalLines: true,
-      //Boolean - Whether to show vertical lines (except Y axis)
-      scaleShowVerticalLines  : true,
-      //Boolean - Whether the line is curved between points
-      bezierCurve             : true,
-      //Number - Tension of the bezier curve between points
-      bezierCurveTension      : 0.3,
-      //Boolean - Whether to show a dot for each point
-      pointDot                : false,
-      //Number - Radius of each point dot in pixels
-      pointDotRadius          : 4,
-      //Number - Pixel width of point dot stroke
-      pointDotStrokeWidth     : 1,
-      //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
-      pointHitDetectionRadius : 20,
-      //Boolean - Whether to show a stroke for datasets
-      datasetStroke           : true,
-      //Number - Pixel width of dataset stroke
-      datasetStrokeWidth      : 2,
-      //Boolean - Whether to fill the dataset with a color
-      datasetFill             : true,
-      //String - A legend template
-      legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].lineColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
-      //Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-      maintainAspectRatio     : true,
-      //Boolean - whether to make the chart responsive to window resizing
-      responsive              : true
-    }
-
-    //-------------
-    //- LINE CHART -
-    //--------------
-    var lineChartCanvas          = $('#lineChart').get(0).getContext('2d')
-    var lineChart                = new Chart(lineChartCanvas)
-    var lineChartOptions         = areaChartOptions
-    lineChartOptions.datasetFill = false
-    lineChart.Line(areaChartData, lineChartOptions)
 }
 
 function getColor(x) {
