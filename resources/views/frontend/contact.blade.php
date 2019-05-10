@@ -56,10 +56,10 @@
                                 <div class="cnt-inf-bx brd-rd10">
                                     <i class="fa fa-globe"></i>
                                     <strong>Social</strong>
-                                    <a href="#" title="" itemprop="url"><i class="fa fa-facebook"></i> &nbsp; facebook.{{$contact->facebook}}</a>
-                                    <a href="#" title="" itemprop="url"><i class="fa fa-instagram"></i> &nbsp;{{$contact->instragram}}</a>
-                                    <a href="#" title="" itemprop="url"><i class="fa fa-youtube"></i> &nbsp;{{$contact->youtube}}</a>
-                                    <a href="#" title="" itemprop="url">Line ID </i> :&nbsp;{{$contact->line}}</a>
+                                    <a href="{{$contact->facebook}}" title="" itemprop="url"><i class="fa fa-facebook"></i> &nbsp; facebook.{{$contact->facebook}}</a>
+                                    <a href="{{$contact->instragram}}" title="" itemprop="url"><i class="fa fa-instagram"></i> &nbsp;{{$contact->instragram}}</a>
+                                    <a href="{{$contact->youtube}}" title="" itemprop="url"><i class="fa fa-youtube"></i> &nbsp;{{$contact->youtube}}</a>
+                                    <a href="{{$contact->line}}" title="" itemprop="url">Line ID </i> :&nbsp;{{$contact->line}}</a>
                                 </div>
                             </div>
                         </div>
