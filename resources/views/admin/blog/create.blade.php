@@ -12,13 +12,43 @@
         </div>
         <div class="box-body">
             <div class="row">
-                <div class="col-md-10 col-xs-12 form-group">
+                <div class="col-md-6 col-xs-12 form-group">
                     {!! Form::label('header', trans('global.website-management.fields.header').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('header', old('header'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('header'))
                         <p class="help-block">
                             {{ $errors->first('header') }}
+                        </p>
+                    @endif
+                </div>
+                <div class="col-md-2 col-xs-12 form-group">
+                    {!! Form::label('type', trans('global.website-management.fields.type').'*', ['class' => 'control-label']) !!}
+                    <select id="type" class="form-control select2" name="type" required>
+                        <option selected disabled value="">--เลือกประเภทรถ--</option>
+                        @foreach ($type as $item)
+                            <option value="{{$item}}">{{$item}}</option>
+                        @endforeach
+                    </select>
+                    <p class="help-block"></p>
+                    @if($errors->has('type'))
+                        <p class="help-block">
+                            {{ $errors->first('type') }}
+                        </p>
+                    @endif
+                </div>
+                <div class="col-md-2 col-xs-12 form-group">
+                    {!! Form::label('brand', trans('global.website-management.fields.brand').'*', ['class' => 'control-label']) !!}
+                    <select id="brand" class="form-control select2" name="brand" required>
+                        <option selected disabled value="">--เลือกยี่ห้อรถ--</option>
+                        @foreach ($brand as $item)
+                            <option value="{{$item}}">{{$item}}</option>
+                        @endforeach
+                    </select>
+                    <p class="help-block"></p>
+                    @if($errors->has('brand'))
+                        <p class="help-block">
+                            {{ $errors->first('brand') }}
                         </p>
                     @endif
                 </div>
@@ -67,6 +97,11 @@
     @section('javascript') 
         <script>
             $(document).on('ready', function() {
+                
+                $('.select2').select2({
+                    tags : true
+                });
+
                 $("#car_image").fileinput({
                     maxFileCount: 10,
                     validateInitialCount: true,

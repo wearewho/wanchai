@@ -14,20 +14,25 @@
         <div class="box-body">
             <div class="row">
                 <div class="col-md-10 col-xs-12 form-group">
-                    {!! Form::label('detail', trans('global.website-management.fields.detail').'*', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('detail', old('detail'), ['class' => 'form-control', 'required' => '', 'placeholder' => '', 'rows' => 4, 'cols' => 12, 'style' => 'resize:none']) !!}
+                    {!! Form::label('header', trans('global.website-management.fields.header').'*', ['class' => 'control-label']) !!}
+                    {!! Form::text('header', old('header'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('detail'))
+                    @if($errors->has('header'))
                         <p class="help-block">
-                            {{ $errors->first('detail') }}
+                            {{ $errors->first('header') }}
                         </p>
                     @endif
                 </div>
                 <div class="col-md-2 col-xs-12 form-group">
                     {!! Form::label('status', trans('global.website-management.fields.home_promotion_status').'*', ['class' => 'control-label']) !!}
                     <select id="status" class="form-control" name="status">
-                        <option value="publish" selected>@lang('global.website-management.fields.home_promotion_publish')</option>
-                        <option value="unpublish">@lang('global.website-management.fields.home_promotion_unpublish')</option>
+                        @if ($gallery->status == 'publish')
+                            <option value="publish" selected>@lang('global.website-management.fields.home_promotion_publish')</option>
+                            <option value="unpublish">@lang('global.website-management.fields.home_promotion_unpublish')</option>
+                        @else
+                            <option value="publish">@lang('global.website-management.fields.home_promotion_publish')</option>
+                            <option value="unpublish" selected>@lang('global.website-management.fields.home_promotion_unpublish')</option>
+                        @endif
                     </select>
                     <p class="help-block"></p>
                     @if($errors->has('status'))
@@ -38,9 +43,21 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-12 col-xs-12 form-group">
+                    {!! Form::label('detail', trans('global.website-management.fields.detail').'*', ['class' => 'control-label']) !!}
+                    {!! Form::textarea('detail', old('detail'), ['class' => 'form-control', 'required' => '', 'placeholder' => '', 'rows' => 4, 'cols' => 12, 'style' => 'resize:none']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('detail'))
+                        <p class="help-block">
+                            {{ $errors->first('detail') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-xs-12 form-group">
                     <div class="file-loading">
-                        <input id="car_image" name="car_image[]" type="file" accept="image/*" data-browse-on-zone-click="true" data-show-upload="false" required>
+                        <input id="car_image" name="car_image[]" type="file" multiple accept="image/*" data-browse-on-zone-click="true" data-show-upload="false" required>
                     </div> 
                 </div>
             </div>
@@ -86,7 +103,8 @@
             });
             
             $("#car_image").fileinput({
-                maxFileCount: 1,
+                maxFileCount: 4,
+                maxFileSize: 2048,
                 validateInitialCount: true,
                 overwriteInitial: false,
                 initialPreview: imgArray,

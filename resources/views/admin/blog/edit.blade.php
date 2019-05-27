@@ -13,7 +13,7 @@
         </div>
         <div class="box-body">
             <div class="row">
-                <div class="col-md-10 col-xs-12 form-group">
+                <div class="col-md-6 col-xs-12 form-group">
                     {!! Form::label('header', trans('global.website-management.fields.header').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('header', old('header'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
@@ -24,10 +24,51 @@
                     @endif
                 </div>
                 <div class="col-md-2 col-xs-12 form-group">
+                    {!! Form::label('type', trans('global.website-management.fields.type').'*', ['class' => 'control-label']) !!}
+                    <select id="type" class="form-control select2" name="type" required>
+                        @foreach ($type as $item)
+                            @if ($item == $blog->type)
+                                <option value="{{$blog->type}}" selected>{{$blog->type}}</option>
+                            @else
+                                <option value="{{$item}}">{{$item}}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                    <p class="help-block"></p>
+                    @if($errors->has('type'))
+                        <p class="help-block">
+                            {{ $errors->first('type') }}
+                        </p>
+                    @endif
+                </div>
+                <div class="col-md-2 col-xs-12 form-group">
+                    {!! Form::label('brand', trans('global.website-management.fields.brand').'*', ['class' => 'control-label']) !!}
+                    <select id="brand" class="form-control select2" name="brand" required>
+                        @foreach ($brand as $item)
+                        @if ($item == $blog->brand)
+                            <option value="{{$blog->brand}}" selected>{{$blog->brand}}</option>
+                        @else
+                            <option value="{{$item}}">{{$item}}</option>
+                        @endif
+                    @endforeach
+                    </select>
+                    <p class="help-block"></p>
+                    @if($errors->has('brand'))
+                        <p class="help-block">
+                            {{ $errors->first('brand') }}
+                        </p>
+                    @endif
+                </div>
+                <div class="col-md-2 col-xs-12 form-group">
                     {!! Form::label('status', trans('global.website-management.fields.home_promotion_status').'*', ['class' => 'control-label']) !!}
                     <select id="status" class="form-control" name="status">
-                        <option value="publish" selected>@lang('global.website-management.fields.home_promotion_publish')</option>
-                        <option value="unpublish">@lang('global.website-management.fields.home_promotion_unpublish')</option>
+                        @if ($blog->status == 'publish')
+                            <option value="publish" selected>@lang('global.website-management.fields.home_promotion_publish')</option>
+                            <option value="unpublish">@lang('global.website-management.fields.home_promotion_unpublish')</option>
+                        @else
+                            <option value="publish">@lang('global.website-management.fields.home_promotion_publish')</option>
+                            <option value="unpublish" selected>@lang('global.website-management.fields.home_promotion_unpublish')</option>
+                        @endif
                     </select>
                     <p class="help-block"></p>
                     @if($errors->has('status'))

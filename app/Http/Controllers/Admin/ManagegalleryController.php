@@ -164,6 +164,7 @@ class ManagegalleryController extends Controller
         }
 
         $editgallery = Gallery::findOrFail($id);
+        $editgallery->header = $request->header;
         $editgallery->detail = $request->detail;
         $editgallery->status = $request->status;
         $editgallery->save();

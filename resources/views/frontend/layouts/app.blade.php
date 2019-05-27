@@ -4,15 +4,15 @@
     @include('frontend.partials.head')
 </head>
 <body itemscope>
-    <div class="fakeLoader"></div>
-    <main>
+    <main class="paddlrb40" style="padding-top: 40px;">
+
         @include('frontend.partials.header')
         
         @yield('frontendcontent')
-            
-        @include('frontend.partials.footer')
 
     </main><!-- Main Wrapper -->
+            
+    @include('frontend.partials.footer')
 
     @include('frontend.partials.javascripts')
 </body>	

@@ -44,7 +44,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="treeview {{ $request->segment(2) == 'newcar' || $request->segment(2) == 'promotion' ? 'active active-sub' : '' }}">
+                    {{-- <li class="treeview {{ $request->segment(2) == 'newcar' || $request->segment(2) == 'promotion' ? 'active active-sub' : '' }}"> --}}
+                    <li class="treeview {{ $request->segment(2) == 'service' ? 'active active-sub' : '' }}">
                         <a href="{{ route('admin.permissions.index') }}">
                             <i class="fa fa-home"></i> 
                             @lang('global.website-management.fields.home')
@@ -53,18 +54,24 @@
                             </span>
                         </a>
                         <ul class="treeview-menu" style="display: block;">
-                            <li class="{{ $request->segment(2) == 'newcar' ? 'active active-sub' : '' }}">
+                            <li class="{{ $request->segment(2) == 'service' ? 'active active-sub' : '' }}">
+                                <a href="{{ route('admin.managehome.index_service') }}">
+                                <i class="fa fa-circle-o"></i> 
+                                    @lang('global.website-management.fields.home_service')
+                                </a>
+                            </li>
+                            {{-- <li class="{{ $request->segment(2) == 'service' ? 'active active-sub' : '' }}">
                                 <a href="{{ route('admin.managehome.index_newcar') }}">
                                 <i class="fa fa-circle-o"></i> 
                                     @lang('global.website-management.fields.home_newcar')
                                 </a>
-                            </li>
+                            </li> --}}
                             <li class="{{ $request->segment(2) == 'promotion' ? 'active active-sub' : '' }}">
                                 <a href="{{ route('admin.managehome.index_promotion') }}">
                                 <i class="fa fa-circle-o"></i> 
                                     @lang('global.website-management.fields.home_promotion')
                                 </a>
-                            </li>
+                            </li> 
                         </ul>
                     </li>
                     <li class="{{ $request->segment(2) == 'managecontact' ? 'active active-sub' : '' }}">

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Newcar;
 use App\Promotion;
+use App\Service;
 use LogActivity;
 use Response;
 use Image;
@@ -49,6 +50,16 @@ class ManagehomeController extends Controller
 
         $promotion = Promotion::all();
         return view('admin.home.promotion.index',compact('promotion'));
+    }
+
+    public function index_service()
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        $service = Service::where('id',1)->first();
+        return view('admin.home.service.index',compact('service'));
     }
 
     /**
@@ -264,6 +275,25 @@ class ManagehomeController extends Controller
         LogActivity::addToLog('Update New Car ID:'.$id.' By '.$this->user()->name);
         
         return redirect()->route('admin.managehome.index_newcar')->with('success','บันทึกข้อมูลสำเร็จ');
+    }
+
+    public function update_service(Request $request, $id)
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        $update_service = Service::findOrFail($id);
+        $update_service->document_header = $request->document_header;
+        $update_service->document_detail = $request->document_detail;
+        $update_service->promotion_header = $request->promotion_header;
+        $update_service->promotion_detail = $request->promotion_detail;
+        $update_service->service_header = $request->service_header;
+        $update_service->service_detail = $request->service_detail;   
+        $update_service->save();
+        LogActivity::addToLog('Update Service By '.$this->user()->name);
+        
+        return redirect()->route('admin.managehome.index_service')->with('success','บันทึกข้อมูลสำเร็จ');
     }
 
     public function update_promotion(Request $request, $id)

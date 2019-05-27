@@ -29,12 +29,14 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('users_mass_destroy', ['uses' => 'Admin\UsersController@massDestroy', 'as' => 'users.mass_destroy']);
     Route::resource('managehome', 'Admin\ManagehomeController');
     Route::put('/newcar/{id}', 'Admin\ManagehomeController@update_newcar')->name('managehome.update_newcar');
+    Route::put('/service/{id}', 'Admin\ManagehomeController@update_service')->name('managehome.update_service');
     Route::put('/promotion/{id}', 'Admin\ManagehomeController@update_promotion')->name('managehome.update_promotion');
     Route::delete('/newcar/{id}', 'Admin\ManagehomeController@destroy_newcar')->name('managehome.destroy_newcar');
     Route::delete('/promotion/{id}', 'Admin\ManagehomeController@destroy_promotion')->name('managehome.destroy_promotion');
     Route::post('newcar_mass_destroy', ['uses' => 'Admin\ManagehomeController@massDestroy_newcar', 'as' => 'managehome.mass_newcar_destroy']);
     Route::post('promotion_mass_destroy', ['uses' => 'Admin\ManagehomeController@massDestroy_promotion', 'as' => 'managehome.mass_promotion_destroy']);
     Route::get('/newcar', 'Admin\ManagehomeController@index_newcar')->name('managehome.index_newcar');
+    Route::get('/service', 'Admin\ManagehomeController@index_service')->name('managehome.index_service');
     Route::get('/promotion', 'Admin\ManagehomeController@index_promotion')->name('managehome.index_promotion');
     Route::get('/create_newcar', 'Admin\ManagehomeController@create_newcar')->name('managehome.create_newcar');
     Route::get('/create_promotion', 'Admin\ManagehomeController@create_promotion')->name('managehome.create_promotion');
