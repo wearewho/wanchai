@@ -26,8 +26,13 @@
                 <div class="col-md-2 col-xs-12 form-group">
                     {!! Form::label('status', trans('global.website-management.fields.home_promotion_status').'*', ['class' => 'control-label']) !!}
                     <select id="status" class="form-control" name="status">
-                        <option value="publish" selected>@lang('global.website-management.fields.home_promotion_publish')</option>
-                        <option value="unpublish">@lang('global.website-management.fields.home_promotion_unpublish')</option>
+                        @if ($blog->status == "publish")
+                            <option value="publish" selected>@lang('global.website-management.fields.home_promotion_publish')</option>
+                            <option value="unpublish">@lang('global.website-management.fields.home_promotion_unpublish')</option>
+                        @else
+                            <option value="publish">@lang('global.website-management.fields.home_promotion_publish')</option>
+                            <option value="unpublish" selected>@lang('global.website-management.fields.home_promotion_unpublish')</option>
+                        @endif
                     </select>
                     <p class="help-block"></p>
                     @if($errors->has('status'))
