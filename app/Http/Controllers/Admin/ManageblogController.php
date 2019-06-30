@@ -47,7 +47,10 @@ class ManageblogController extends Controller
             return abort(401);
         }
 
-        return view('admin.blog.create');
+        $type = Blog::distinct('type')->pluck('type');
+        $brand = Blog::distinct('brand')->pluck('brand');
+
+        return view('admin.blog.create',compact('type','brand'));
     }
 
     /**
@@ -64,6 +67,8 @@ class ManageblogController extends Controller
 
         $newblog = new Blog;
         $newblog->header = $request->header;
+        $newblog->type = $request->type;
+        $newblog->brand = $request->brand;
         $newblog->detail = $request->detail;
         $newblog->status = $request->status;
         $newblog->save();
@@ -157,7 +162,9 @@ class ManageblogController extends Controller
 
         $blog = Blog::findOrFail($id);
         $imageblog = ImageBlog::where('blog_id',$id)->get();
-        return view('admin.blog.edit', compact('blog','imageblog'));
+        $type = Blog::distinct('type')->pluck('type');
+        $brand = Blog::distinct('brand')->pluck('brand');
+        return view('admin.blog.edit', compact('blog','imageblog','type','brand'));
     }
 
     /**
@@ -175,6 +182,8 @@ class ManageblogController extends Controller
 
         $editblog = Blog::findOrFail($id);
         $editblog->header = $request->header;
+        $editblog->type = $request->type;
+        $editblog->brand = $request->brand;
         $editblog->detail = $request->detail;
         $editblog->status = $request->status;
         $editblog->save();

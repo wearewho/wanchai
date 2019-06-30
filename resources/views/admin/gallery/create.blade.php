@@ -13,12 +13,12 @@
         <div class="box-body">
             <div class="row">
                 <div class="col-md-10 col-xs-12 form-group">
-                    {!! Form::label('detail', trans('global.website-management.fields.detail').'*', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('detail', old('detail'), ['class' => 'form-control', 'placeholder' => '', 'required' => '', 'rows' => 4, 'cols' => 12, 'style' => 'resize:none']) !!}
+                    {!! Form::label('header', trans('global.website-management.fields.header').'*', ['class' => 'control-label']) !!}
+                    {!! Form::text('header', old('header'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('detail'))
+                    @if($errors->has('header'))
                         <p class="help-block">
-                            {{ $errors->first('detail') }}
+                            {{ $errors->first('header') }}
                         </p>
                     @endif
                 </div>
@@ -32,6 +32,18 @@
                     @if($errors->has('status'))
                         <p class="help-block">
                             {{ $errors->first('status') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-xs-12 form-group">
+                    {!! Form::label('detail', trans('global.website-management.fields.detail').'*', ['class' => 'control-label']) !!}
+                    {!! Form::textarea('detail', old('detail'), ['class' => 'form-control', 'placeholder' => '', 'required' => '', 'rows' => 4, 'cols' => 12, 'style' => 'resize:none']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('detail'))
+                        <p class="help-block">
+                            {{ $errors->first('detail') }}
                         </p>
                     @endif
                 </div>

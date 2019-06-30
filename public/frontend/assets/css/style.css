@@ -123,28 +123,26 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i);
 
-/*===== TH Sarabunnew =====*/
-@import url(fonts/thsarabunnew.css);
 
 /*===== General Styling =====*/
 html, 
 body {overflow-x:hidden;}
 body {
   float: left;
-  font-family: 'THSarabunNew', open sans;
+  font-family: open sans;
   letter-spacing: 0;
   margin: 0;
   position: relative;
   width: 100%;
 }
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   color: #252525;
   letter-spacing: 0;
   font-weight: 700;
 }
 p {
-  font-family: 'THSarabunNew', open sans;
+  font-family: open sans;
   color: #666;
   line-height: 28px;
   font-size: 15px;
@@ -152,7 +150,7 @@ p {
 }
 ul li,
 ol li {
-  font-family: 'THSarabunNew', open sans;
+  font-family: open sans;
   color:#666;
   font-size:14px;
   line-height:30px;
@@ -383,13 +381,13 @@ section {
 .mrg55 {margin: 0 -27.5px;}
 .mrg55 > div {padding: 0 27.5px;}
 .grad-bg {
-  background: -moz-linear-gradient(0deg, rgba(237,20,91,1) 0%, rgba(110,69,226,1) 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(237,20,91,1)), color-stop(100%, rgba(110,69,226,1)));
-  background: -webkit-linear-gradient(0deg, rgba(237,20,91,1) 0%, rgba(110,69,226,1) 100%);
-  background: -o-linear-gradient(0deg, rgba(237,20,91,1) 0%, rgba(110,69,226,1) 100%);
-  background: -ms-linear-gradient(0deg, rgba(237,20,91,1) 0%, rgba(110,69,226,1) 100%);
-  background: linear-gradient(90deg, rgba(237,20,91,1) 0%, rgba(110,69,226,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed145b', endColorstr='#6e45e2',GradientType=1 );
+  background: -moz-linear-gradient(0deg, rgb(254 , 243, 39) 0%, rgb(254 , 243, 39) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgb(254 , 243, 39)), color-stop(100%, rgb(254 , 243, 39)));
+  background: -webkit-linear-gradient(0deg, rgb(254 , 243, 39) 0%, rgb(254 , 243, 39) 100%);
+  background: -o-linear-gradient(0deg, rgb(254 , 243, 39) 0%, rgb(254 , 243, 39) 100%);
+  background: -ms-linear-gradient(0deg, rgb(254 , 243, 39) 0%, rgb(254 , 243, 39) 100%);
+  background: linear-gradient(90deg, rgb(254 , 243, 39) 0%, rgb(254 , 243, 39) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4d036', endColorstr='#f4d036',GradientType=1 );
  }
  .pg-bg-img1:before {
   background-image: url(../images/page-bg1.png);
@@ -858,7 +856,7 @@ nav > div ul ul li a:focus {color: #fff;}
   box-shadow: 0 3px 2px rgba(0,0,0,.2);
   top: 100%;
   left: 0;
-  min-width: 1050px;
+  min-width: 700px;
   padding: 0 50px;
   opacity: 0;
   visibility: hidden;
@@ -1007,7 +1005,7 @@ nav > div ul li {
   width: 100%;
   color: #6f6f6f;
   font-size: 14px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   position: relative;
   font-weight: 400;
 }
@@ -1100,7 +1098,7 @@ header.style3 {top: -40px;}
 .tp-lst > li {
   float: left;
   line-height: 40px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 400;
   position: relative;
   font-size: 13px;
@@ -1122,7 +1120,7 @@ header.style3 {top: -40px;}
   background-color: transparent;
   font-weight: 600;
   font-size: 13px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   letter-spacing: .5px;
   padding-left: 25px;
   height: 40px;
@@ -1377,7 +1375,7 @@ html.mnu-actv {overflow-y: hidden;}
 .mnu-cntr {
   float: left;
   width: 100%;
-  text-align: center;
+  padding: 0px 350px;
 }
 .mnu-cntr > ul {
   display: inline-block;
@@ -1402,17 +1400,17 @@ html.mnu-actv {overflow-y: hidden;}
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
 }
 .mnu-cntr ul ul.children {
   position: absolute;
   left: 120%;
-  min-width: 275px;
+  min-width: 400px;
   text-align: initial;
   top: -20px;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   max-height: 330px;
-  background-color: #353535;
+  background-color: #535351;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   -webkit-box-shadow: 0 3px rgba(0,0,0,.2);
@@ -1455,7 +1453,7 @@ html.mnu-actv {overflow-y: hidden;}
   top: 13px;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
-  border-right: 14px solid #353535;
+  border-right: 14px solid #fff;
   opacity: 0;
 }
 .mnu-cntr ul li.menu-item-has-children:hover::before {
@@ -1538,7 +1536,7 @@ header.style7 .hdr-srch + .scl-btns2::before,
   margin-top: 20px;
   text-transform: uppercase;
   font-size: 14px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 700;
   color: #fff;
 }
@@ -1759,7 +1757,7 @@ header.style10 .menu-wrp2 nav > div > .hdr-scl + ul:before {
   color: #fff;
   line-height: 50px;
   font-size: 14px;
-  font-family: 'THSarabunNew', open sans;
+  font-family: open sans;
   font-weight: 600;
 }
 .topbar4 .tp-lst > li + li {
@@ -1936,7 +1934,7 @@ body.sticky-active .sticky-header {
   background-color: transparent;
   border: 0 none;
   color: #7e7e7e;
-  font-family: 'THSarabunNew', open sans;
+  font-family: open sans;
   font-size: 10px;
   font-style: italic;
   height: 100%;
@@ -2023,7 +2021,7 @@ body.sticky-active .sticky-header {
 .rsnp-mnu > ul > li {
   color: #fff;
   float: left;
-  font-family: 'THSarabunNew', open sans;
+  font-family: open sans;
   font-size: 13px;
   font-weight: 600;
   margin-bottom: 20px;
@@ -2055,7 +2053,7 @@ body.sticky-active .sticky-header {
 }
 .rsnp-mnu > ul ul > li {
   color: #a4a4a4;
-  font-family: 'THSarabunNew', open sans;
+  font-family: open sans;
   font-size: 13px;
   font-weight: 500;
   margin-bottom: 6px;
@@ -2104,9 +2102,9 @@ body.sticky-active .sticky-header {
 }
 .rgst-tl > p {
   margin-bottom: 0;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   color: #616161;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-size: 17px;
 }
 .rqst-frm {
@@ -2190,7 +2188,7 @@ body.sticky-active .sticky-header {
   z-index: 1;
   overflow: hidden;
   font-size: 12px;
-  font-family: 'THSarabunNew', open sans;
+  font-family: open sans;
 }
 .thm-btn > i {margin-left: 10px;}
 .thm-btn:before {
@@ -2342,7 +2340,7 @@ body.sticky-active .sticky-header {
 .busns-slut-tbs > ul.nav-tabs li.nav-item {
   margin-bottom: 0;
   font-size: 15px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 500;
   color: #000;
   display: inline-block;
@@ -2412,7 +2410,7 @@ body.sticky-active .sticky-header {
   margin-top: 2px;
   font-size: 15px;
   color: #696969;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
 }
 /*===== Portfolio Style 1 =====*/
 .prtfl-box > img {width: 100%;}
@@ -2549,7 +2547,7 @@ body.sticky-active .sticky-header {
 .pln-hdr > span {
   font-size: 32px;
   color: #000;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 700;
   display: inline-block;
   margin-top: 3px;
@@ -2632,7 +2630,7 @@ body.sticky-active .sticky-header {
   top: 30px;
 }
 .cmp-cre-tl > span {
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-size: 15px;
 }
 .cmp-cre-tl > h2 {
@@ -2713,7 +2711,7 @@ body.sticky-active .sticky-header {
 }
 .bst-ida-inf > span {
   font-size: 15px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
 }
 .bst-ida-inf > h2 {
   font-size: 42px;
@@ -2735,7 +2733,7 @@ body.sticky-active .sticky-header {
   position: absolute;
   left: -90px;
   top: 50%;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 700;
   font-size: 250px;
   z-index: -1;
@@ -2841,7 +2839,7 @@ body.sticky-active .sticky-header {
 .testi-inf-innr > span {
   color: #979797;
   font-size: 14px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
 }
 .testi-itm > p {
   font-style: italic;
@@ -3130,7 +3128,7 @@ body.sticky-active .sticky-header {
   float: left;
   font-size: 13px;
   color: #343434;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   border-bottom: 2px solid #525252;
   line-height: 40px;
 }
@@ -3238,7 +3236,7 @@ footer {
 .wdgt-inf > span {
   font-size: 11px;
   font-weight: 600;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   margin-top: 7px;
   display: block;
 }
@@ -3278,7 +3276,7 @@ footer {
   margin: 0;
   font-size: 13px;
   color: #929292;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 500;
 }
 /*===== Services Style 2 =====*/
@@ -3290,7 +3288,7 @@ footer {
 }
 .srv-wrp:before {
   content: "Services";
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 700;
   color: #ecf4f9;
   font-size: 200px;
@@ -3314,7 +3312,7 @@ footer {
   width: 100%;
 }
 .srv-box2 > i + .srv-inf2 {
-  width: calc(100% - 50px);
+  width: calc(100% - 70px);
   padding-left: 30px;
 }
 .srv-inf2 > h4 {
@@ -3349,7 +3347,7 @@ footer {
 .fltr-btns > li {
   display: inline-block;
   line-height: initial;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   text-transform: uppercase;
   position: relative;
   color: #000;
@@ -3500,7 +3498,7 @@ footer {
   text-transform: uppercase;
   font-weight: 500;
   color: #666;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   letter-spacing: 1px;
 }
 .fact-inf > h4 + span {margin-top: 5px;}
@@ -3591,7 +3589,7 @@ footer {
 .tem-prg > span {
   font-size: 16px;
   font-weight: 500;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   margin-bottom: 10px;
 }
 .black-layer2 .tem-prg > span {color: #fff;}
@@ -3633,7 +3631,7 @@ footer {
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-size: 17.8px;
 }
 .tem-car2 .owl-nav > button.owl-prev i, 
@@ -3853,7 +3851,7 @@ footer {
   color: #9d9d9d;
   font-size: 16px;
   letter-spacing: -.2px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 300;
 }
 .pln-bdy2 {
@@ -3863,7 +3861,7 @@ footer {
 }
 .pln-bdy2 > span {
   color: #fff;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 700;
   font-size: 34px;
   letter-spacing: -.8px;
@@ -4036,7 +4034,7 @@ footer {
 .testi-inf2 > h6 + span {margin-top: 5px;}
 .testi-inf2 > span {
   display: inline-block;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-size: 15px;
   color: #303030;
 }
@@ -4126,7 +4124,7 @@ footer {
   border-radius: 5px;
   z-index: 1;
   font-size: 13px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   text-transform: uppercase;
   font-weight: 600;
   padding: 8px 20px;
@@ -4506,7 +4504,7 @@ footer {
   line-height: 27px;
 }
 .srv-inf4 > span + p {margin-top: 12px;}
-.srv-box4:hover {background-color: #f5f5f5;}
+.srv-box4:hover {background-color: rgb(254 , 243, 39);}
 .srv-box4:hover .srv-inf4 > h4, 
 .srv-box4:hover .srv-inf4 > span {color: #1b1b1b;}
 .srv-box4:hover .srv-inf4 > p {color: #696969;}
@@ -4531,7 +4529,7 @@ footer {
 .imprv-inf > span {
   display: inline-block;
   font-size: 18px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
 }
 .busns-slut-inf2 > span i,
 .imprv-inf > span i {
@@ -4541,12 +4539,12 @@ footer {
   font-weight: 700;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-image: -moz-linear-gradient(0deg, rgba(237,20,91,1) 0%, rgba(110,69,226,1) 100%);
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(237,20,91,1)), color-stop(100%, rgba(110,69,226,1)));
-  background-image: -webkit-linear-gradient(0deg, rgba(237,20,91,1) 0%, rgba(110,69,226,1) 100%);
-  background-image: -o-linear-gradient(0deg, rgba(237,20,91,1) 0%, rgba(110,69,226,1) 100%);
-  background-image: -ms-linear-gradient(0deg, rgba(237,20,91,1) 0%, rgba(110,69,226,1) 100%);
-  background-image: linear-gradient(90deg, rgba(237,20,91,1) 0%, rgba(110,69,226,1) 100%);
+  background-image: -moz-linear-gradient(0deg, rgb(254 , 243, 39) 0%, rgb(254 , 243, 39) 100%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, rgb(254 , 243, 39)), color-stop(100%, rgb(254 , 243, 39)));
+  background-image: -webkit-linear-gradient(0deg, rgb(254 , 243, 39) 0%, rgb(254 , 243, 39) 100%);
+  background-image: -o-linear-gradient(0deg, rgb(254 , 243, 39) 0%, rgb(254 , 243, 39) 100%);
+  background-image: -ms-linear-gradient(0deg, rgb(254 , 243, 39) 0%, rgb(254 , 243, 39) 100%);
+  background-image: linear-gradient(90deg, rgb(254 , 243, 39) 0%, rgb(254 , 243, 39) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed145b', endColorstr='#6e45e2',GradientType=1 );
   display: inline-block;
   line-height: 1;
@@ -4591,7 +4589,7 @@ footer {
 .explr-wrp-tbs > ul.nav-tabs > li.nav-item {
   margin-bottom: 0;
   float: left;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-size: 15px;
   color: #252525;
   font-weight: 500;
@@ -4654,7 +4652,7 @@ footer {
   font-weight: 600;
   font-size: 12px;
   letter-spacing: .5px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
 }
 .explr-inf > span + h4 {margin-top: 5px;}
 .explr-inf > h4 {
@@ -4732,7 +4730,7 @@ footer {
 }
 .pst-inf-styl3 > span {
   display: inline-block;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-size: 15px;
   font-weight: 500;
 }
@@ -4794,7 +4792,7 @@ footer {
 .fact-box3 > span {
   font-size: 17px;
   display: inline-block;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 600;
 }
 .drk-blu-bg .fact-box3 > h4 {color: #fff;}
@@ -4839,7 +4837,7 @@ footer {
 }
 .prtfl-inf4 > span {
   color: #efefef;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   display: inline-block;
   font-size: 17px;
   font-weight: 500;
@@ -4935,7 +4933,7 @@ footer {
   font-size: 100px;
   font-style: normal;
   font-weight: 600;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   color: #000;
 }
 .exp-in > span {
@@ -4944,7 +4942,7 @@ footer {
   display: inline-block;
   max-width: 120px;
   text-align: left;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   margin-left: 20px;
 }
 /*===== Functions Wrap =====*/
@@ -5078,7 +5076,7 @@ footer {
   -webkit-border-radius: 30px;
   border-radius: 30px;
   font-size: 12px;
-  font-family: 'THSarabunNew', open sans;
+  font-family: open sans;
   color: #fff;
   text-transform: uppercase;
   font-weight: 400;
@@ -5090,14 +5088,14 @@ footer {
 .cmp-feat-inf-inr > i {
   font-size: 16px;
   font-style: normal;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 300;
   display: block;
 }
 .cmp-feat-inf-inr > span.prc {
   font-size: 26px;
   font-weight: 600;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   display: inline-block;
   margin-top: 20px;
 }
@@ -5144,7 +5142,7 @@ footer {
   display: block;
   font-size: 13px;
   text-transform: uppercase;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 600;
   letter-spacing: 5px;
 }
@@ -5191,7 +5189,7 @@ footer {
 .busns-inf-lst > li span {
   float: left;
   width: 100%;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 500;
   font-size: 20px;
   color: #2f3d48;
@@ -5242,7 +5240,7 @@ footer {
   margin: 10px 10px 0 0;
   font-size: 16px;
   color: #aab9ce;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 500;
   border: 1px solid #ebebeb;
   -webkit-border-radius: 30px;
@@ -5273,7 +5271,7 @@ footer {
 .awrd-inf > span {
   color: #fff;
   float: left;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 600;
   font-size: 16px;
 }
@@ -5306,7 +5304,7 @@ footer {
 .awrd-desc-lst > li {
   float: left;
   color: #fff;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-size: 25px;
   font-weight: 700;
   border-bottom: 2px solid #fff;
@@ -5389,7 +5387,7 @@ footer {
   margin-bottom: 0;
 }
 .pln-hdr3 > span {
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   color: #343434;
   display: block;
   font-weight: 300;
@@ -5402,7 +5400,7 @@ footer {
 .pln-hdr3 + .pln-bdy3 {margin-top: 20px;}
 .pln-bdy3 > span {
   font-size: 34px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 600;
   color: #343434;
   display: inline-block;
@@ -5410,7 +5408,7 @@ footer {
 .pln-bdy3 .pln-feat-lst {margin-top: 10px;}
 .pln-bdy3 .pln-feat-lst > li {
   color: #343434;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
 }
 .pln-box3 > a {margin-top: 35px;}
 /*===== Testimonials Style 5 =====*/
@@ -5446,7 +5444,7 @@ footer {
 .jntm-plnprj-inf > span {
   color: #fff;
   text-transform: uppercase;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-size: 25px;
 }
 .jntm-plnprj-inf > h4 {
@@ -5470,7 +5468,7 @@ footer {
   float: left;
 }
 .btm-lnks > li {
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   float: left;
   color: #000;
   font-size: 15px;
@@ -5493,7 +5491,7 @@ footer {
 .srv-box5 > span {
   color: #ededed;
   font-size: 62px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 700;
   line-height: 50px;
 }
@@ -5510,7 +5508,7 @@ footer {
   line-height: 25px;
   color: #7e7e7e;
   margin-bottom: 0;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
 }
 .srv-box5 > p + a {margin-top: 25px;}
 .srv-box5:before {
@@ -5576,7 +5574,7 @@ footer {
 }
 .prc-tbl-tb-nv > li.nav-item {
   margin-bottom: 0;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 600;
   font-size: 20px;
   color: #fff;
@@ -5699,7 +5697,7 @@ footer {
   display: block;
   color: #555;
   text-transform: uppercase;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 500;
   font-size: 14px;
   line-height: initial;
@@ -5985,7 +5983,7 @@ footer {
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 5px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
 }
 .hw-hlp-inr > span + h2 {margin-top: 10px;}
 .hw-hlp-inr > h2 {
@@ -6088,7 +6086,7 @@ footer {
   width: 100%;
   font-size: 18px;
   font-weight: 500;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   position: relative;
   padding-left: 25px;
 }
@@ -6407,7 +6405,7 @@ footer {
   direction: ltr;
 }
 .pst-inf-styl4 > span {
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 500;
   font-size: 14px;
   display: block;
@@ -6513,7 +6511,7 @@ footer {
   display: inline-block;
   font-size: 16px;
   font-weight: 500;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   border-bottom: 1px solid;
   padding-bottom: 7px;
 }
@@ -6540,7 +6538,7 @@ footer {
 }
 .srv-skl-inr .skl-prg > span {
   font-size: 16px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 500;
 }
 .srv-skl-inr:before {
@@ -6550,7 +6548,7 @@ footer {
   right: 0;
   top: 0;
   color: #f7f7f7;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 700;
   font-size: 220px;
   z-index: -1;
@@ -6818,7 +6816,7 @@ footer {
 }
 .breadcrumb > li.breadcrumb-item {
   font-size: 15px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 500;
   display: inherit;
   float: left;
@@ -7146,7 +7144,7 @@ blockquote > p {
   font-weight: 600;
   text-transform: uppercase;
   color: #000;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-size: 14px;
   vertical-align: middle;
   margin-right: 7px;
@@ -7266,7 +7264,7 @@ blockquote > p {
 .cmt-inf > a {
   font-size: 11px;
   color: #000;
-  font-family: 'THSarabunNew', open sans;
+  font-family: open sans;
   font-weight: 700;
   display: inline-block;
   margin-top: 20px;
@@ -7343,7 +7341,7 @@ blockquote > p {
   margin-left: -100px;
 }
 .abt-me-inf > span {
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-size: 30px;
   font-weight: 700;
   display: inline-block;
@@ -7373,7 +7371,7 @@ blockquote > p {
   margin-left: 15px;
   font-weight: 500;
   font-size: 15px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
 }
 /*===== About Me Style 2 =====*/
 .col-md-7 .abt-me-inf {
@@ -7649,7 +7647,7 @@ blockquote > p {
 .srv-dtl-lst > li h4 {
   margin-bottom: 0;
   font-size: 23px;
-  font-family: 'THSarabunNew', open sans;
+  font-family: open sans;
 }
 .srv-dtl-lst > li h4 + p {margin-top: 10px;}
 .srv-dtl-lst > li p {
@@ -7678,7 +7676,7 @@ blockquote > p {
 .prtfl-dtl-dec2-wrp .tgl-styl.style3 .tgl-itm > h4.active {color: #fff;}
 .srv-dtl-inr div > h3 {
   font-size: 23px;
-  font-family: 'THSarabunNew', open sans;
+  font-family: open sans;
   margin-bottom: 0;
 }
 .srv-dtl-inr div > h3 ~ p {margin-top: 20px;}
@@ -8085,7 +8083,7 @@ blockquote > p {
 .prtfl-dtl-dec2 > span {
   color: #696969;
   font-size: 14px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
 }
 .prtfl-dtl-dec2 > span + h2 {margin-top: 5px;}
 .prtfl-dtl-dec2 > h2 {
@@ -8245,7 +8243,7 @@ blockquote > p {
   font-size: 24px;
   text-transform: initial;
   color: #000;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 600;
   margin-top: 10px;
 }
@@ -8278,13 +8276,13 @@ blockquote > p {
   width: 50%;
   margin-top: 15px;
   font-size: 15px;
-  font-family: 'THSarabunNew', poppins;
+  font-family: poppins;
   font-weight: 300;
 }
 .thm-bg .prtfl-dtl-inf-inr > li {color: #fff;}
 .prtfl-dtl-inf-inr > li strong {
   display: block;
-  font-family: 'THSarabunNew', open sans;
+  font-family: open sans;
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 5px;
@@ -8423,3 +8421,7 @@ blockquote > p {
 .prtfl-dtl-vdo > a:focus {color: #fff;}
 .prtfl-dtl-inf + .prtfl-imgs,
 .prtfl-imgs + .prtfl-dtl-dec {margin-top: 50px;}
+
+h1.txthead{
+  font-size: 75px; color:#fff;
+}

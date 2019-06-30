@@ -1,11 +1,8 @@
 <script src="{{ url('frontend/assets/js/jquery.min.js') }}"></script>
-<script src="{{ url('frontend/assets/js/fakeLoader.js') }}"></script>
 <script src="{{ url('frontend/assets/js/bootstrap.min.js') }}"></script>
 <script src="{{ url('frontend/assets/js/plugins.min.js') }}"></script>
 <script src="{{ url('frontend/assets/js/part-int.js') }}"></script>
-<script src="{{ url('frontend/assets/js/part-int2.js') }}"></script>
 <script src="{{ url('frontend/assets/js/custom-scripts.js') }}"></script>
-<script src="{{ url('frontend/assets/js/floating-totop-button.js') }}"></script>
 
 <script src="{{ url('frontend/assets/js/revolution/jquery.themepunch.tools.min.js') }}"></script>
 <script src="{{ url('frontend/assets/js/revolution/jquery.themepunch.revolution.min.js') }}"></script>
@@ -20,7 +17,6 @@
 <script src="{{ url('frontend/assets/js/revolution/extensions/revolution.extension.parallax.min.js') }}"></script>
 <script src="{{ url('frontend/assets/js/revolution/extensions/revolution.extension.slideanims.min.js') }}"></script>
 <script src="{{ url('frontend/assets/js/revolution/extensions/revolution.extension.video.min.js') }}"></script>
-<script src="{{ url('frontend/assets/js/revolution/revolution-init.js') }}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
@@ -30,11 +26,11 @@
 <script>
     window._token = '{{ csrf_token() }}';
 
-    $.fakeLoader({
-        timeToHide:1200,
-        bgColor:"#ec376c",
-        spinner:"spinner7"
-    });
+    // $.fakeLoader({
+    //     timeToHide:1200,
+    //     bgColor:"#ec376c",
+    //     spinner:"spinner7"
+    // });
 
     $.ajaxSetup({
             headers: {
@@ -42,7 +38,7 @@
             }
         });
 
-    $("body").toTopButton();
+    //$("body").toTopButton();
 
 </script>
 

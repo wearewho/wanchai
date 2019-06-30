@@ -1,142 +1,32 @@
 
 
 @inject('request', 'Illuminate\Http\Request')
-@extends('frontend.layouts.index')
+@extends('frontend.layouts.app')
 
 @section('frontendcontent')
 
+    <!-- CONTENT -->	
     <section>
-        <div class="gap">
+        <div class="gap remove-gap bottom-spac220" style="padding-bottom: 125px; margin-top:50px;">
             <div class="container">
-                <div class="busns-slut-wrp">
+                <div class="busns-slut-wrp2 rv">
                     <div class="row">
-                        <div class="col-md-6 col-sm-12 col-lg-6 slideInLeft wow" data-wow-duration="1s" data-wow-delay=".2s">
-                            <div class="hir-box text-center">
-                                <img src="{{ $newcar->image_url }}" alt="{{ $newcar->image_name }}" style="margin-left: 0px;margin-right:-90px;" itemprop="image">
-                                <a class="thm-btn" href="{{ url('blog') }}" title="" itemprop="url">กดชมรถ</a>
+                        <div class="col-md-6 col-sm-12 col-lg-6 slideInRight wow" data-wow-duration="1s" data-wow-delay=".2s">
+                            <div class="busns-slut-mckp top-spac90">
+                                <img src="{{ url('frontend/assets/images/22.png') }}" alt="solt-mckp2.png" itemprop="image">
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12 col-lg-6">
-                            <div class="busns-slut-tbs">
-                                <ul class="nav nav-tabs">
-                                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#busns-slut-tb1">รถเข้าใหม่</a></li>
-                                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#busns-slut-tb2">คุณสมบัติ</a></li>
-                                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#busns-slut-tb3">รีวิว</a></li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div class="tab-pane fade show active" id="busns-slut-tb1">
-                                        <h2 itemprop="headline">{{ $newcar->newcar_header }}</h2>
-                                        <p itemprop="description">{{ $newcar->newcar_detail }}</p>
-                                        <div class="skl-prg-wrp">
-                                            <div class="row">
-                                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                                    <div class="skl-prg">
-                                                        <span class="pull-left">ความนิยม</span>
-                                                        <span class="pull-right">70%</span>
-                                                        <div class="progress">
-                                                            <div class="progress-bar thm-bg wdth70 slideInLeft wow" data-wow-duration=".2s" data-wow-delay=".1s"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                                    <div class="skl-prg">
-                                                        <span class="pull-left">ยอดขาย</span>
-                                                        <span class="pull-right">90%</span>
-                                                        <div class="progress">
-                                                            <div class="progress-bar thm-bg wdth90 slideInLeft wow" data-wow-duration=".2s" data-wow-delay=".2s"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="busns-slut-tb2">
-                                        <h2 itemprop="headline">{{ $newcar->property_header }}</h2>
-                                        <p itemprop="description">{{ $newcar->property_detail }}</p>
-                                        {{-- <div class="skl-prg-wrp">
-                                            <div class="row">
-                                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                                    <div class="skl-prg">
-                                                        <span class="pull-left">ความนิยม</span>
-                                                        <span class="pull-right">40%</span>
-                                                        <div class="progress">
-                                                            <div class="progress-bar thm-bg wdth40 slideInLeft wow" data-wow-duration=".1s" data-wow-delay=".1s"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                                    <div class="skl-prg">
-                                                        <span class="pull-left">ยอดขาย</span>
-                                                        <span class="pull-right">60%</span>
-                                                        <div class="progress">
-                                                            <div class="progress-bar thm-bg wdth60 slideInLeft wow" data-wow-duration=".1s" data-wow-delay=".2s"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> --}}
-                                    </div>
-                                    <div class="tab-pane fade" id="busns-slut-tb3">
-                                        <h2 itemprop="headline">{{ $newcar->review_header }}</h2>
-                                        <p itemprop="description">{{ $newcar->review_detail }}</p>
-                                        {{-- <div class="skl-prg-wrp">
-                                            <div class="row">
-                                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                                    <div class="skl-prg">
-                                                        <span class="pull-left">ความนิยม</span>
-                                                        <span class="pull-right">50%</span>
-                                                        <div class="progress">
-                                                            <div class="progress-bar thm-bg wdth50 slideInLeft wow" data-wow-duration=".1s" data-wow-delay=".1s"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                                    <div class="skl-prg">
-                                                        <span class="pull-left">ยอดขาย</span>
-                                                        <span class="pull-right">100%</span>
-                                                        <div class="progress">
-                                                            <div class="progress-bar thm-bg wdth100 slideInLeft wow" data-wow-duration=".1s" data-wow-delay=".2s"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- Business Solutions Wrap -->
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="gap gray-bg top-spac70 bottom-spac50" style="background-color:#000;">
-            <div class="container">
-                <div class="remove-ext4 text-center">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6 col-lg-3">
-                            <div class="srv-box">
-                                <!-- <i class="fa fa-facebook-square fa-5" style="color: #fff;"></i> -->
-                                <img src="{{ url('frontend/assets/images/facebook.png') }}" width="80" height="105" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-lg-3">
-                            <div class="srv-box">
-                                <!-- <i class="fa fa-youtube-square fa-5" style="color: #fff;"></i> -->
-                                <img src="{{ url('frontend/assets/images/youtube.png') }}" width="80" height="105" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-lg-3">
-                            <div class="srv-box">
-                                <!-- <i class="fa fa-instagram fa-5" style="color: #fff;"></i> -->
-                                <img src="{{ url('frontend/assets/images/ig.png') }}" width="80" height="105" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-lg-3">
-                            <div class="srv-box">
-                                <!-- <i class="fab fa-line fa-5" style="color: #fff;"></i> -->
-                                <img src="{{ url('frontend/assets/images/line.png') }}" width="80" height="105" alt="">
+                            <div class="busns-slut-inf2">
+                                <p><span>ประสบการณ์กว่า</span></p>
+                            <span> 
+                                <i>20</i> ปี
+                                <p></p>
+                                <p style="font-size: 18px;font-family: poppins;">ในการคัดสรรรถยนต์เพื่อคุณ</p> 
+                                </span>
+                                <h2 itemprop="headline">ดีเอสยนต์ โชว์รูมรถมือสองคุณภาพสูง</h2>
+                                <p itemprop="description">ดีเอสยนต์ เปิดทำการเป็นนิติบุคคลตั้งแต่วันที่ 29 เมษายน 2552 ปัจจุบันเปิดดำเนินการมามากกว่าสิบปีด้วยความเชื่อมั่นจากลูกค้าในจังหวัดสกลนคร และทั่วประเทศ โดยก่อนหน้านี้ทางดีเอสยนต์ได้เปิดขายรถยนต์ในนามบุคคลชื่อ “ดีเอส รถบ้านสวย” มาก่อนแล้ว ตั้งแต่ปี2539 รวมระยะเวลาเกิน2ทศวรรษ จึงขอให้ท่านมั่นใจในสินค้าและการบริการของเราได้.</p>
+                                <a class="thm-btn" href="#" title="" itemprop="url" style="background-color: rgb(254 , 243, 39);">เลือกซื้อรถมือสอง</a>
                             </div>
                         </div>
                     </div>
@@ -144,184 +34,261 @@
             </div>
         </div>
     </section>
-    <section>
-        <div class="gap remove-gap">
-            <br><br>
-            <div class="container">
-                <div class="sec-title text-center">
-                    <h2 itemprop="headline">@lang('global.website-management.fields.home_promotion')</h2>
-                    <span>บริษัทขอสงวนสิทธ์ในการเปลี่ยนแปลงเงื่อนไข ยกเลิกได้ โดยไม่ต้องแจ้งให้ทราบล่วงหน้า</span>
-                </div>
-                <div class="remove-ext3">
-                    <div class="row">
-                        @foreach ($promotion as $item)
-                            <div class="col-md-4 col-sm-6 col-lg-4 slideInUp wow" data-wow-duration=".8s" data-wow-delay=".1s">
-                                <div class="pln-box">
-                                    <div class="pln-hdr">
-                                        <h4 itemprop="headline">{{$item->header}}</h4>
-                                        {{-- <span>$10<i>/month</i></span> --}}
-                                    </div>
-                                    <div class="pln-bdy">
-                                        <p>{{$item->detail}}</p>
-                                        {{-- <ul class="pln-feat-lst">
-                                            <li>5GB Storage Space</li>
-                                            <li>20GB Monthly Bandwidth</li>
-                                            <li>My SQL Databases</li>
-                                            <li>100 Email Account</li>
-                                            <li>10 Free Domain Names</li>
-                                        </ul> --}}
-                                    </div>
-                                    {{-- <a class="thm-btn" href="#" title="" itemprop="url">Select Plan</a> --}}
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="gap black-layer opc1">
-            <div id="prtcl1" class="particle-bx"></div>
-            <div class="fixed-bg2" style="background-image:url(frontend/assets/images/gravity.png);"></div>
-            <div class="container">
-                <div class="cmp-cre-wrp">
-                    <div class="row flex-row-reverse">
-                        <div class="col-md-7 col-sm-12 col-lg-7">
-                            <div class="cmp-cre">
-                                <div class="cmp-cre-tl">
-                                    <i class="flaticon-play-button"></i>
-                                    <span>Our Company Start</span>
-                                    <h2 itemprop="headline">เรื่องราวของ "พอใจ ออโต้" <br> จุดเริ่มต้นของคนซื้อรถที่อยากขายรถ จนถึงวันที่ช่วยคนอื่นหารถที่ทุกคนต้องการ</h2>
-                                </div>
-                                <p itemprop="description">Suspendisse facilisis commodo lobortis. Nullam mollis lobortis ex vel faucibus. Proin nec viverra turpis. Nulla eget justo scelerisque, pretium purus vel, congue libero. Suspendisse potenti. Sed risus nisi, auctor nec auctor id, luctus sed dui. In ex tellus,</p>
-                                <div class="facts-wrp remove-ext3">
-                                    <div class="row">
-                                        <div class="col-md-4 col-sm-4 col-lg-4">
-                                            <div class="fact-box">
-                                                <h4 itemprop="headline"><span class="counter">2300</span></h4>
-                                                <span>Powerful options</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4 col-lg-4">
-                                            <div class="fact-box">
-                                                <h4 itemprop="headline"><span class="counter">1270</span></h4>
-                                                <span>Satisfied Clients</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4 col-lg-4">
-                                            <div class="fact-box">
-                                                <h4 itemprop="headline"><span class="counter">360</span></h4>
-                                                <span>Best projects</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- Facts Wrap -->
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- Company Care Wrap -->
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="gap black-layer opc75">
-            <div id="prtcl2" class="particle-bx"></div>
-            <div class="fixed-bg" style="background-image:url(frontend/assets/images/bgtwohand.png);"></div>
-            <div class="container">
-                <div class="sec-title text-center">
-                    <h2 itemprop="headline">เลือกชมรถมือสอง</h2>
-                    {{-- <span>New stunning projects for our amazing clients.</span> --}}
-                </div>
-                <div class="remove-ext5">
-                    <div class="row">
-                        @foreach ($blog as $item)
-                            <div class="col-md-4 col-sm-6 col-lg-4 slideInUp wow" data-wow-duration=".8s" data-wow-delay=".1s">
-                                <div class="pst-box-styl1">
-                                    <div class="pst-thmb-styl1">
-                                    <span class="pst-dat">{{ date("d/m/Y", strtotime($item->created_at)) }}</span>
-                                        <a href="{{ route('blog-detail',[$item->id]) }}" title="" itemprop="url"><img src="{{$item->imageblog[0]->image_url}}" alt="{{$item->imageblog[0]->image_name}}" itemprop="image"></a>
-                                    </div>
-                                    <div class="pst-inf-styl1">
-                                        <h4 itemprop="headline"><a href="{{ route('blog-detail',[$item->id]) }}" title="" itemprop="url">{{$item->header}}</a></h4>
-                                        <p itemprop="description">{{$item->detail}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                        
-                        {{-- <div class="col-md-4 col-sm-6 col-lg-4 slideInUp wow" data-wow-duration=".8s" data-wow-delay=".2s">
-                            <div class="pst-box-styl1">
-                                <div class="pst-thmb-styl1">
-                                    <span class="pst-dat">April 1, 2019</span>
-                                    <a href="blog-detail-right-sidebar.html" title="" itemprop="url"><img src="{{ url('frontend/assets/images/twohand2.jpg') }}" alt="pst-img1-2.jpg" itemprop="image"></a>
-                                </div>
-                                <div class="pst-inf-styl1">
-                                    <h4 itemprop="headline"><a href="blog-detail-right-sidebar.html" title="" itemprop="url">2013 Toyota Hilux Vigo 2.5G <br> ราคา 459,000 บาท</a></h4>
-                                    <p itemprop="description">เครื่องยนต์ดีเซล 2.5 กุญแจรีโมทแท้ AIR bag +ABS  พวงมาลัย Multifunction  ล้อแม๊ค เครื่องเดิม ของเหลวใหม่ ท่อลั่น พร้อมบวก</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-lg-4 slideInUp wow" data-wow-duration=".8s" data-wow-delay=".3s">
-                            <div class="pst-box-styl1">
-                                <div class="pst-thmb-styl1">
-                                    <span class="pst-dat">March 20, 2019</span>
-                                    <a href="blog-detail-right-sidebar.html" title="" itemprop="url"><img src="{{ url('frontend/assets/images/twohand3.jpg') }}" alt="pst-img1-3.jpg" itemprop="image"></a>
-                                </div>
-                                <div class="pst-inf-styl1">
-                                    <h4 itemprop="headline"><a href="blog-detail-right-sidebar.html" title="" itemprop="url">2009 Honda Accord 2.4 <br> ราคา 499,000 บาท</a></h4>
-                                    <p itemprop="description">พวงมาลัยmultifunction  AIRBAG +ABS  เบาะหนังแท้ ปรับไฟฟ้า เครื่องเดิม2.4 น้ำมันล้วน เครื่องฟิต สตาร์ทติดง่าย กระจกไฟฟ้า กุญแจรีโมท พร้อมหล่อ ทุกสถานการณ์</p>
-                                </div>
-                            </div>
-                        </div> --}}
 
+    
+    <section>
+        <div class="gap remove-bottom" style="padding-top:0px; ">
+            <div class="container">
+                <div class="remove-ext15 srv-wrp">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 col-lg-4">
+                            <div class="srv-box2">
+                                <i class="flaticon-alarm-clock"></i>
+                                <div class="srv-inf2">
+                                    <h5 itemprop="headline"><a href="service-detail.html" title="" itemprop="url">{{$service->document_header}}</a></h5>
+                                    <p itemprop="description">{!!$service->document_detail!!}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-lg-4">
+                            <div class="srv-box2">
+                                <i class="fas fa-tags "></i>
+                                 <!-- <i class="fas fa-screwdriver"></i> 
+                                 <i class="fas fa-wrench"></i>      -->
+                                <div class="srv-inf2">
+                                    <h5 itemprop="headline"><a href="service-detail.html" title="" itemprop="url">{{$service->promotion_header}}</a></h5>
+                                    <p itemprop="description">{!!$service->promotion_detail!!}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-lg-4">
+                            <div class="srv-box2">
+                                <i class="flaticon-settings"></i>
+                                <div class="srv-inf2">
+                                    <h5 itemprop="headline"><a href="service-detail.html" title="" itemprop="url">{{$service->service_header}}</a></h5>
+                                    <p itemprop="description">{!!$service->service_detail!!}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
     <section>
         <div class="gap">
             <div class="container">
-                <div class="testi-wrp text-center">
-                    <div class="testi-innr">
-                        <div class="testi-car owl-carousel">
-                            <div class="testi-itm">
-                                <div class="testi-inf">
-                                    <img src="http://templates.seekviral.com/excitor/assets/images/resources/testi-img1-1.jpg" alt="testi-img1-1.jpg" itemprop="image">
-                                    <div class="testi-inf-innr">
-                                        <h6 itemprop="headline">Malujt Looeo</h6>
-                                        <span>Peerio Technologies</span>
-                                    </div>
-                                </div>
-                                <p itemprop="description">ประทับใจมาก ที่ร้านเป็นกันเอง รถคุณภาพสูง โปรโมชั่นดีมาก           รู้สึกประทับใจ ถ้าอยากได้รถยนต์มือสองอีกก็จะซื้อที่นี่ ถ้าเพื่อน หรือญาติอยากได้ก็จะพามาซื้อที่นี่ บริการดีจริงๆค่ะ</p>                                    
-                            </div>
-                            <div class="testi-itm">
-                                <div class="testi-inf">
-                                    <img src="http://templates.seekviral.com/excitor/assets/images/resources/testi-img1-2.jpg" alt="testi-img1-2.jpg" itemprop="image">
-                                    <div class="testi-inf-innr">
-                                        <h6 itemprop="headline">Looeo Malujt</h6>
-                                        <span>Peerio Technologies</span>
-                                    </div>
-                                </div>
-                                <p itemprop="description">ประทับใจมาก           ที่ร้านเป็นกันเอง รถคุณภาพสูง โปรโมชั่นดีมาก รู้สึกประทับใจ           ถ้าอยากได้รถยนต์มือสอง อีกก็จะซื้อ ที่นี่ถ้าเพื่อน หรือญาติอยากได้ก็จะพามาซื้อที่นี่ บริการดีจริงๆค่ะ</p>
-                            </div>
-                            <div class="testi-itm">
-                                <div class="testi-inf">
-                                    <img src="http://templates.seekviral.com/excitor/assets/images/resources/testi-img1-3.jpg" alt="testi-img1-3.jpg" itemprop="image">
-                                    <div class="testi-inf-innr">
-                                        <h6 itemprop="headline">John Doe</h6>
-                                        <span>Peerio Technologies</span>
-                                    </div>
-                                </div>
-                                <p itemprop="description">ประทับใจมาก ที่ร้านเป็นกันเอง รถคุณภาพสูง โปรโมชั่นดีมาก รู้สึกประทับใจ           ถ้าอยากได้รถยนต์มือสองอีกก็จะซื้อ ที่นี่           ถ้เพื่อนหรือญาติอยากได้ก็จะพามาซื้อที่นี่           บริการดีจริงๆค่ะ</p>
+                <div class="tem-wrp3">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12 col-lg-3">
+                            <div class="tem-inf-wrp3">
+                                <span>ค้นหาประเภทรถที่คุณต้องการ</span>
+                                <h2 itemprop="headline">เลือกชมรถ</h2>
+                                <!-- <p itemprop="description">Our Team Of strategists designers <a href="#" title="" itemprop="url">managers,</a> <a href="#" title="" itemprop="url">developer,</a> make custom products for statups.</p> -->
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tem-tb1">รถเก๋ง</a></li>
+                                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tem-tb2">รถกระบะ</a></li>
+                                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tem-tb3">รถเอกประสงค์</a></li>
+                                </ul>
                             </div>
                         </div>
+                        <div class="col-md-9 col-sm-12 col-lg-9">
+                                <div class="tem-car-wrp3">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="tem-tb1">
+                                            <div class="tem-car3 owl-carousel">
+                                                <div class="tem-box3">
+                                                    <img src="{{ url('frontend/assets/images/CAR1.png') }}" alt="team-img3-1.jpg" itemprop="image">
+                                                    <div class="tem-scl">
+                                                        <a class="facebook-hvr-clr" href="#" title="Facebook" itemprop="url" target="_self"><i class="fab fa-facebook"></i></a>
+                                                        <a class="twitter-hvr-clr" href="#" title="Twitter" itemprop="url" target="_self"><i class="fab fa-twitter"></i></a>
+                                                        <a class="google-hvr-clr" href="#" title="Google Plus" itemprop="url" target="_self"><i class="fab fa-google-plus"></i></a>
+                                                        <a class="instagram-hvr-clr" href="#" title="Instagram" itemprop="url" target="_self"><i class="flaticon-instagram-social-network-logo-of-photo-camera"></i></a>
+                                                    </div>
+                                                    <div class="tem-inf3">
+                                                        <h4 itemprop="headline"><a href="#" title="" itemprop="url">Pham Zima</a></h4>
+                                                        <span>Creative Director</span>
+                                                    </div>
+                                                </div>
+                                                <div class="tem-box3">
+                                                    <img src="{{ url('frontend/assets/images/CAR2.png') }}" alt="team-img3-2.jpg" itemprop="image">
+                                                    <div class="tem-scl">
+                                                        <a class="facebook-hvr-clr" href="#" title="Facebook" itemprop="url" target="_self"><i class="fab fa-facebook"></i></a>
+                                                        <a class="twitter-hvr-clr" href="#" title="Twitter" itemprop="url" target="_self"><i class="fab fa-twitter"></i></a>
+                                                        <a class="google-hvr-clr" href="#" title="Google Plus" itemprop="url" target="_self"><i class="fab fa-google-plus"></i></a>
+                                                        <a class="instagram-hvr-clr" href="#" title="Instagram" itemprop="url" target="_self"><i class="flaticon-instagram-social-network-logo-of-photo-camera"></i></a>
+                                                    </div>
+                                                    <div class="tem-inf3">
+                                                        <h4 itemprop="headline"><a href="#" title="" itemprop="url">Zima Pham</a></h4>
+                                                        <span>Creative Director</span>
+                                                    </div>
+                                                </div>
+                                                <div class="tem-box3">
+                                                    <img src="{{ url('frontend/assets/images/CAR3.png') }}" alt="team-img3-3.jpg" itemprop="image">
+                                                    <div class="tem-scl">
+                                                        <a class="facebook-hvr-clr" href="#" title="Facebook" itemprop="url" target="_self"><i class="fab fa-facebook"></i></a>
+                                                        <a class="twitter-hvr-clr" href="#" title="Twitter" itemprop="url" target="_self"><i class="fab fa-twitter"></i></a>
+                                                        <a class="google-hvr-clr" href="#" title="Google Plus" itemprop="url" target="_self"><i class="fab fa-google-plus"></i></a>
+                                                        <a class="instagram-hvr-clr" href="#" title="Instagram" itemprop="url" target="_self"><i class="flaticon-instagram-social-network-logo-of-photo-camera"></i></a>
+                                                    </div>
+                                                    <div class="tem-inf3">
+                                                        <h4 itemprop="headline"><a href="#" title="" itemprop="url">John Doe</a></h4>
+                                                        <span>Creative Director</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="tem-tb2">
+                                            <div class="tem-car3 owl-carousel">
+                                                <div class="tem-box3">
+                                                    <img src="{{ url('frontend/assets/images/resources/team-img3-4.jpg') }}" alt="team-img3-4.jpg" itemprop="image">
+                                                    <div class="tem-scl">
+                                                        <a class="facebook-hvr-clr" href="#" title="Facebook" itemprop="url" target="_self"><i class="fab fa-facebook"></i></a>
+                                                        <a class="twitter-hvr-clr" href="#" title="Twitter" itemprop="url" target="_self"><i class="fab fa-twitter"></i></a>
+                                                        <a class="google-hvr-clr" href="#" title="Google Plus" itemprop="url" target="_self"><i class="fab fa-google-plus"></i></a>
+                                                        <a class="instagram-hvr-clr" href="#" title="Instagram" itemprop="url" target="_self"><i class="flaticon-instagram-social-network-logo-of-photo-camera"></i></a>
+                                                    </div>
+                                                    <div class="tem-inf3">
+                                                        <h4 itemprop="headline"><a href="#" title="" itemprop="url">Pham Zima</a></h4>
+                                                        <span>Creative Director</span>
+                                                    </div>
+                                                </div>
+                                                <div class="tem-box3">
+                                                    <img src="{{ url('frontend/assets/images/resources/team-img3-5.jpg') }}" alt="team-img3-5.jpg" itemprop="image">
+                                                    <div class="tem-scl">
+                                                        <a class="facebook-hvr-clr" href="#" title="Facebook" itemprop="url" target="_self"><i class="fab fa-facebook"></i></a>
+                                                        <a class="twitter-hvr-clr" href="#" title="Twitter" itemprop="url" target="_self"><i class="fab fa-twitter"></i></a>
+                                                        <a class="google-hvr-clr" href="#" title="Google Plus" itemprop="url" target="_self"><i class="fab fa-google-plus"></i></a>
+                                                        <a class="instagram-hvr-clr" href="#" title="Instagram" itemprop="url" target="_self"><i class="flaticon-instagram-social-network-logo-of-photo-camera"></i></a>
+                                                    </div>
+                                                    <div class="tem-inf3">
+                                                        <h4 itemprop="headline"><a href="#" title="" itemprop="url">Zima Pham</a></h4>
+                                                        <span>Creative Director</span>
+                                                    </div>
+                                                </div>
+                                                <div class="tem-box3">
+                                                    <img src="{{ url('frontend/assets/images/resources/team-img3-6.jpg') }}" alt="team-img3-6.jpg" itemprop="image">
+                                                    <div class="tem-scl">
+                                                        <a class="facebook-hvr-clr" href="#" title="Facebook" itemprop="url" target="_self"><i class="fab fa-facebook"></i></a>
+                                                        <a class="twitter-hvr-clr" href="#" title="Twitter" itemprop="url" target="_self"><i class="fab fa-twitter"></i></a>
+                                                        <a class="google-hvr-clr" href="#" title="Google Plus" itemprop="url" target="_self"><i class="fab fa-google-plus"></i></a>
+                                                        <a class="instagram-hvr-clr" href="#" title="Instagram" itemprop="url" target="_self"><i class="flaticon-instagram-social-network-logo-of-photo-camera"></i></a>
+                                                    </div>
+                                                    <div class="tem-inf3">
+                                                        <h4 itemprop="headline"><a href="#" title="" itemprop="url">John Doe</a></h4>
+                                                        <span>Creative Director</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="tem-tb3">
+                                            <div class="tem-car3 owl-carousel">
+                                                <div class="tem-box3">
+                                                    <img src="{{ url('frontend/assets/images/resources/team-img3-7.jpg') }}" alt="team-img3-7.jpg" itemprop="image">
+                                                    <div class="tem-scl">
+                                                        <a class="facebook-hvr-clr" href="#" title="Facebook" itemprop="url" target="_self"><i class="fab fa-facebook"></i></a>
+                                                        <a class="twitter-hvr-clr" href="#" title="Twitter" itemprop="url" target="_self"><i class="fab fa-twitter"></i></a>
+                                                        <a class="google-hvr-clr" href="#" title="Google Plus" itemprop="url" target="_self"><i class="fab fa-google-plus"></i></a>
+                                                        <a class="instagram-hvr-clr" href="#" title="Instagram" itemprop="url" target="_self"><i class="flaticon-instagram-social-network-logo-of-photo-camera"></i></a>
+                                                    </div>
+                                                    <div class="tem-inf3">
+                                                        <h4 itemprop="headline"><a href="#" title="" itemprop="url">Pham Zima</a></h4>
+                                                        <span>Creative Director</span>
+                                                    </div>
+                                                </div>
+                                                <div class="tem-box3">
+                                                    <img src="{{ url('frontend/assets/images/resources/team-img3-8.jpg') }}" alt="team-img3-8.jpg" itemprop="image">
+                                                    <div class="tem-scl">
+                                                        <a class="facebook-hvr-clr" href="#" title="Facebook" itemprop="url" target="_self"><i class="fab fa-facebook"></i></a>
+                                                        <a class="twitter-hvr-clr" href="#" title="Twitter" itemprop="url" target="_self"><i class="fab fa-twitter"></i></a>
+                                                        <a class="google-hvr-clr" href="#" title="Google Plus" itemprop="url" target="_self"><i class="fab fa-google-plus"></i></a>
+                                                        <a class="instagram-hvr-clr" href="#" title="Instagram" itemprop="url" target="_self"><i class="flaticon-instagram-social-network-logo-of-photo-camera"></i></a>
+                                                    </div>
+                                                    <div class="tem-inf3">
+                                                        <h4 itemprop="headline"><a href="#" title="" itemprop="url">Zima Pham</a></h4>
+                                                        <span>Creative Director</span>
+                                                    </div>
+                                                </div>
+                                                <div class="tem-box3">
+                                                    <img src="{{ url('frontend/assets/images/resources/team-img3-9.jpg') }}" alt="team-img3-9.jpg" itemprop="image">
+                                                    <div class="tem-scl">
+                                                        <a class="facebook-hvr-clr" href="#" title="Facebook" itemprop="url" target="_self"><i class="fab fa-facebook"></i></a>
+                                                        <a class="twitter-hvr-clr" href="#" title="Twitter" itemprop="url" target="_self"><i class="fab fa-twitter"></i></a>
+                                                        <a class="google-hvr-clr" href="#" title="Google Plus" itemprop="url" target="_self"><i class="fab fa-google-plus"></i></a>
+                                                        <a class="instagram-hvr-clr" href="#" title="Instagram" itemprop="url" target="_self"><i class="flaticon-instagram-social-network-logo-of-photo-camera"></i></a>
+                                                    </div>
+                                                    <div class="tem-inf3">
+                                                        <h4 itemprop="headline"><a href="#" title="" itemprop="url">John Doe</a></h4>
+                                                        <span>Creative Director</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- Team Carousel Wrap -->
+                            </div>
                     </div>
-                </div><!-- Testimonials Wrap -->
+                </div><!-- Team Wrap -->
             </div>
         </div>
     </section>
+
+    <section>
+        <div class="gap top-spac70">
+            <div class="container">
+                <div class="spnsr-wrp spnsr-car text-center owl-carousel">
+                    <div class="spnsr-itm">
+                        <a href="#" title="" itemprop="url"><img src="{{ url('frontend/assets/images/BMW.png') }}" alt="spnsr-img1-1.png" itemprop="image" style="object-fit:cover; width:250px;"></a>
+                    </div>
+                    <div class="spnsr-itm">
+                        <a href="#" title="" itemprop="url"><img src="{{ url('frontend/assets/images/CHEVROLET.png') }}" alt="spnsr-img1-2.png" itemprop="image" style="object-fit:cover; width:250px;"></a>
+                    </div>
+                    <div class="spnsr-itm">
+                        <a href="#" title="" itemprop="url"><img src="{{ url('frontend/assets/images/BENZ.png') }}" alt="spnsr-img1-3.png" itemprop="image" style="object-fit:cover; width:250px;"></a>
+                    </div>
+                    <div class="spnsr-itm">
+                        <a href="#" title="" itemprop="url"><img src="{{ url('frontend/assets/images/FORD.png') }}" alt="spnsr-img1-4.png" itemprop="image" style="object-fit:cover; width:250px;"></a>
+                    </div>
+                    <div class="spnsr-itm">
+                        <a href="#" title="" itemprop="url"><img src="{{ url('frontend/assets/images/HONDA.png') }}" alt="spnsr-img1-5.png" itemprop="image" style="object-fit:cover; width:250px;"></a>
+                    </div>
+                    <div class="spnsr-itm">
+                        <a href="#" title="" itemprop="url"><img src="{{ url('frontend/assets/images/HYUNDAI.png') }}" alt="spnsr-img1-5.png" itemprop="image" style="object-fit:cover; width:250px;"></a>
+                    </div>
+                    <div class="spnsr-itm">
+                        <a href="#" title="" itemprop="url"><img src="{{ url('frontend/assets/images/LEXUS.png') }}" alt="spnsr-img1-5.png" itemprop="image" style="object-fit:cover; width:250px;"></a>
+                    </div>
+                    <div class="spnsr-itm">
+                        <a href="#" title="" itemprop="url"><img src="{{ url('frontend/assets/images/MAZDA.png') }}" alt="spnsr-img1-5.png" itemprop="image" style="object-fit:cover; width:250px;"></a>
+                    </div>
+                    <div class="spnsr-itm">
+                        <a href="#" title="" itemprop="url"><img src="{{ url('frontend/assets/images/MG.png') }}" alt="spnsr-img1-5.png" itemprop="image" style="object-fit:cover; width:250px;"></a>
+                    </div>
+                    <div class="spnsr-itm">
+                        <a href="#" title="" itemprop="url"><img src="{{ url('frontend/assets/images/HYUNDAI.png') }}" alt="spnsr-img1-5.png" itemprop="image" style="object-fit:cover; width:250px;"></a>
+                    </div>
+                    <div class="spnsr-itm">
+                        <a href="#" title="" itemprop="url"><img src="{{ url('frontend/assets/images/MINI.png') }}" alt="spnsr-img1-5.png" itemprop="image" style="object-fit:cover; width:250px;"></a>
+                    </div>
+                    <div class="spnsr-itm">
+                        <a href="#" title="" itemprop="url"><img src="{{ url('frontend/assets/images/NISSAN.png') }}" alt="spnsr-img1-5.png" itemprop="image" style="object-fit:cover; width:250px;"></a>
+                    </div>
+                    <div class="spnsr-itm">
+                        <a href="#" title="" itemprop="url"><img src="{{ url('frontend/assets/images/SUBARU.png') }}" alt="spnsr-img1-5.png" itemprop="image" style="object-fit:cover; width:250px;"></a>
+                    </div>
+                    <div class="spnsr-itm">
+                        <a href="#" title="" itemprop="url"><img src="{{ url('frontend/assets/images/TOYOTA.png') }}" alt="spnsr-img1-5.png itemprop="image" style="object-fit:cover; width:250px;"></a>
+                    </div>
+                    <div class="spnsr-itm">
+                        <a href="#" title="" itemprop="url"><img src="{{ url('frontend/assets/images/W.png') }}" alt="spnsr-img1-5.png" itemprop="image" style="object-fit:cover; width:250px;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 @stop
 
