@@ -3,71 +3,77 @@
 
 @section('frontendcontent')
 
-<div style="padding: 55px; ">
-        <div class="cnt-frm-dta" style="margin-top: 45px;">
-                <h2 itemprop="headline">นัดหมายเข้าชมรถ</h2>
-                <div class="cnt-frm">
-                    <form>
-                        <div class="row mrg20">
-                            <div class="col-md-3 col-sm-6 col-lg-3">
-                                <input type="text" id="name" placeholder="ชื่อ">
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-lg-3">
-                                <input type="text" id="tel" maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="เบอร์โทรติดต่อ">
-                            </div>
-                            <div class="col-md-3 col-sm-12 col-lg-3">
-                                <input type="text" id="line" placeholder="ไลน์ไอดี">
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-lg-3">
-                                <input type="text" id="appoint" placeholder="วันที่สะดวกเข้ามาชมรถ">
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <textarea placeholder="รายละเอียด" id="detail"></textarea>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <button class="thm-btn" id="confirm" type="button">ยืนยันนัดหมาย</button>
-                            </div>
-                        </div>
-                    </form>
+<!-- Breadcrumbs Block -->
+<div class="block breadcrumbs">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li>Contact Us</li>
+        </ul>
+    </div>
+</div>
+<!-- //Breadcrumbs Block -->
+<h1 class="text-center h-decor">Contact Us</h1>
+<div class="block fullwidth no-pad">
+    <div class="container">
+        <div id="googleMap" class="google-map"></div>
+    </div>
+</div>
+<div class="block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>General Office</h2>
+                <div class="contact-info-sm">
+                    <h5>Address</h5>
+                    <i class="icon icon-map-marker"></i>3261 Anmoore Road
+                    <br>Brooklyn, NY 11230
                 </div>
-        </div><!-- Contact From Data -->
-    </div>    
-    <section>                
-        <div class="gap">
-            <div class="container">
-                <div class="cnt-mp-inf-wrp">
-                    <div class="row">
-                        <div class="col-md-7 col-sm-12 col-lg-7">
-                            <div class="loc-mp" id="loc-mp" style="border:1px solid gray;"><h2 align="center">Map</h2></div>
-                        </div>
-                        <div class="col-md-5 col-sm-12 col-lg-5">
-                            <div class="cnt-inf-wrp style2 remove-ext">
-                                <div class="cnt-inf-bx brd-rd10">
-                                    <i class="fa fa-map-marker"></i>
-                                    <strong>Address</strong>
-                                    <span>{{$contact->address1." ".$contact->address2." ".$contact->address3." ".$contact->address4." ".$contact->address5}}</span>
-                                </div>
-                                <div class="cnt-inf-bx brd-rd10">
-                                    <i class="fa fa-phone"></i>
-                                    <strong>Phone</strong>
-                                    <span>Phone 01: {{$contact->phone1}}</span>
-                                    <span>Phone 02: {{$contact->phone2}}</span>
-                                </div>
-                                <div class="cnt-inf-bx brd-rd10">
-                                    <i class="fa fa-globe"></i>
-                                    <strong>Social</strong>
-                                    <a href="{{$contact->facebook}}" title="" itemprop="url"><i class="fa fa-facebook"></i> &nbsp; facebook.{{$contact->facebook}}</a>
-                                    <a href="{{$contact->instragram}}" title="" itemprop="url"><i class="fa fa-instagram"></i> &nbsp;{{$contact->instragram}}</a>
-                                    <a href="{{$contact->youtube}}" title="" itemprop="url"><i class="fa fa-youtube"></i> &nbsp;{{$contact->youtube}}</a>
-                                    <a href="{{$contact->line}}" title="" itemprop="url">Line ID </i> :&nbsp;{{$contact->line}}</a>
-                                </div>
-                            </div>
-                        </div>
+                <div class="contact-info-sm">
+                    <h5>Phone 24/7</h5>
+                    <i class="icon icon-technology"></i>800-123-4567, Fax: 718-724-3312
+                </div>
+                <div class="contact-info-sm">
+                    <h5>Operating Hours</h5>
+                    <i class="icon icon-clock"></i>Mon-Fri: 9:00 am – 5:00 pm
+                    <br>Sat-Sun: 11:00 am – 16:00 pm
+                </div>
+                <div class="divider"></div>
+                <h5>Look for us on</h5>
+                <ul class="social-list">
+                    <li><a href="#"><i class="icon-google-plus-logo"></i></a></li>
+                    <li><a href="#"><i class="icon-facebook-logo"></i></a></li>
+                    <li><a href="#"><i class="icon-twitter-logo"></i></a></li>
+                    <li><a href="#"><i class="icon-instagram-logo"></i></a></li>
+                </ul>
+            </div>
+            <div class="divider visible-sm visible-xs"></div>
+            <div class="col-md-8">
+                <h2 class="text-center h-lg h-decor">Get in Touch</h2>
+                <form class="contact-form" id="contactForm" method="post" novalidate="novalidate">
+                    <div class="successform text-center">
+                        <p>Your message was sent successfully!</p>
                     </div>
-                </div><!-- Contact Map & Info Wrap -->
+                    <div class="errorform text-center">
+                        <p>Something went wrong, try refreshing and submitting the form again.</p>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" class="input-custom input-full" name="name" placeholder="Your name*">
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" class="input-custom input-full" name="email" placeholder="Email*">
+                    </div>
+                    <div class="input-wrapper">
+                        <textarea class="textarea-custom input-full" name="message" placeholder="Message"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn">Send Message</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
 @stop
 

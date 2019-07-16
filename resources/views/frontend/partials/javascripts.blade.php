@@ -1,22 +1,25 @@
-<script src="{{ url('frontend/assets/js/jquery.min.js') }}"></script>
-<script src="{{ url('frontend/assets/js/bootstrap.min.js') }}"></script>
-<script src="{{ url('frontend/assets/js/plugins.min.js') }}"></script>
-<script src="{{ url('frontend/assets/js/part-int.js') }}"></script>
-<script src="{{ url('frontend/assets/js/custom-scripts.js') }}"></script>
-
-<script src="{{ url('frontend/assets/js/revolution/jquery.themepunch.tools.min.js') }}"></script>
-<script src="{{ url('frontend/assets/js/revolution/jquery.themepunch.revolution.min.js') }}"></script>
-
-<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->    
-<script src="{{ url('frontend/assets/js/revolution/extensions/revolution.extension.actions.min.js') }}"></script>
-<script src="{{ url('frontend/assets/js/revolution/extensions/revolution.extension.carousel.min.js') }}"></script>
-<script src="{{ url('frontend/assets/js/revolution/extensions/revolution.extension.kenburn.min.js') }}"></script>
-<script src="{{ url('frontend/assets/js/revolution/extensions/revolution.extension.layeranimation.min.js') }}"></script>
-<script src="{{ url('frontend/assets/js/revolution/extensions/revolution.extension.migration.min.js') }}"></script>
-<script src="{{ url('frontend/assets/js/revolution/extensions/revolution.extension.navigation.min.js') }}"></script>
-<script src="{{ url('frontend/assets/js/revolution/extensions/revolution.extension.parallax.min.js') }}"></script>
-<script src="{{ url('frontend/assets/js/revolution/extensions/revolution.extension.slideanims.min.js') }}"></script>
-<script src="{{ url('frontend/assets/js/revolution/extensions/revolution.extension.video.min.js') }}"></script>
+<!-- External JavaScripts -->
+<script src="{{ url('frontend/assets/js/vendor/jquery.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/bootstrap.min.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/slick.min.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/isotope.pkgd.min.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/imagesloaded.pkgd.min.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/lightbox.min.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/jquery.scroll-with-ease.min.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/jquery.form.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/jquery.validate.min.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/moment.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/bootstrap-datetimepicker.min.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/jquery.waypoints.min.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/jquery.countTo.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/jquery.print.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/jquery.dotdotdot.min.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/jquery.doubletaptogo.min.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/nouislider.min.js') }}"></script>
+<script src="{{ url('frontend/assets/js/vendor/jquery.elevateZoom-3.0.8.min.js') }}"></script>
+<!-- Custom JavaScripts -->
+<script src="{{ url('frontend/assets/js/custom.js') }}"></script>
+<script src="{{ url('frontend/assets/js/forms.js') }}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
@@ -25,13 +28,7 @@
 
 <script>
     window._token = '{{ csrf_token() }}';
-
-    // $.fakeLoader({
-    //     timeToHide:1200,
-    //     bgColor:"#ec376c",
-    //     spinner:"spinner7"
-    // });
-
+    
     $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

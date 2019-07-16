@@ -1,27 +1,26 @@
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<meta name="csrf-token" content="{{ csrf_token() }}">
-<title>Dsyon</title>
-
-<link rel="stylesheet" href="{{ url('frontend/assets/css/icons.min.css') }}">
-<link rel="stylesheet" href="{{ url('frontend/assets/css/bootstrap.min.css') }}">
-<link rel="stylesheet" href="{{ url('frontend/assets/css/plugins.min.css') }}">
-<link rel="stylesheet" href="{{ url('frontend/assets/css/style.css') }}">
-<link rel="stylesheet" href="{{ url('frontend/assets/css/color.css') }}">
-<link rel="stylesheet" href="{{ url('frontend/assets/css/responsive.css') }}">
-
-<!-- REVOLUTION STYLE SHEETS -->
-<link rel="stylesheet" href="{{ url('frontend/assets/css/revolution/settings.css') }}">
-<!-- REVOLUTION LAYERS STYLES -->
-<link rel="stylesheet" href="{{ url('frontend/assets/css/revolution/layers.css') }}">    
-<!-- REVOLUTION NAVIGATION STYLES -->
-<link rel="stylesheet" href="{{ url('frontend/assets/css/revolution/navigation.css') }}">
-
-<!-- Favicons Icon -->
-<link rel="icon" href="{{ url('frontend/assets/images/logotitle.ico') }}" sizes="32x32" type="image/x-icon" />
 
 
-<!-- icon -->
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="html 5 template, cleaning service template, cleaning template, cleaning company template">
+	<meta name="author" content="tonytemplates.com">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="icon" href="{{ url('frontend/favicon.ico') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+	<title>Cleaning Services - HTML Website Template - Home Page</title>
+	<!-- Vendors -->
+	<link href="{{ url('frontend/assets/css/vendor/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{ url('frontend/assets/css/vendor/animate.min.css') }}" rel="stylesheet">
+	<link href="{{ url('frontend/assets/css/vendor/slick.css') }}" rel="stylesheet">
+	<link href="{{ url('frontend/assets/css/vendor/lightbox.css') }}" rel="stylesheet">
+	<link href="{{ url('frontend/assets/css/vendor/bootstrap-datetimepicker.css') }}" rel="stylesheet">
+	<link href="{{ url('frontend/assets/css/vendor/nouislider.css') }}" rel="stylesheet">
+	<!-- Template Style -->
+	<link href="{{ url('frontend/assets/css/custom.css') }}" rel="stylesheet">
+	<!-- Icon Font-->
+	<link href="{{ url('frontend/assets/fonts/icomoon/style.css') }}" rel="stylesheet">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+</head>

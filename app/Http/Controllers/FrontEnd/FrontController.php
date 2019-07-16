@@ -33,10 +33,8 @@ class FrontController extends Controller
 
     public function index()
     {
-        $service = Service::where('id', 1)->first();
-        $promotion = Promotion::where('status','publish')->orderBy('updated_at', 'DESC')->limit(3)->get();
         $blog = Blog::with('imageblog')->where('status','publish')->orderBy('updated_at', 'DESC')->limit(3)->get();
-        return view('frontend.index',compact('service','promotion','blog','footer'));
+        return view('frontend.index',compact('blog','footer'));
     }
 
     public function blog()
@@ -45,10 +43,21 @@ class FrontController extends Controller
         return view('frontend.blog', compact('blog','footer'));
     }
     
-    public function gallery()
+    public function service()
     {
-        $gallery = Gallery::with('imagegallery')->where('status','publish')->orderBy('updated_at', 'DESC')->get();
-        return view('frontend.gallery', compact('gallery','footer'));
+        return view('frontend.service', compact('footer'));
+    }
+    
+    public function about()
+    {
+        $contact = Contact::where('id',1)->first();
+        return view('frontend.about', compact('contact','footer'));
+    }
+    
+    public function work()
+    {
+        $contact = Contact::where('id',1)->first();
+        return view('frontend.work', compact('contact','footer'));
     }
     
     public function contact()

@@ -1,26 +1,58 @@
-<footer>
-    <div class="gap drk-bg top-spac80 bottom-spac80">
-        <div class="container">
-            <div class="ftr-wrp remove-ext5">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-lg-6 offset-lg-3">
-                        <div class="wdgt">
-                            <div class="logo"><a href="index.html" title="" itemprop="url"><img src="{{ url('frontend/assets/images/dsyonlogo.png') }}" width="200px" alt="logo-lgt.png" itemprop="image"></a></div>
-                            <p itemprop="description">ศูนย์รวมรถคุณภาพในจังหวัดสกลนคร และภาคอีสานตอนบนทั้งหมด.</p>
-                            <ul class="abt-cnt-lst">
-                                <li><i class="fa fa-map-marker"></i> 699ถนน นิตโย ต ธาตเชิงชุม อ เมือง จ สกลนคร เทศบาลนครสกลนคร 47000.</li>
-                                <li><i class="fa fa-phone"></i> Phone: 081 964 3342</li>
-                                <li><i class="fa fa-envelope"></i> Email: <a href="#" title="" itemprop="url">info@example.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- Footer Wrap -->
-        </div>
-    </div>
-</footer><!-- Footer -->
-<div class="btm-br text-center">
-    <div class="container">
-        <p itemprop="description">&copy; 2019 Designer HTML TEMPLATE. Powered By <a href="https://themeforest.net/" title="Themeforest" itemprop="url" target="_blank">Themeforest</a></p>
-    </div>
-</div><!-- Bottom Bar -->
+
+	<!-- Footer -->
+	<footer class="page-footer">
+		<div class="page-footer-menu">
+			<div class="container">
+				<ul class="menu">
+					<li><a href="{{url('/index')}}">HOME</a></li>
+					<li><a href="{{url('/service')}}">Our Services</a></li>
+					<li><a href="{{url('/blog')}}">Blog</a></li>
+					<li><a href="{{url('/about')}}">About Us</a></li>
+					<li><a href="{{url('/work')}}">Work with Us</a></li>
+					<li><a href="{{url('/contact')}}">Contact Us</a></li>
+				</ul>
+				<div class="footer-ribbon">
+					<img src="{{asset('frontend/assets/images/footer-ribbon.png')}}" alt="">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="page-footer-bot">
+				<div class="logo">
+					<a href="{{url('/index')}}"><img src="{{asset('frontend/assets/images/logo-footer.png')}}" alt=""></a>
+				</div>
+				<div class="page-footer-col-1">
+					<h4>Contact Us</h4>
+					<div class="page-footer-info">
+						<i class="icon icon-map-marker"></i>3261 Anmoore Road
+						<br>Brooklyn, NY 11230
+					</div>
+					<div class="page-footer-info">
+						<i class="icon icon-technology"></i>800-123-4567, Fax: 718-724-3312
+					</div>
+				</div>
+				<div class="page-footer-col-2">
+					<div class="page-footer-info">
+						<i class="icon icon-clock"></i>Mon-Fri: 9:00 am – 5:00 pm
+						<br>Sat-Sun: 11:00 am – 16:00 pm
+					</div>
+					<div class="page-footer-info">
+						<i class="icon icon-speech-bubble"></i><a href="mailto:officeone@youremail.com">officeone@youremail.com</a>
+					</div>
+				</div>
+				<div class="page-footer-col-3">
+					<ul class="social-list">
+						<li><a href="#"><i class="icon-google-plus-logo"></i></a></li>
+						<li><a href="#"><i class="icon-facebook-logo"></i></a></li>
+						<li><a href="#"><i class="icon-twitter-logo"></i></a></li>
+						<li><a href="#"><i class="icon-instagram-logo"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-copyright">© 2019 Wanchai Cleaning Service.</div>
+			<div class="backToTop js-backToTop">
+				<i class="icon icon-right-arrow"></i>
+			</div>
+		</div>
+	</footer>
+	<!-- /Footer -->
