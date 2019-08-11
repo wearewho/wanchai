@@ -16,16 +16,16 @@
 <!--about text block-->
 <div class="block fullwidth no-pad">
     <div class="container">
-        <h1 class="text-center h-decor">About Our Company</h1>
+        <h1 class="text-center h-decor">รู้จัก วันชัย คลีนนิ่ง เซอร์วิส</h1>
         <div class="row-flex-text">
             <div class="col-50">
                 <img src="{{asset('frontend/assets/images/content/about-page-img-1.jpg')}}" class="img-fullwidth" alt="About Us">
             </div>
             <div class="col-50 bg-text">
                 <div class="bg-text-inside">
-                    <h3>More than 10 years of cleaning experience</h3>
-                    <p>Cleaning Company service is a fully integrated janitorial cleaning services company that provides comprehensive, high quality, reliable cleaning solutions to commercial, corporate, industrial and residential clients.</p>
-                    <p>Our diligent management and work ethic are central to Cleaning Company service business philosophy and critical to delivering consistent, quality cleaning services. We pride ourselves on making our management accountable to the client through direct access and interaction with our managing director.</p>
+                    <h3>ผู้เชี่ยวชาญเรื่องการทำความสะอาด และผู้ช่วยเรื่องงการดูแลสวนคู่คนไทยมามากกว่า 20 ปี </h3>
+                    <p>ด้วยประสบการณ์กว่า 24 ปีในการดำเนินธุรกิจให้บริการทำความสะอาด และการดูแลสวนแบบครบวงจร เรายึดถือเรื่องประสิทธิภาพ และความต้องการของลูกค้าเป็นสำคัญมาโดยตลอด ลูกค้าของเราทุกท่านจึงให้ความเชื่อใจ ไว้วางใจ และใช้บริการจากทางเรามาอย่างยาวนาน เคล็ดลับสำคัญในการให้บริการของเรา คือ การอบรม และพัฒนาพนักงานให้มีความเชี่ยวชาญในเรื่องการทำความสะอาด และจัดสวนโดยเฉพาะ เพื่อประโยชน์สูงสุดในการให้บริการที่ประทับใจแก่ลูกค้าเป็นสำคัญ</p>
+                    <p>นอกจากนี้เรายังใส่ใจเรื่องอุปกรณ์ที่มีประสิทธิภาพต่อการให้บริการแต่ละประเภทอย่างเหมาะสมไม่ว่าจะเป็นการบริการทำความสะอาด และดูแลสวนกับหน่วยงานต่างๆ เช่น อาคารสำนักงาน, คลังสินค้า, อพาร์ทเม้นท์, คอนโดมิเนี่ยม, ห้องคลีนรูม  หรือ ตามบ้านเรือนที่อยู่อาศัยต่างๆ คุณจึงวางใจได้เมื่อต้องการเรียกหามืออาชีพในการให้บริการทำความสะอาดจากเรา</p>
                 </div>
             </div>
         </div>
@@ -35,25 +35,25 @@
 <!--about text block with icons -->
 <div class="block">
     <div class="container">
-        <h2 class="text-center h-lg h-decor">Why Hire Us?</h2>
-        <p class="text-center">Choose us because of our reputation for excellence. For more than 10 years, we've earned a name for quality and customer service. The homeowners we serve rely on us for detail-oriented, consistent cleaning services, every single time we clean their homes.</p>
+        <h2 class="text-center h-lg h-decor">บริการของเรา</h2>
+        <p class="text-center">วันชัย คลีนนิ่ง เซอร์วิส เรามีทีมงาน และผู้ชำนาญการเฉพาะด้านเกี่ยวกับการทำความสะอาด และจัดสวนโดยเฉพาะ ลูกค้าของเราจึงสามารถวางใจได้ทุกครั้งที่เรียกใช้บริการจากเรามาตลอด 24 ปี</p>
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-4 text-icon">
                 <div class="text-icon-icon">
                     <i class="icon icon-like-lined"></i>
                 </div>
-                <h5 class="text-icon-title">With Us, Your Satisfaction Is Guaranteed</h5>
+                <h5 class="text-icon-title">บริการทำความสะอาดรายครั้ง</h5>
                 <div class="text-icon-text">
-                    The experts at The Cleaning Company are committed to providing thorough house cleaning services for our valued customers nationwide. In order to accomplish this goal, we adhere to strict standards that remain consistent across the board.
+                    เป็นการทำความสะอาดแบบครั้งเดียว หรือ Frist Clean เช่น การทำความสะอาดโครงการก่อนส่งมอบงาน การทำความสะอาดโรงงาน การทำความสะอาดบ้านก่อนเข้าอยู่ เป็นต้น 
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 text-icon">
                 <div class="text-icon-icon">
                     <i class="icon icon-user-lined"></i>
                 </div>
-                <h5 class="text-icon-title">Our Bonded & Insured<br>Cleaning Team</h5>
+                <h5 class="text-icon-title">บริการทำความสะอาดแบบประจำ</h5>
                 <div class="text-icon-text">
-                    Our company is fully bonded and insured, which means you can have peace of mind when you hire us as your residential cleaning company. Helping our customers feel confident in our services is very important to us.
+                    เป็นการบริการจัดส่งพนักงานทำความสะอาดประจำ บริการเป็นสัญญารายปี เช่น สัญญาการบริการทำความสะอาด สัญญาการบริการกวาดถนน
                 </div>
             </div>
             <div class="clearfix visible-xs visible-sm"></div>
@@ -61,9 +61,9 @@
                 <div class="text-icon-icon">
                     <i class="icon icon-users-lined"></i>
                 </div>
-                <h5 class="text-icon-title">Our Teams Consist<br>of Fully Trained Employees</h5>
+                <h5 class="text-icon-title">บริการทำความสะอาดครบวงจร</h5>
                 <div class="text-icon-text">
-                    It means every individual hired at a franchise location of Cleaning Company goes through a thorough screening process, and then is trained in every aspect of our home cleaning services. This ensures high-quality service every time.
+                    เป็นการบริการงานทำความสะอาดใหญ่ ตามคอนโดมิเนี่ยม อพาร์ทเม้นท์ โรงงาน โรงเรียน เช่น การขัดล้างพื้นประเภทต่างๆ การเช็ดกระจกสูง เป็นต้น
                 </div>
             </div>
             <div class="clearfix visible-md visible-lg"></div>
@@ -71,9 +71,9 @@
                 <div class="text-icon-icon">
                     <i class="icon icon-map-lined"></i>
                 </div>
-                <h5 class="text-icon-title">Locally Owned Home<br>Cleaning Services</h5>
+                <h5 class="text-icon-title">บริการทำความสะอาดแบบพิเศษ</h5>
                 <div class="text-icon-text">
-                    Life is just too short to clean your own home. You should be able to enjoy peace of mind knowing that your home is in good hands, while focusing on things that matter more to you, such as your family and loved ones.
+                    เป็นการบริการแบบเฉพาะทาง ที่ต้องมีการทำความสะอาดแบบพิเศษ เช่น การทำความสะอาดห้องผ่าตัด ห้องแปรรูปอาหาร เป็นต้น
                 </div>
             </div>
             <div class="clearfix visible-xs visible-sm"></div>
@@ -81,18 +81,18 @@
                 <div class="text-icon-icon">
                     <i class="icon icon-reward-lined"></i>
                 </div>
-                <h5 class="text-icon-title">Free Over the Phone<br>Estimates</h5>
+                <h5 class="text-icon-title">บริการทำความสะอาดพรม และเฟอร์นิเจอร์</h5>
                 <div class="text-icon-text">
-                    Cleaning Company service is the key to keeping a beautiful home while making more time for yourself and the things you love most. Contact us for a FREE estimate.
+                    เป็นการบริการซักพรม เก้าอี้ โซฟา ด้วยระบบ Extraction
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 text-icon">
                 <div class="text-icon-icon">
                     <i class="icon icon-like-lined"></i>
                 </div>
-                <h5 class="text-icon-title">We Guarantee Our Work</h5>
+                <h5 class="text-icon-title">บริการดูแลสวน และกวาดถนน</h5>
                 <div class="text-icon-text">
-                    Cleaning Company strives to provide the highest level of quality, service and value to each and every customer. If you are not completely satisfied with our service, please inform us within 24 hours of your clean so we may resolve the situation.
+                    เป็นการบริการจัดส่งพนักงานดูแลสวนและกวาดถนนประจำ บริการเป็นสัญญาแบบรายเดือนและรายปี 
                 </div>
             </div>
         </div>
@@ -102,8 +102,8 @@
 <!--about text block-->
 <div class="block">
     <div class="container">
-        <h1 class="text-center h-decor">Our Values</h1>
-        <p class="text-center">Our goal is Your satisfaction (of course after our cleaning work). Office Phone works around the clock (24/7).</p>
+        <h1 class="text-center h-decor">เกี่ยวกับเรา</h1>
+        <p class="text-center">ความพึงพอใจของลูกค้าตลอด 24 ปี เกิดจากความใส่ใจในการทำงานของเรา</p>
         <div class="divider-sm"></div>
         <div class="row">
             <div class="col-md-6">
@@ -114,10 +114,10 @@
             <div class="divider-md visible-sm visible-xs"></div>
             <div class="col-md-6">
                 <ul class="marker-list">
-                    <li><b>Client oriented:</b> We serve our clients as if we were serving ourselves. We value their feedback and we use it to improve our work.</li>
-                    <li><b>Eco-Friendly Oriented:</b> We carefully choose the best and most natural cleaning products that give amazing results.</li>
-                    <li><b>Excellence and Innovation:</b> We provide training to our personnel in order to ensure the high standard of service. We stay up-to-date on the latest innovations in eco-friendly products and technologies, allowing us to bring the best in to our clients’ homes.</li>
-                    <li>E<b>xpansion / Growth:</b> we make ourselves known in the community; we create long term relations, while constantly expanding. Therefore, we are always bringing in more people to work for us.</li>
+                    <li><b>บริษัท วันชัย คลีนนิ่ง เซอร์วิส จำกัด ก่อตั้งขึ้นเมื่อ วันที่ 28 เมษายน พ.ศ. 2538 </b></li>
+                    <li><b>ดำเนินธุรกิจเกี่ยวกับการให้บริการทำความสะอาด และบริการดูแลสวนแบบครบวงจรจากผู้บริหารที่มีประสบการณ์ มีความชำนาญการ และมีความพร้อมที่จะให้บริการงานทำความสะอาดแก่ลูกค้าอย่างมีประสิทธิภาพด้วย</b></li>
+                    <li><b>ดำเนินกิจการด้วยปณิธานในการคัดเลือก สร้างสรรค์ และพัฒนาทีมงานที่มีประสิทธิภาพ เพื่อวัตถุประสงค์ในการมุ่งเน้นการตอบสนองของลูกค้าที่ต้องการใช้บริการการทำความสะอาดในทุกรูปแบบไม่ว่าจะเป็นการให้บริการทั้งในส่วนของการทำความสะอาดแบบต่างๆ และการดูแลสวนครบวงจร</b></li>
+                    <li><b>นอกจากนี้บริษัทฯ ยังไม่เคยหยุดนิ่งเราพัฒนาในเรื่องของอุปกรณ์ในการทำความสะอาดที่ทันสมัย และพร้อมตอบสนองต่อการให้บริการอย่างมีประสิทธิภาพเสมอ</b></li>
                 </ul>
             </div>
         </div>
@@ -129,24 +129,24 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h2>Our Mission</h2>
+                <h2>วิสัยทัศน์</h2>
                 <div class="text-icon-hor">
                     <div class="text-icon-hor-icon">
                         <i class="icon icon-target-lined"></i>
                     </div>
                     <div class="text-icon-hor-text">
-                        Aims to be a national market leader in the provision of cleaning services delivering reliable, quality, cost effective cleaning solutions to our customers
+                        ผู้นำด้านธุรกิจงานบริการทำความสะอาดและบริการดูแลสวนแบบครบวงจร โดยคำนึงถึงประสิทธิภาพ และความต้องการของลูกค้าสูงสุด
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
-                <h2>Our Vision</h2>
+                <h2>พันธกิจ</h2>
                 <div class="text-icon-hor">
                     <div class="text-icon-hor-icon">
                         <i class="icon icon-brush-lined"></i>
                     </div>
                     <div class="text-icon-hor-text">
-                        We have more than 215 franchise locations across the United States and Canada. All of them are committed to the same common values and principles.
+                        มุ่งสู่การเป็นมืออาชีพที่ได้รับการยอมรับ และครองใจลูกค้าอย่างยาวนานต่อไป โดยที่ไม่หยุดพัฒนาตนเองเพื่อประโยชน์สูงสุดของลูกค้าที่เข้ามาใช้บริการของเรา
                     </div>
                 </div>
             </div>

@@ -3,6 +3,12 @@
 
 @include('frontend.partials.head')
 
+<style>
+    body {
+        font-family: 'Sarabun', sans-serif !important;
+    }
+</style>
+
 <body class="page-index">
 
     @include('frontend.partials.header')

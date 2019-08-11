@@ -24,20 +24,20 @@
 				<div class="page-footer-col-1">
 					<h4>Contact Us</h4>
 					<div class="page-footer-info">
-						<i class="icon icon-map-marker"></i>3261 Anmoore Road
-						<br>Brooklyn, NY 11230
+						<i class="icon icon-map-marker"></i>55/391 หมู่12 ซอย19 ถนนสุวินทวงศ์
+						<br>แขวงแสนแสบ เขตมีนบุรี 
+						<br>กรุงเทพมหานคร รหัสไปรษณีย์ 10510
 					</div>
 					<div class="page-footer-info">
-						<i class="icon icon-technology"></i>800-123-4567, Fax: 718-724-3312
+						<i class="icon icon-technology"></i>02-989-4922
 					</div>
 				</div>
 				<div class="page-footer-col-2">
 					<div class="page-footer-info">
-						<i class="icon icon-clock"></i>Mon-Fri: 9:00 am – 5:00 pm
-						<br>Sat-Sun: 11:00 am – 16:00 pm
+						<i class="icon icon-clock"></i>เปิดบริการทุกวัน: 08:00 น. - 17:00 น.
 					</div>
 					<div class="page-footer-info">
-						<i class="icon icon-speech-bubble"></i><a href="mailto:officeone@youremail.com">officeone@youremail.com</a>
+						<i class="icon icon-speech-bubble"></i><a href="mailto:admin@wanchai-cleaning.com">admin@wanchai-cleaning.com</a>
 					</div>
 				</div>
 				<div class="page-footer-col-3">

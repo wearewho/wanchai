@@ -14,7 +14,7 @@
 </div>
 <!-- //Breadcrumbs Block -->
 <div class="block">
-    <h2 class="text-center h-lg h-decor">Blog Posts</h2>
+    <h2 class="text-center h-lg h-decor">ข่าวสาร</h2>
     <div class="container">
         <div class="row">
             <div class="col-md-9 aside">

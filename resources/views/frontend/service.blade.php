@@ -16,8 +16,9 @@
     <!-- services grid -->
     <div class="block">
         <div class="container">
-            <h2 class="text-center h-lg h-decor">Why Hire Us?</h2>
-            <p class="text-center">Choose us because of our reputation for excellence. For more than 10 years, we've earned a name for quality and customer service. The homeowners we serve rely on us for detail-oriented, consistent cleaning services, every single time we clean their homes.</p>
+            <h2 class="text-center h-lg h-decor">บริการของเรา</h2>
+            <p class="text-center">วันชัย คลีนนิ่ง เซอร์วิส เรามีทีมงาน และผู้ชำนาญการเฉพาะด้านเกี่ยวกับการทำความสะอาด และจัดสวนโดยเฉพาะ ลูกค้าของเราจึงสามารถวางใจได้ทุกครั้งที่เรียกใช้บริการจากเรามาตลอด 24 ปี
+            </p>
             <div class="row services-grid services-mobile-carousel">
                 <div class="col-xs-6 col-sm-6 col-md-4 service-box">
                     <a href="service-page-1.html" class="service-box-img">
@@ -117,8 +118,8 @@
     <div class="block fullwidth-sm no-pad">
         <div class="container">
             <div class="banner-text">
-                <div>Schedule a Free Cleaning Estimate Today</div>
-                <div><i class="icon icon-technology"></i><b>800-123-4567</b></div>
+                <div>ติดต่อสอบถามบริการของเราได้ตลอดในเวลาทำการ</div>
+                <div><i class="icon icon-technology"></i><b>02-989-4922</b></div>
             </div>
         </div>
     </div>

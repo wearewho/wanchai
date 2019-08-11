@@ -23,8 +23,8 @@
                         <div class="vert-wrap container">
                             <div class="vert">
                                 <div class="container">
-                                    <h2 data-animation="zoomIn" data-animation-delay="0.5s">Eco-Friendly<br>Cleaning Services</h2>
-                                    <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">Want to know more?</a>
+                                    <h2 data-animation="zoomIn" data-animation-delay="0.5s">วันชัย คลีนนิ่ง เซอร์วิส</h2>
+                                    <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">บริการของเรา</a>
                                 </div>
                             </div>
                         </div>
@@ -41,8 +41,22 @@
                         <div class="vert-wrap container">
                             <div class="vert">
                                 <div class="container">
-                                    <h2 data-animation="zoomIn" data-animation-delay="0.5s">A Caring<br>Cleaning Team</h2>
-                                    <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">Want to know more?</a>
+                                    <h2 data-animation="zoomIn" data-animation-delay="0.5s">ผู้นำด้านธุรกิจงานบริการทำความสะอาด</h2>
+                                    <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">บริการของเรา</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="img--holder" style="background-image: url(frontend/assets/images/slider/slide-1.jpg);"></div>
+                    <div class="slide-content center">
+                        <div class="vert-wrap container">
+                            <div class="vert">
+                                <div class="container">
+                                    <h2 data-animation="zoomIn" data-animation-delay="0.5s">เปิดทำการทุกวัน เวลา 08:00 น.-17:00 น. <br>
+                                        ติดต่อสอบถาม โทร : 0-2989-4922</h2>
+                                    <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">บริการของเรา</a>
                                 </div>
                             </div>
                         </div>
@@ -54,8 +68,8 @@
                         <div class="vert-wrap container">
                             <div class="vert">
                                 <div class="container">
-                                    <h2 data-animation="zoomIn" data-animation-delay="0.5s">Giving You<br>More Time to Spend on<br>What Really Matter</h2>
-                                    <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">Want to know more?</a>
+                                    <h2 data-animation="zoomIn" data-animation-delay="0.5s">บริการดูแลสวนแบบครบวงจร</h2>
+                                    <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">บริการของเรา</a>
                                 </div>
                             </div>
                         </div>
@@ -70,21 +84,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-lg-push-3">
-                    <h2 class="text-center h-lg h-decor">About Our Company</h2>
-                    <h3 class="text-center">More than 10 years of cleaning experience</h3>
-                    <p>Cleaning Company service is a fully integrated janitorial cleaning services company that provides comprehensive, high quality, reliable cleaning solutions to commercial, corporate, industrial and residential clients.</p>
-                    <p>Our diligent management and work ethic are central to Cleaning Company service business philosophy and critical to delivering consistent, quality cleaning services. We pride ourselves on making our management accountable to the client through direct access and interaction with our managing director.</p>
+                    <h2 class="text-center h-lg h-decor">รู้จัก วันชัย คลีนนิ่ง เซอร์วิส</h2>
+                    <h3 class="text-center">ผู้เชี่ยวชาญเรื่องการทำความสะอาด และผู้ช่วยเรื่องงการดูแลสวนคู่คนไทยมามากกว่า 20 ปี</h3>
+                    <p>ด้วยประสบการณ์กว่า 24 ปีในการดำเนินธุรกิจให้บริการทำความสะอาด และการดูแลสวนแบบครบวงจร เรายึดถือเรื่องประสิทธิภาพ และความต้องการของลูกค้าเป็นสำคัญ</p>
+                    <p>นอกจากนี้เรายังใส่ใจเรื่องอุปกรณ์ที่มีประสิทธิภาพต่อการให้บริการแต่ละประเภทอย่างเหมาะสมไม่ว่าจะเป็นการบริการทำความสะอาด และดูแลสวนกับหน่วยงานต่างๆ เช่น อาคารสำนักงาน, คลังสินค้า, อพาร์ทเม้นท์, คอนโด, ห้องคลีนรูม  หรือ ตามบ้านเรือนที่อยู่อาศัยต่างๆ คุณจึงวางใจได้เมื่อต้องการเรียกหามืออาชีพในการให้บริการทำความสะอาดจากเรา</p>
                     <div class="row">
                         <div class="col-sm-6 col-lg-5 col-lg-push-1">
                             <ul class="marker-list">
-                                <li>One-off, weekly or fortnightly visits</li>
-                                <li>Vetted & background-checked cleaners</li>
+                                <li>มีบริการหลากหลายทั้งแบบรายครั้ง และแบบประจำ</li>
+                                <li>มีบริการดูแลสวน และสระว่ายน้ำแบบครบวงจร</li>
                             </ul>
                         </div>
                         <div class="col-sm-6 col-lg-5 col-lg-push-1">
                             <ul class="marker-list">
-                                <li>Keep the same cleaner for every visit</li>
-                                <li>Book, manage & pay online</li>
+                                <li>มีบริการทำความสะอาดครบวงจรทั้งสำนักงาน และที่อยู่อาศัย</li>
+                                <li>มีบริการการทำความสะอาดแบบพิเศษ และเครื่องเรือนที่ต้องการดูแลเป็นพิเศษ</li>
                             </ul>
                         </div>
                     </div>
@@ -96,25 +110,25 @@
     <!--about text block with icons -->
     <div class="block">
         <div class="container">
-            <h2 class="text-center h-lg h-decor">Why Hire Us?</h2>
-            <p class="text-center">Choose us because of our reputation for excellence. For more than 10 years, we've earned a name for quality and customer service. The homeowners we serve rely on us for detail-oriented, consistent cleaning services, every single time we clean their homes.</p>
+            <h2 class="text-center h-lg h-decor">บริการของเรา</h2>
+            <p class="text-center">วันชัย คลีนนิ่ง เซอร์วิส เรามีทีมงาน และผู้ชำนาญการเฉพาะด้านเกี่ยวกับการทำความสะอาด และจัดสวนโดยเฉพาะ ลูกค้าของเราจึงสามารถวางใจได้ทุกครั้งที่เรียกใช้บริการจากเรามาตลอด 24 ปี</p>
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-4 text-icon">
                     <div class="text-icon-icon">
                         <i class="icon icon-like-lined"></i>
                     </div>
-                    <h5 class="text-icon-title">With Us, Your Satisfaction Is Guaranteed</h5>
+                    <h5 class="text-icon-title">บริการทำความสะอาดรายครั้ง</h5>
                     <div class="text-icon-text">
-                        The experts at The Cleaning Company are committed to providing thorough house cleaning services for our valued customers nationwide. In order to accomplish this goal, we adhere to strict standards that remain consistent across the board.
+                        เป็นการทำความสะอาดแบบครั้งเดียว หรือ Frist Clean เช่น การทำความสะอาดโครงการก่อนส่งมอบงาน การทำความสะอาดโรงงาน การทำความสะอาดบ้านก่อนเข้าอยู่ เป็นต้น 
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-4 text-icon">
                     <div class="text-icon-icon">
                         <i class="icon icon-user-lined"></i>
                     </div>
-                    <h5 class="text-icon-title">Our Bonded & Insured<br>Cleaning Team</h5>
+                    <h5 class="text-icon-title">บริการทำความสะอาดแบบประจำ</h5>
                     <div class="text-icon-text">
-                        Our company is fully bonded and insured, which means you can have peace of mind when you hire us as your residential cleaning company. Helping our customers feel confident in our services is very important to us.
+                        เป็นการบริการจัดส่งพนักงานทำความสะอาดประจำ บริการเป็นสัญญารายปี เช่น สัญญาการบริการทำความสะอาด สัญญาการบริการกวาดถนน
                     </div>
                 </div>
                 <div class="clearfix visible-xs visible-sm"></div>
@@ -122,9 +136,9 @@
                     <div class="text-icon-icon">
                         <i class="icon icon-users-lined"></i>
                     </div>
-                    <h5 class="text-icon-title">Our Teams Consist<br>of Fully Trained Employees</h5>
+                    <h5 class="text-icon-title">บริการทำความสะอาดครบวงจร</h5>
                     <div class="text-icon-text">
-                        It means every individual hired at a franchise location of Cleaning Company goes through a thorough screening process, and then is trained in every aspect of our home cleaning services. This ensures high-quality service every time.
+                        เป็นการบริการงานทำความสะอาดใหญ่ ตามคอนโดมิเนี่ยม อพาร์ทเม้นท์ โรงงาน โรงเรียน เช่น การขัดล้างพื้นประเภทต่างๆ การเช็ดกระจกสูง เป็นต้น
                     </div>
                 </div>
                 <div class="clearfix visible-md visible-lg"></div>
@@ -132,9 +146,9 @@
                     <div class="text-icon-icon">
                         <i class="icon icon-map-lined"></i>
                     </div>
-                    <h5 class="text-icon-title">Locally Owned Home<br>Cleaning Services</h5>
+                    <h5 class="text-icon-title">บริการทำความสะอาดแบบพิเศษ</h5>
                     <div class="text-icon-text">
-                        Life is just too short to clean your own home. You should be able to enjoy peace of mind knowing that your home is in good hands, while focusing on things that matter more to you, such as your family and loved ones.
+                        เป็นการบริการแบบเฉพาะทาง ที่ต้องมีการทำความสะอาดแบบพิเศษ เช่น การทำความสะอาดห้องผ่าตัด ห้องแปรรูปอาหาร เป็นต้น
                     </div>
                 </div>
                 <div class="clearfix visible-xs visible-sm"></div>
@@ -142,18 +156,18 @@
                     <div class="text-icon-icon">
                         <i class="icon icon-reward-lined"></i>
                     </div>
-                    <h5 class="text-icon-title">Free Over the Phone<br>Estimates</h5>
+                    <h5 class="text-icon-title">บริการทำความสะอาดพรม และเฟอร์นิเจอร์</h5>
                     <div class="text-icon-text">
-                        Cleaning Company service is the key to keeping a beautiful home while making more time for yourself and the things you love most. Contact us for a FREE estimate.
+                        เป็นการบริการซักพรม เก้าอี้ โซฟา ด้วยระบบ Extraction
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-4 text-icon">
                     <div class="text-icon-icon">
                         <i class="icon icon-like-lined"></i>
                     </div>
-                    <h5 class="text-icon-title">We Guarantee Our Work</h5>
+                    <h5 class="text-icon-title">บริการดูแลสวน และกวาดถนน</h5>
                     <div class="text-icon-text">
-                        Cleaning Company strives to provide the highest level of quality, service and value to each and every customer. If you are not completely satisfied with our service, please inform us within 24 hours of your clean so we may resolve the situation.
+                        เป็นการบริการจัดส่งพนักงานดูแลสวนและกวาดถนนประจำ บริการเป็นสัญญาแบบรายเดือนและรายปี 
                     </div>
                 </div>
             </div>
@@ -204,7 +218,7 @@
     <!-- Brands Carousel -->
     <div class="block">
         <div class="container">
-            <h2 class="text-center h-lg h-decor">Our Regular Customers</h2>
+            <h2 class="text-center h-lg h-decor">ลูกค้าของเรา</h2>
             <div class="brand-carousel">
                 <a href="#"><img src="{{asset('frontend/assets/images/content/brand-img-1.png')}}" alt=""></a>
                 <a href="#"><img src="{{asset('frontend/assets/images/content/brand-img-2.png')}}" alt=""></a>
@@ -220,7 +234,7 @@
     <!-- News block -->
     <div class="block">
         <div class="container">
-            <h2 class="text-center h-lg h-decor">What's News</h2>
+            <h2 class="text-center h-lg h-decor">ข่าวสาร</h2>
             <div class="news-carousel row">
                 <div class="col-sm-4">
                     <div class="news-prw">

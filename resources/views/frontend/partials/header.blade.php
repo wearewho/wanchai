@@ -7,13 +7,13 @@
 					<i class="icon icon-map-marker"></i>3261 Anmoore Road, Brooklyn, NY 11230
 				</div>
 				<div class="page-header-info">
-					<i class="icon icon-technology"></i>800-123-4567, Fax: 718-724-3312
+					<i class="icon icon-technology"></i>02-989-4922
 				</div>
 				<div class="page-header-info">
-					<i class="icon icon-clock"></i>Mon-Fri: 9:00 am – 5:00 pm
+					<i class="icon icon-clock"></i>เปิดบริการทุกวัน: 08:00 น. - 17:00 น.
 				</div>
 				<div class="page-header-info">
-					<i class="icon icon-speech-bubble"></i><a href="mailto:officeone@youremail.com">officeone@youremail.com</a>
+					<i class="icon icon-speech-bubble"></i><a href="mailto:admin@wanchai-cleaning.com">admin@wanchai-cleaning.com</a>
 				</div>
 				<ul class="social-list">
 					<li><a href="#"><i class="icon-google-plus-logo"></i></a></li>
@@ -31,12 +31,12 @@
 					<div class="shine"></div>
 				</div>
 				<div class="page-header-top-middle hidden-xs">
-					<div class="page-header-slogan visible-lg">We are Cleaning Experts!</div>
-					<div class="page-header-shedule"><i class="icon icon-clock"></i>8:00am - 10:00pm
-						<br>Mon - Sun</div>
-					<div class="page-header-phone text-right"><span>Call us on:</span> <span class="phone-number">800-123-4567</span></div>
+					<div class="page-header-slogan visible-lg" style="text-align:center">วันชัย คลีนนิ่ง เซอร์วิส <br> ตัวจริงเรื่องความสะอาดครบวงจร</div>
+					<div class="page-header-shedule" style="text-align:center"><i class="icon icon-clock"></i> เปิดบริการทุกวัน
+						<br>08:00 น. - 17:00 น.</div>
+					<div class="page-header-phone text-right"><span>ติดต่อเรา:</span> <span class="phone-number">02-989-4922</span></div>
 				</div>
-				<div class="quote-button-wrap"><a href="order-form.html" class="btn"><i class="icon icon-bell"></i>GET A QUOTE</a></div>
+				<div class="quote-button-wrap"><a href="order-form.html" class="btn"><i class="icon icon-bell"></i>ส่งข้อความหาเรา</a></div>
 				<a href="#" class="menu-toggle"><i class="icon-line-menu"></i><i class="icon-cancel"></i></a>
 			</div>
 		</div>

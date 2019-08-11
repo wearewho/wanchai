@@ -9,7 +9,7 @@
 	<meta name="format-detection" content="telephone=no">
 	<link rel="icon" href="{{ url('frontend/favicon.ico') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-	<title>Cleaning Services - HTML Website Template - Home Page</title>
+	<title>วันชัย คลีนนิ่ง เซอร์วิส</title>
 	<!-- Vendors -->
 	<link href="{{ url('frontend/assets/css/vendor/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{ url('frontend/assets/css/vendor/animate.min.css') }}" rel="stylesheet">
@@ -21,6 +21,7 @@
 	<link href="{{ url('frontend/assets/css/custom.css') }}" rel="stylesheet">
 	<!-- Icon Font-->
 	<link href="{{ url('frontend/assets/fonts/icomoon/style.css') }}" rel="stylesheet">
-	<!-- Google Fonts -->
+	<!-- Google Fonts --> 
+	{{-- <link href="https://fonts.googleapis.com/css?family=Sarabun:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i&display=swap&subset=thai" rel="stylesheet"> --}}
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 </head>

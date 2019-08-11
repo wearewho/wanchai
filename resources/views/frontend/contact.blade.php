@@ -13,7 +13,7 @@
     </div>
 </div>
 <!-- //Breadcrumbs Block -->
-<h1 class="text-center h-decor">Contact Us</h1>
+<h1 class="text-center h-decor">ติดต่อเรา</h1>
 <div class="block fullwidth no-pad">
     <div class="container">
         <div id="googleMap" class="google-map"></div>
@@ -23,20 +23,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h2>General Office</h2>
+                <h2>ข้อมูลสำนักงาน</h2>
                 <div class="contact-info-sm">
-                    <h5>Address</h5>
-                    <i class="icon icon-map-marker"></i>3261 Anmoore Road
-                    <br>Brooklyn, NY 11230
+                    <h5>ที่ตั้งสำนักงาน</h5>
+                    <i class="icon icon-map-marker"></i>55/391 หมู่12 ซอย19 ถนนสุวินทวงศ์
+                    <br>แขวงแสนแสบ เขตมีนบุรี 
+                    <br>กรุงเทพมหานคร รหัสไปรษณีย์ 10510
                 </div>
                 <div class="contact-info-sm">
-                    <h5>Phone 24/7</h5>
-                    <i class="icon icon-technology"></i>800-123-4567, Fax: 718-724-3312
+                    <h5>โทรศัพท์</h5>
+                    <i class="icon icon-technology"></i>สายตรง: 02-989-4922<br>แฟกซ์: 02-989-4343
                 </div>
                 <div class="contact-info-sm">
-                    <h5>Operating Hours</h5>
-                    <i class="icon icon-clock"></i>Mon-Fri: 9:00 am – 5:00 pm
-                    <br>Sat-Sun: 11:00 am – 16:00 pm
+                    <h5>เวลาเปิดทำการ</h5>
+                    <i class="icon icon-clock"></i>เปิดทำการทุกวัน
+                    <br>เวลา: 08:00 น. – 17:00 น.
                 </div>
                 <div class="divider"></div>
                 <h5>Look for us on</h5>
@@ -49,7 +50,7 @@
             </div>
             <div class="divider visible-sm visible-xs"></div>
             <div class="col-md-8">
-                <h2 class="text-center h-lg h-decor">Get in Touch</h2>
+                <h2 class="text-center h-lg h-decor">สอบถามข้อมูลและติชมบริการ</h2>
                 <form class="contact-form" id="contactForm" method="post" novalidate="novalidate">
                     <div class="successform text-center">
                         <p>Your message was sent successfully!</p>
@@ -58,16 +59,16 @@
                         <p>Something went wrong, try refreshing and submitting the form again.</p>
                     </div>
                     <div class="input-wrapper">
-                        <input type="text" class="input-custom input-full" name="name" placeholder="Your name*">
+                        <input type="text" class="input-custom input-full" name="name" placeholder="กรุณากรอกชื่อของคุณ">
                     </div>
                     <div class="input-wrapper">
-                        <input type="text" class="input-custom input-full" name="email" placeholder="Email*">
+                        <input type="text" class="input-custom input-full" name="email" placeholder="กรุณากรอกเบอร์โทรศัพท์ / อีเมล์ / ไอดีไลน์ ที่ต้องการให้ติดต่อกลับ">
                     </div>
                     <div class="input-wrapper">
-                        <textarea class="textarea-custom input-full" name="message" placeholder="Message"></textarea>
+                        <textarea class="textarea-custom input-full" name="message" placeholder="กรุณากรอกข้อความของคุณ"></textarea>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn">Send Message</button>
+                        <button type="submit" class="btn">ส่งข้อความ</button>
                     </div>
                 </form>
             </div>
