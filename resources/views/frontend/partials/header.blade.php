@@ -27,7 +27,8 @@
 			<div class="container">
 				<div class="page-header-mobile-info-toggle"></div>
 				<div class="logo">
-					<a href="{{url('/index')}}"><img src="{{asset('frontend/assets/images/logo.png')}}" alt=""></a>
+					{{-- <a href="{{url('/index')}}"><img src="{{asset('frontend/assets/images/logo.png')}}" alt=""></a> --}}
+					<a href="{{url('/index')}}"><img src="{{asset('wcs.png')}}" width="268" alt=""></a>
 					<div class="shine"></div>
 				</div>
 				<div class="page-header-top-middle hidden-xs">

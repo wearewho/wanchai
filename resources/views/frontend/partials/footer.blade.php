@@ -19,7 +19,8 @@
 		<div class="container">
 			<div class="page-footer-bot">
 				<div class="logo">
-					<a href="{{url('/index')}}"><img src="{{asset('frontend/assets/images/logo-footer.png')}}" alt=""></a>
+					{{-- <a href="{{url('/index')}}"><img src="{{asset('frontend/assets/images/logo-footer.png')}}" alt=""></a> --}}
+					<a href="{{url('/index')}}"><img src="{{asset('wcs.png')}}" width="258" alt=""></a>
 				</div>
 				<div class="page-footer-col-1">
 					<h4>Contact Us</h4>
