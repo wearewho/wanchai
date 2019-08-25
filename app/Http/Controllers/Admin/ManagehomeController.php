@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Newcar;
 use App\Promotion;
 use App\Service;
+use App\ImageHome;
+use App\Review;
 use LogActivity;
 use Response;
 use Image;
@@ -62,6 +64,26 @@ class ManagehomeController extends Controller
         return view('admin.home.service.index',compact('service'));
     }
 
+    public function index_image()
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        $imagehome = ImageHome::all();
+        return view('admin.home.imagehome.index',compact('imagehome'));
+    }
+
+    public function index_review()
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        $review = Review::all();
+        return view('admin.home.review.index',compact('review'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -89,6 +111,25 @@ class ManagehomeController extends Controller
 
         $countPromotion = Promotion::where('status', '=', 'publish')->count();
         return view('admin.home.promotion.create',compact('countPromotion'));
+    }
+
+    public function create_imagehome()
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        $countImagehome = ImageHome::where('status', '=', 'publish')->count();
+        return view('admin.home.imagehome.create',compact('countImagehome'));
+    }
+
+    public function create_review()
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        return view('admin.home.review.create');
     }
 
     /**
@@ -154,6 +195,133 @@ class ManagehomeController extends Controller
         return redirect()->route('admin.managehome.index_promotion');
     }
 
+    public function store_imagehome(Request $request)
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        $imagehome = new ImageHome;
+        $imagehome->header = $request->header;
+        $imagehome->status = $request->status;     
+        $imagehome->shine = $request->shine;   
+
+        if($request->hasFile('home_image')) {
+
+            //get filename with extension
+            $filenamewithextension = $request->home_image->getClientOriginalName();
+    
+            //get filename without extension
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+    
+            //get file extension
+            $extension = $request->home_image->getClientOriginalExtension();
+    
+            //filename to store
+            $filenametostore = 'slide/'.$filename.'_'.time().'.'.$extension;
+            //$filenametostore = 'gallery/'.time();
+
+            //get file size
+            $filesize = filesize($request->home_image);
+
+            //Upload File
+            $imgwidth = 1920;
+            $imgheight = 680;
+            $path = 'image/'.$filenametostore;
+            $img = Image::make($request->home_image->getRealPath());
+            if($img->width()!=$imgwidth){ 
+                // See the docs - http://image.intervention.io/api/resize
+                // resize the image to a width of 300 and constrain aspect ratio (auto height)
+                $img->resize($imgwidth, $imgheight, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                
+            }
+
+            $img->save($path);
+    
+            //Upload File to s3
+            //Storage::disk('s3')->put($filenametostore, file_get_contents($key), 'public');
+            //Storage::disk('s3')->put($filenametostore, fopen($request->file('car_image'), 'r+'));        
+            //$url = Storage::disk('s3')->url($filenametostore);
+            
+            $imagehome->image_url = $path;
+            $imagehome->image_name = $filenametostore;
+            $imagehome->image_size = $filesize;
+
+        }
+
+        $imagehome->save();
+
+        LogActivity::addToLog('Create Home Image Slide By '.$this->user()->name);
+
+        return redirect()->route('admin.managehome.index_image');
+    }
+
+    public function store_review(Request $request)
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        $review = new Review;
+        $review->header = $request->header;
+        $review->detail = $request->detail;  
+        $review->star = $request->star;   
+        $review->status = $request->status;     
+
+        if($request->hasFile('home_review')) {
+
+            //get filename with extension
+            $filenamewithextension = $request->home_review->getClientOriginalName();
+    
+            //get filename without extension
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+    
+            //get file extension
+            $extension = $request->home_review->getClientOriginalExtension();
+    
+            //filename to store
+            $filenametostore = 'review/'.$filename.'_'.time().'.'.$extension;
+            //$filenametostore = 'gallery/'.time();
+
+            //get file size
+            $filesize = filesize($request->home_review);
+
+            //Upload File
+            $imgwidth = 250;
+            $imgheight = 250;
+            $path = 'image/'.$filenametostore;
+            $img = Image::make($request->home_review->getRealPath());
+            if($img->width()!=$imgwidth){ 
+                // See the docs - http://image.intervention.io/api/resize
+                // resize the image to a width of 300 and constrain aspect ratio (auto height)
+                $img->resize($imgwidth, $imgheight, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                
+            }
+
+            $img->save($path);
+    
+            //Upload File to s3
+            //Storage::disk('s3')->put($filenametostore, file_get_contents($key), 'public');
+            //Storage::disk('s3')->put($filenametostore, fopen($request->file('car_image'), 'r+'));        
+            //$url = Storage::disk('s3')->url($filenametostore);
+            
+            $review->image_url = $path;
+            $review->image_name = $filenametostore;
+            $review->image_size = $filesize;
+
+        }
+
+        $review->save();
+
+        LogActivity::addToLog('Create Review By '.$this->user()->name);
+
+        return redirect()->route('admin.managehome.index_review');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -198,6 +366,28 @@ class ManagehomeController extends Controller
         $countPromotion = Promotion::where('status', '=', 'publish')->count();
 
         return view('admin.home.promotion.edit', compact('promotion', 'countPromotion'));
+    }
+
+    public function edit_imagehome($id)
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        $imagehome = ImageHome::findOrFail($id);
+
+        return view('admin.home.imagehome.edit', compact('imagehome'));
+    }
+
+    public function edit_review($id)
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        $review = Review::findOrFail($id);
+
+        return view('admin.home.review.edit', compact('review'));
     }
 
     /**
@@ -311,6 +501,135 @@ class ManagehomeController extends Controller
 
         return redirect()->route('admin.managehome.index_promotion')->with('success','บันทึกข้อมูลสำเร็จ');
     }
+
+    public function update_imagehome(Request $request, $id)
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        $imagehome = ImageHome::findOrFail($id);   
+
+        if($request->hasFile('home_image')) {
+
+            unlink($imagehome->image_url);
+
+            //get filename with extension
+            $filenamewithextension = $request->home_image->getClientOriginalName();
+    
+            //get filename without extension
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+    
+            //get file extension
+            $extension = $request->home_image->getClientOriginalExtension();
+    
+            //filename to store
+            $filenametostore = 'slide/'.$filename.'_'.time().'.'.$extension;
+            //$filenametostore = 'gallery/'.time();
+
+            //get file size
+            $filesize = filesize($request->home_image);
+
+            //Upload File
+            $imgwidth = 1920;
+            $imgheight = 680;
+            $path = 'image/'.$filenametostore;
+            $img = Image::make($request->home_image->getRealPath());
+            if($img->width()!=$imgwidth){ 
+                // See the docs - http://image.intervention.io/api/resize
+                // resize the image to a width of 300 and constrain aspect ratio (auto height)
+                $img->resize($imgwidth, $imgheight, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                
+            }
+
+            $img->save($path);
+    
+            //Upload File to s3
+            //Storage::disk('s3')->put($filenametostore, file_get_contents($key), 'public');
+            //Storage::disk('s3')->put($filenametostore, fopen($request->file('car_image'), 'r+'));        
+            //$url = Storage::disk('s3')->url($filenametostore);
+             
+            $imagehome->image_url = $path;
+            $imagehome->image_name = $filenametostore;
+            $imagehome->image_size = $filesize;
+
+        }
+
+        $imagehome->header = $request->header;
+        $imagehome->status = $request->status;  
+        $imagehome->shine = $request->shine; 
+        $imagehome->save();
+        LogActivity::addToLog('Update Home Image Slide ID:'.$id.' By '.$this->user()->name);
+
+        return redirect()->route('admin.managehome.index_image')->with('success','บันทึกข้อมูลสำเร็จ');
+    }
+
+    public function update_review(Request $request, $id)
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        $review = Review::findOrFail($id);   
+
+        if($request->hasFile('home_review')) {
+
+            unlink($review->image_url);
+
+            //get filename with extension
+            $filenamewithextension = $request->home_review->getClientOriginalName();
+    
+            //get filename without extension
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+    
+            //get file extension
+            $extension = $request->home_review->getClientOriginalExtension();
+    
+            //filename to store
+            $filenametostore = 'review/'.$filename.'_'.time().'.'.$extension;
+            //$filenametostore = 'gallery/'.time();
+
+            //get file size
+            $filesize = filesize($request->home_review);
+
+            //Upload File
+            $imgwidth = 250;
+            $imgheight = 250;
+            $path = 'image/'.$filenametostore;
+            $img = Image::make($request->home_review->getRealPath());
+            if($img->width()!=$imgwidth){ 
+                // See the docs - http://image.intervention.io/api/resize
+                // resize the image to a width of 300 and constrain aspect ratio (auto height)
+                $img->resize($imgwidth, $imgheight, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                
+            }
+
+            $img->save($path);
+    
+            //Upload File to s3
+            //Storage::disk('s3')->put($filenametostore, file_get_contents($key), 'public');
+            //Storage::disk('s3')->put($filenametostore, fopen($request->file('car_image'), 'r+'));        
+            //$url = Storage::disk('s3')->url($filenametostore);
+             
+            $review->image_url = $path;
+            $review->image_name = $filenametostore;
+            $review->image_size = $filesize;
+
+        }
+
+        $review->header = $request->header;
+        $review->status = $request->status;  
+        $review->detail = $request->detail;  
+        $review->star = $request->star; 
+        $review->save();
+        LogActivity::addToLog('Update Review ID:'.$id.' By '.$this->user()->name);
+
+        return redirect()->route('admin.managehome.index_review')->with('success','บันทึกข้อมูลสำเร็จ');
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -347,6 +666,34 @@ class ManagehomeController extends Controller
 
         return redirect()->route('admin.managehome.index_promotion')->with('del-success','ลบข้อมูลสำเร็จ');
     }
+
+    public function destroy_imagehome($id)
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        $imagehome = ImageHome::findOrFail($id);
+        unlink($imagehome->image_url);
+        $imagehome->delete();
+        LogActivity::addToLog('Delete  Home Image Slide By '.$this->user()->name);
+
+        return redirect()->route('admin.managehome.index_image')->with('del-success','ลบข้อมูลสำเร็จ');
+    }
+
+    public function destroy_review($id)
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        $review = Review::findOrFail($id);
+        unlink($review->image_url);
+        $review->delete();
+        LogActivity::addToLog('Delete Review By '.$this->user()->name);
+
+        return redirect()->route('admin.managehome.index_review')->with('del-success','ลบข้อมูลสำเร็จ');
+    }
     
     public function massDestroy_newcar(Request $request)
     {
@@ -380,5 +727,41 @@ class ManagehomeController extends Controller
         }
         
         LogActivity::addToLog('Mass Delete Promotion By '.$this->user()->name);
+    }
+    
+    public function massDestroy_imagehome(Request $request)
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        if ($request->input('ids')) {
+            $entries = ImageHome::whereIn('id', $request->input('ids'))->get();
+
+            foreach ($entries as $entry) {
+                unlink($entry->image_url);
+                $entry->delete();
+            }
+        }
+
+        LogActivity::addToLog('Mass Delete Home Image Slide By '.$this->user()->name);
+    }
+    
+    public function massDestroy_review(Request $request)
+    {
+        if (! Gate::allows('website_manage')) {
+            return abort(401);
+        }
+
+        if ($request->input('ids')) {
+            $entries = Review::whereIn('id', $request->input('ids'))->get();
+
+            foreach ($entries as $entry) {
+                unlink($entry->image_url);
+                $entry->delete();
+            }
+        }
+
+        LogActivity::addToLog('Mass Delete Review By '.$this->user()->name);
     }
 }

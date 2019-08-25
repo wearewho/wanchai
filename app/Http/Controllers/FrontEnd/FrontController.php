@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use View;
 use Response;
+use App\ImageHome;
+use App\Review;
 use App\Promotion;
 use App\Blog;
 use App\ImageBlog;
@@ -33,8 +35,11 @@ class FrontController extends Controller
 
     public function index()
     {
+        $imagehome = ImageHome::all();
+        $review = Review::all();
+
         $blog = Blog::with('imageblog')->where('status','publish')->orderBy('updated_at', 'DESC')->limit(3)->get();
-        return view('frontend.index',compact('blog','footer'));
+        return view('frontend.index',compact('imagehome','review','blog','footer'));
     }
 
     public function blog()

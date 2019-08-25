@@ -7,6 +7,8 @@ return [
 		'created_at' => 'Time',
 		'fields' => [
 			'home' => 'หน้าหลัก',
+			'home_image' => 'สไลด์รูป',
+			'home_review' => 'รีวิวของลูกค้า',
 			'home_newcar' => 'รถเข้าใหม่',
 			'home_service' => 'บริการของเรา',
 			'home_promotion' => 'โปรโมชั่นประจำเดือน',

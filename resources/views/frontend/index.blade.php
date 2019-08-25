@@ -16,65 +16,90 @@
                     <i></i>
                 </div>
             </div>
-            <div id="mainSlider">
-                <div class="slide">
-                    <div class="img--holder" style="background-image: url(frontend/assets/images/slider/slide-1.jpg);"></div>
-                    <div class="slide-content center">
-                        <div class="vert-wrap container">
-                            <div class="vert">
-                                <div class="container">
-                                    <h2 data-animation="zoomIn" data-animation-delay="0.5s">วันชัย คลีนนิ่ง เซอร์วิส</h2>
-                                    <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">บริการของเรา</a>
+            <div id="mainSlider"> 
+                @if (count($imagehome) > 0)          
+                    @foreach ($imagehome as $item)
+                        <div class="slide">
+                            <div class="img--holder" style='background-image: url({{$item->image_url}});'></div>
+                            @if ($item->shine == 'yes') 
+                                <div id="starshine">
+                                    <div class="shine shine-1"></div>
+                                    <div class="shine shine-2"></div>
+                                    <div class="shine shine-4"></div>
+                                </div>
+                            @endif    
+                            <div class="slide-content center">
+                                <div class="vert-wrap container">
+                                    <div class="vert">
+                                        <div class="container">
+                                            <h2 data-animation="zoomIn" data-animation-delay="0.5s">{{$item->header}}</h2>
+                                            <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">บริการของเรา</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="slide">
+                        <div class="img--holder" style="background-image: url(frontend/assets/images/slider/slide-1.jpg);"></div>
+                        <div class="slide-content center">
+                            <div class="vert-wrap container">
+                                <div class="vert">
+                                    <div class="container">
+                                        <h2 data-animation="zoomIn" data-animation-delay="0.5s">วันชัย คลีนนิ่ง เซอร์วิส</h2>
+                                        <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">บริการของเรา</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="slide">
+                        <div class="img--holder" style="background-image: url(frontend/assets/images/slider/slide-2.jpg);"></div>
+                        <div id="starshine">
+                            <div class="shine shine-1"></div>
+                            <div class="shine shine-2"></div>
+                            <div class="shine shine-4"></div>
+                        </div>
+                        <div class="slide-content center">
+                            <div class="vert-wrap container">
+                                <div class="vert">
+                                    <div class="container">
+                                        <h2 data-animation="zoomIn" data-animation-delay="0.5s">ผู้นำด้านธุรกิจงานบริการทำความสะอาด</h2>
+                                        <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">บริการของเรา</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide">
-                    <div class="img--holder" style="background-image: url(frontend/assets/images/slider/slide-2.jpg);"></div>
-                    <div id="starshine">
-                        <div class="shine shine-1"></div>
-                        <div class="shine shine-2"></div>
-                        <div class="shine shine-4"></div>
-                    </div>
-                    <div class="slide-content center">
-                        <div class="vert-wrap container">
-                            <div class="vert">
-                                <div class="container">
-                                    <h2 data-animation="zoomIn" data-animation-delay="0.5s">ผู้นำด้านธุรกิจงานบริการทำความสะอาด</h2>
-                                    <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">บริการของเรา</a>
+                    <div class="slide">
+                        <div class="img--holder" style="background-image: url(frontend/assets/images/slider/slide-1.jpg);"></div>
+                        <div class="slide-content center">
+                            <div class="vert-wrap container">
+                                <div class="vert">
+                                    <div class="container">
+                                        <h2 data-animation="zoomIn" data-animation-delay="0.5s">เปิดทำการทุกวัน เวลา 08:00 น.-17:00 น. <br>
+                                            ติดต่อสอบถาม โทร : 0-2989-4922</h2>
+                                        <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">บริการของเรา</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide">
-                    <div class="img--holder" style="background-image: url(frontend/assets/images/slider/slide-1.jpg);"></div>
-                    <div class="slide-content center">
-                        <div class="vert-wrap container">
-                            <div class="vert">
-                                <div class="container">
-                                    <h2 data-animation="zoomIn" data-animation-delay="0.5s">เปิดทำการทุกวัน เวลา 08:00 น.-17:00 น. <br>
-                                        ติดต่อสอบถาม โทร : 0-2989-4922</h2>
-                                    <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">บริการของเรา</a>
+                    <div class="slide">
+                        <div class="img--holder" style="background-image: url(frontend/assets/images/slider/slide-3.jpg);"></div>
+                        <div class="slide-content center">
+                            <div class="vert-wrap container">
+                                <div class="vert">
+                                    <div class="container">
+                                        <h2 data-animation="zoomIn" data-animation-delay="0.5s">บริการดูแลสวนแบบครบวงจร</h2>
+                                        <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">บริการของเรา</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide">
-                    <div class="img--holder" style="background-image: url(frontend/assets/images/slider/slide-3.jpg);"></div>
-                    <div class="slide-content center">
-                        <div class="vert-wrap container">
-                            <div class="vert">
-                                <div class="container">
-                                    <h2 data-animation="zoomIn" data-animation-delay="0.5s">บริการดูแลสวนแบบครบวงจร</h2>
-                                    <a href="services.html" class="btn" data-animation="fadeInUp" data-animation-delay="0.5s">บริการของเรา</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endif                
             </div>
         </div>
     </div>
@@ -178,39 +203,55 @@
     <div class="block fullwidth-bg inset-50 block-bg-grey block-testimonials">
         <div class="container">
             <div class="testimonials-carousel-1">
-                <div class="testimonial-item">
-                    <div class="testimonial-item-author" data-animation="zoomIn" data-animation-delay="0.5s">
-                        <img src="{{asset('frontend/assets/images/content/testimonial-author-1.jpg')}}" alt="Customer">
-                    </div>
-                    <div class="testimonial-item-inside">
-                        <h3>Estela Thomas</h3>
-                        <p>I would be glad to act as a phone reference for your company. Cleaning did a wonderful job and I certainly don’t mind confirming their outstanding service. If you’re thinking about hiring to clean your office building, ask them for my testimonial and call anytime.</p>
-                        <div class="rating"><span class="rating rating-4"><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i></span>
+                @if (count($review) > 0)          
+                    @foreach ($review as $item)                    
+                    <div class="testimonial-item">
+                        <div class="testimonial-item-author" data-animation="zoomIn" data-animation-delay="0.5s">
+                            <img src="{{asset($item->image_url)}}" alt="Customer">
+                        </div>
+                        <div class="testimonial-item-inside">
+                            <h3>{{$item->header}}</h3>
+                            <p>{{$item->detail}}</p>
+                            <div class="rating"><span class="rating rating-{{$item->star}}"><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i></span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-item-author" data-animation="zoomIn" data-animation-delay="0.5s">
-                        <img src="{{asset('frontend/assets/images/content/testimonial-author-2.jpg')}}" alt="Customer">
-                    </div>
-                    <div class="testimonial-item-inside">
-                        <h3>Stephanie Mealy</h3>
-                        <p>I would be glad to act as a phone reference for your company. Cleaning did a wonderful job and I certainly don’t mind confirming their outstanding service. If you’re thinking about hiring to clean your office building.</p>
-                        <div class="rating"><span class="rating rating-4"><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i></span>
+                    @endforeach
+                @else
+                    <div class="testimonial-item">
+                        <div class="testimonial-item-author" data-animation="zoomIn" data-animation-delay="0.5s">
+                            <img src="{{asset('frontend/assets/images/content/testimonial-author-1.jpg')}}" alt="Customer">
+                        </div>
+                        <div class="testimonial-item-inside">
+                            <h3>Estela Thomas</h3>
+                            <p>I would be glad to act as a phone reference for your company. Cleaning did a wonderful job and I certainly don’t mind confirming their outstanding service. If you’re thinking about hiring to clean your office building, ask them for my testimonial and call anytime.</p>
+                            <div class="rating"><span class="rating rating-4"><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i></span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-item-author" data-animation="zoomIn" data-animation-delay="0.5s">
-                        <img src="{{asset('frontend/assets/images/content/testimonial-author-3.jpg')}}" alt="Customer">
-                    </div>
-                    <div class="testimonial-item-inside">
-                        <h3>Victoria Barry</h3>
-                        <p>My husband and I are very satisfied customers and have been for over 15 years. Clean Service always keeps our home just lovely and are willing to accommodate special requests. I am glad I have a company I can trust and will do the same quality work each cleaning.</p>
-                        <div class="rating"><span class="rating rating-4"><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i></span>
+                    <div class="testimonial-item">
+                        <div class="testimonial-item-author" data-animation="zoomIn" data-animation-delay="0.5s">
+                            <img src="{{asset('frontend/assets/images/content/testimonial-author-2.jpg')}}" alt="Customer">
+                        </div>
+                        <div class="testimonial-item-inside">
+                            <h3>Stephanie Mealy</h3>
+                            <p>I would be glad to act as a phone reference for your company. Cleaning did a wonderful job and I certainly don’t mind confirming their outstanding service. If you’re thinking about hiring to clean your office building.</p>
+                            <div class="rating"><span class="rating rating-4"><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i></span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-item-author" data-animation="zoomIn" data-animation-delay="0.5s">
+                            <img src="{{asset('frontend/assets/images/content/testimonial-author-3.jpg')}}" alt="Customer">
+                        </div>
+                        <div class="testimonial-item-inside">
+                            <h3>Victoria Barry</h3>
+                            <p>My husband and I are very satisfied customers and have been for over 15 years. Clean Service always keeps our home just lovely and are willing to accommodate special requests. I am glad I have a company I can trust and will do the same quality work each cleaning.</p>
+                            <div class="rating"><span class="rating rating-4"><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                @endif 
             </div>
         </div>
     </div>
