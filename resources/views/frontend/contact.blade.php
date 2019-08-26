@@ -51,7 +51,8 @@
             <div class="divider visible-sm visible-xs"></div>
             <div class="col-md-8">
                 <h2 class="text-center h-lg h-decor">สอบถามข้อมูลและติชมบริการ</h2>
-                <form class="contact-form" id="contactForm" method="post" novalidate="novalidate">
+                {!! Form::open(['method' => 'POST', 'route' => ['store_contactmessage']]) !!}
+                {{-- <form class="contact-form" id="contactForm" method="post" novalidate="novalidate"> --}}
                     <div class="successform text-center">
                         <p>Your message was sent successfully!</p>
                     </div>
@@ -62,7 +63,7 @@
                         <input type="text" class="input-custom input-full" name="name" placeholder="กรุณากรอกชื่อของคุณ">
                     </div>
                     <div class="input-wrapper">
-                        <input type="text" class="input-custom input-full" name="email" placeholder="กรุณากรอกเบอร์โทรศัพท์ / อีเมล์ / ไอดีไลน์ ที่ต้องการให้ติดต่อกลับ">
+                        <input type="text" class="input-custom input-full" name="tel" placeholder="กรุณากรอกเบอร์โทรศัพท์ / อีเมล์ / ไอดีไลน์ ที่ต้องการให้ติดต่อกลับ">
                     </div>
                     <div class="input-wrapper">
                         <textarea class="textarea-custom input-full" name="message" placeholder="กรุณากรอกข้อความของคุณ"></textarea>
@@ -70,7 +71,8 @@
                     <div class="text-center">
                         <button type="submit" class="btn">ส่งข้อความ</button>
                     </div>
-                </form>
+                {{-- </form> --}}
+                {!! Form::close() !!}
             </div>
         </div>
     </div>

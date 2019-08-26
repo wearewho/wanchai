@@ -39,6 +39,17 @@
 
 </script>
 
+@if (session()->has('createcomplete'))
+<script> 
+    swal({
+    title: "<?php echo session()->get('createcomplete'); ?>",
+    text: "ระบบได้รับข้อมูลของท่านเรียบร้อยแล้ว เราจะติดต่อกลับโดยเร็ว",
+    icon: 'success',
+    showConfirmButton: false
+    });
+</script>
+@endif 
+
 @yield('frontendjavascript')
 
 

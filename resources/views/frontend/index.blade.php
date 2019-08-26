@@ -261,13 +261,9 @@
         <div class="container">
             <h2 class="text-center h-lg h-decor">ลูกค้าของเรา</h2>
             <div class="brand-carousel">
-                <a href="#"><img src="{{asset('frontend/assets/images/content/brand-img-1.png')}}" alt=""></a>
-                <a href="#"><img src="{{asset('frontend/assets/images/content/brand-img-2.png')}}" alt=""></a>
-                <a href="#"><img src="{{asset('frontend/assets/images/content/brand-img-3.png')}}" alt=""></a>
-                <a href="#"><img src="{{asset('frontend/assets/images/content/brand-img-4.png')}}" alt=""></a>
-                <a href="#"><img src="{{asset('frontend/assets/images/content/brand-img-5.png')}}" alt=""></a>
-                <a href="#"><img src="{{asset('frontend/assets/images/content/brand-img-6.png')}}" alt=""></a>
-                <a href="#"><img src="{{asset('frontend/assets/images/content/brand-img-7.png')}}" alt=""></a>
+                @foreach ($client as $clients)
+                    <a href="#"><img src="{{asset($clients->image_url)}}" alt="{{$item->image_url}}"></a>
+                @endforeach
             </div>
         </div>
     </div>

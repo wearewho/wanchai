@@ -47,10 +47,7 @@ class ManageblogController extends Controller
             return abort(401);
         }
 
-        $type = Blog::distinct('type')->pluck('type');
-        $brand = Blog::distinct('brand')->pluck('brand');
-
-        return view('admin.blog.create',compact('type','brand'));
+        return view('admin.blog.create');
     }
 
     /**
@@ -67,15 +64,13 @@ class ManageblogController extends Controller
 
         $newblog = new Blog;
         $newblog->header = $request->header;
-        $newblog->type = $request->type;
-        $newblog->brand = $request->brand;
         $newblog->detail = $request->detail;
         $newblog->status = $request->status;
         $newblog->save();
 
-        if($request->hasFile('car_image')) {
+        if($request->hasFile('blog_image')) {
             
-            foreach ($request->car_image as $key) {
+            foreach ($request->blog_image as $key) {
 
                 //get filename with extension
                 $filenamewithextension = $key->getClientOriginalName();
@@ -87,14 +82,14 @@ class ManageblogController extends Controller
                 $extension = $key->getClientOriginalExtension();
         
                 //filename to store
-                $filenametostore = 'blog/'.$filename.'_'.time().'.'.$extension;
+                $filenametostore = $filename.'_'.time().'.'.$extension;
 
                 //get file size
                 $filesize = filesize($key);
 
                 //Upload File
                 $imgwidth = 1170;
-                $path = 'image_car/'.$filenametostore;
+                $path = 'image_blog/'.$filenametostore;
                 $img = Image::make($key->getRealPath());
                 if($img->width()>$imgwidth){ 
                     // See the docs - http://image.intervention.io/api/resize
@@ -162,9 +157,7 @@ class ManageblogController extends Controller
 
         $blog = Blog::findOrFail($id);
         $imageblog = ImageBlog::where('blog_id',$id)->get();
-        $type = Blog::distinct('type')->pluck('type');
-        $brand = Blog::distinct('brand')->pluck('brand');
-        return view('admin.blog.edit', compact('blog','imageblog','type','brand'));
+        return view('admin.blog.edit', compact('blog','imageblog'));
     }
 
     /**
@@ -182,15 +175,13 @@ class ManageblogController extends Controller
 
         $editblog = Blog::findOrFail($id);
         $editblog->header = $request->header;
-        $editblog->type = $request->type;
-        $editblog->brand = $request->brand;
         $editblog->detail = $request->detail;
         $editblog->status = $request->status;
         $editblog->save();
 
-        if($request->hasFile('car_image')) {
+        if($request->hasFile('blog_image')) {
  
-            foreach ($request->car_image as $key) {
+            foreach ($request->blog_image as $key) {
 
                 //get filename with extension
                 $filenamewithextension = $key->getClientOriginalName();
@@ -202,7 +193,7 @@ class ManageblogController extends Controller
                 $extension = $key->getClientOriginalExtension();
         
                 //filename to store
-                $filenametostore = 'blog/'.$filename.'_'.time().'.'.$extension;
+                $filenametostore = $filename.'_'.time().'.'.$extension;
                 //$filenametostore = 'blog/'.time();
 
                 //get file size
@@ -210,7 +201,7 @@ class ManageblogController extends Controller
 
                 //Upload File
                 $imgwidth = 1170;
-                $path = 'image_car/'.$filenametostore;
+                $path = 'image_blog/'.$filenametostore;
                 $img = Image::make($key->getRealPath());
                 if($img->width()>$imgwidth){ 
                     // See the docs - http://image.intervention.io/api/resize

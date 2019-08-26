@@ -16,8 +16,12 @@ use App\ImageBlog;
 use App\Gallery;
 use App\Contact;
 use App\Inquiry;
+use App\Work;
+use App\Contactmessage;
 use App\Newcar;
 use App\Service;
+use App\Client;
+use App\Package;
 
 class FrontController extends Controller
 {
@@ -37,9 +41,10 @@ class FrontController extends Controller
     {
         $imagehome = ImageHome::all();
         $review = Review::all();
+        $client = Client::all();
 
         $blog = Blog::with('imageblog')->where('status','publish')->orderBy('updated_at', 'DESC')->limit(3)->get();
-        return view('frontend.index',compact('imagehome','review','blog','footer'));
+        return view('frontend.index',compact('imagehome','review','client','blog','footer'));
     }
 
     public function blog()
@@ -50,7 +55,9 @@ class FrontController extends Controller
     
     public function service()
     {
-        return view('frontend.service', compact('footer'));
+        $service = Service::all();
+        $package = Package::all();
+        return view('frontend.service', compact('service','package','footer'));
     }
     
     public function about()
@@ -61,8 +68,8 @@ class FrontController extends Controller
     
     public function work()
     {
-        $contact = Contact::where('id',1)->first();
-        return view('frontend.work', compact('contact','footer'));
+        $work = Work::all();
+        return view('frontend.work', compact('work','footer'));
     }
     
     public function contact()
@@ -76,6 +83,34 @@ class FrontController extends Controller
         $blog = Blog::findOrFail($id);
         $imageblog = ImageBlog::where('blog_id',$id)->get();
         return view('frontend.blog-detail', compact('blog','imageblog','footer'));
+    }    
+    
+    public function store_work(Request $request)
+    {
+        $work = new Work;
+        $work->name = $request->name;
+        $work->tel = $request->tel;
+        $work->position = $request->position;
+        $work->salary = $request->salary;
+        $work->message = $request->message;
+        $result = $work->save();
+
+        //return Response::json($result); 
+
+        return redirect()->route('work')->with('createcomplete','บันทึกข้อมูลสำเร็จแล้ว!');
+    }
+    
+    public function store_contactmessage(Request $request)
+    {
+        $contactmessage = new Contactmessage;
+        $contactmessage->name = $request->name;
+        $contactmessage->tel = $request->tel;
+        $contactmessage->message = $request->message;
+        $result = $contactmessage->save();
+
+        //return Response::json($result); 
+        
+        return redirect()->route('contact')->with('createcomplete','บันทึกข้อมูลสำเร็จแล้ว!');
     }
     
     public function inquiry(Request $request)
@@ -97,7 +132,9 @@ class FrontController extends Controller
         $message .= "รายละเอียด : ".$request->detail." \r\n";
         $this->sendNotify($message);
 
-        return Response::json($result); 
+        //return Response::json($result); 
+
+        return redirect()->route('instantsell')->with('createcomplete','บันทึกข้อมูลสำเร็จแล้ว!');
     }
     
     public function sendNotify($message)

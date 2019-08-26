@@ -34,6 +34,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="7fa0a6b5-9feb-458d-b5c5-309120f8da6a";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+{{-- <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="7fa0a6b5-9feb-458d-b5c5-309120f8da6a";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script> --}}
 
 @yield('javascript')

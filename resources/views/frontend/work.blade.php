@@ -55,13 +55,14 @@
     <div class="block">
         <div class="container">
             <h1 class="text-center h-decor">สมัครงานกับเรา</h1>
-            <form class="contact-form" id="contactForm" method="post" novalidate="novalidate">
+            {{-- <form class="contact-form" id="contactForm" method="post" novalidate="novalidate"> --}}
+            {!! Form::open(['method' => 'POST', 'route' => ['store_work']]) !!}
                 <div class="successform text-center">
                     <p>Your message was sent successfully!</p>
                 </div>
                 <div class="errorform text-center">
                     <p>Something went wrong, try refreshing and submitting the form again.</p>
-                </div>
+                </div>                
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
                         <div class="input-wrapper">
@@ -70,19 +71,19 @@
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="input-wrapper">
-                            <input type="text" class="input-custom input-full" name="name" placeholder="เบอร์โทรศัพท์ติดต่อ">
+                            <input type="text" class="input-custom input-full" name="tel" placeholder="เบอร์โทรศัพท์ติดต่อ">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
                         <div class="input-wrapper">
-                            <input type="text" class="input-custom input-full" name="name" placeholder="ตำแหน่งที่ต้องการสมัคร">
+                            <input type="text" class="input-custom input-full" name="position" placeholder="ตำแหน่งที่ต้องการสมัคร">
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="input-wrapper">
-                            <input type="text" class="input-custom input-full" name="name" placeholder="เงินเดือนที่ต้องการ">
+                            <input type="text" class="input-custom input-full" name="salary" placeholder="เงินเดือนที่ต้องการ">
                         </div>
                     </div>
                 </div>
@@ -92,7 +93,8 @@
                 <div class="text-center">
                     <button type="submit" class="btn">ส่งข้อความ</button>
                 </div>
-            </form>
+            {!! Form::close() !!}
+            {{-- </form> --}}
         </div>
     </div>
     <!--/about text block-->

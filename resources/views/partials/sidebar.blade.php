@@ -44,8 +44,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    {{-- <li class="treeview {{ $request->segment(2) == 'newcar' || $request->segment(2) == 'promotion' ? 'active active-sub' : '' }}"> --}}
-                    <li class="treeview {{ $request->segment(2) == 'service' ? 'active active-sub' : '' }}">
+                    <li class="treeview {{ $request->segment(2) == 'imagehome'|| $request->segment(2) == 'client'|| $request->segment(2) == 'review' ? 'active active-sub' : '' }}">
                         <a href="{{ route('admin.permissions.index') }}">
                             <i class="fa fa-home"></i> 
                             @lang('global.website-management.fields.home')
@@ -60,6 +59,12 @@
                                     @lang('global.website-management.fields.home_image')
                                 </a>
                             </li>
+                            <li class="{{ $request->segment(2) == 'client' ? 'active active-sub' : '' }}">
+                                <a href="{{ route('admin.managehome.index_client') }}">
+                                <i class="fa fa-circle-o"></i> 
+                                    @lang('global.website-management.fields.home_client')
+                                </a>
+                            </li>
                             <li class="{{ $request->segment(2) == 'review' ? 'active active-sub' : '' }}">
                                 <a href="{{ route('admin.managehome.index_review') }}">
                                 <i class="fa fa-circle-o"></i> 
@@ -71,12 +76,6 @@
                                 <i class="fa fa-circle-o"></i> 
                                     @lang('global.website-management.fields.home_newcar')
                                 </a>
-                            </li>
-                            <li class="{{ $request->segment(2) == 'service' ? 'active active-sub' : '' }}">
-                                <a href="{{ route('admin.managehome.index_service') }}">
-                                <i class="fa fa-circle-o"></i> 
-                                    @lang('global.website-management.fields.home_service')
-                                </a>
                             </li>                            
                             <li class="{{ $request->segment(2) == 'promotion' ? 'active active-sub' : '' }}">
                                 <a href="{{ route('admin.managehome.index_promotion') }}">
@@ -85,6 +84,18 @@
                                 </a>
                             </li>  -->
                         </ul>
+                    </li>
+                    <li class="{{ $request->segment(2) == 'service' ? 'active active-sub' : '' }}">
+                        <a href="{{ route('admin.managehome.index_service') }}">
+                        <i class="fa fa-circle-o"></i> 
+                            @lang('global.website-management.fields.home_service')
+                        </a>
+                    </li>
+                    <li class="{{ $request->segment(2) == 'package' ? 'active active-sub' : '' }}">
+                        <a href="{{ route('admin.managehome.index_package') }}">
+                        <i class="fa fa-circle-o"></i> 
+                            @lang('global.website-management.fields.home_package')
+                        </a>
                     </li>
                     <li class="{{ $request->segment(2) == 'managecontact' ? 'active active-sub' : '' }}">
                         <a href="{{ route('admin.managecontact.index') }}">
@@ -102,14 +113,14 @@
                             </span>
                         </a>
                     </li>
-                    <li class="{{ $request->segment(2) == 'managegallery' ? 'active active-sub' : '' }}">
+                    {{-- <li class="{{ $request->segment(2) == 'managegallery' ? 'active active-sub' : '' }}">
                         <a href="{{ route('admin.managegallery.index') }}">
                             <i class="fa fa-image"></i>
                             <span class="title">
                                 @lang('global.website-management.fields.gallery')
                             </span>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
             @endcan

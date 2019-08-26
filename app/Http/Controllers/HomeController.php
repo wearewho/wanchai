@@ -6,6 +6,8 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Work;
+use App\Contactmessage;
 use Spatie\Permission\Models\Role;
 use Session;
 use LogActivity;
@@ -43,6 +45,12 @@ class HomeController extends Controller
         {
             $logs = LogActivity::logActivityLists();
             return view('admin.log.index',compact('logs'));
+            
+        }else if($role == "owner")
+        {
+            $work = Work::all();
+            $contactmessage = contactmessage::all();
+            return view('owner',compact('work','contactmessage'));
             
         }else{
 

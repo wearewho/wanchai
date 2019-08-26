@@ -13,49 +13,13 @@
         </div>
         <div class="box-body">
             <div class="row">
-                <div class="col-md-6 col-xs-12 form-group">
+                <div class="col-md-10 col-xs-12 form-group">
                     {!! Form::label('header', trans('global.website-management.fields.header').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('header', old('header'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('header'))
                         <p class="help-block">
                             {{ $errors->first('header') }}
-                        </p>
-                    @endif
-                </div>
-                <div class="col-md-2 col-xs-12 form-group">
-                    {!! Form::label('type', trans('global.website-management.fields.type').'*', ['class' => 'control-label']) !!}
-                    <select id="type" class="form-control select2" name="type" required>
-                        @foreach ($type as $item)
-                            @if ($item == $blog->type)
-                                <option value="{{$blog->type}}" selected>{{$blog->type}}</option>
-                            @else
-                                <option value="{{$item}}">{{$item}}</option>
-                            @endif
-                        @endforeach
-                    </select>
-                    <p class="help-block"></p>
-                    @if($errors->has('type'))
-                        <p class="help-block">
-                            {{ $errors->first('type') }}
-                        </p>
-                    @endif
-                </div>
-                <div class="col-md-2 col-xs-12 form-group">
-                    {!! Form::label('brand', trans('global.website-management.fields.brand').'*', ['class' => 'control-label']) !!}
-                    <select id="brand" class="form-control select2" name="brand" required>
-                        @foreach ($brand as $item)
-                        @if ($item == $blog->brand)
-                            <option value="{{$blog->brand}}" selected>{{$blog->brand}}</option>
-                        @else
-                            <option value="{{$item}}">{{$item}}</option>
-                        @endif
-                    @endforeach
-                    </select>
-                    <p class="help-block"></p>
-                    @if($errors->has('brand'))
-                        <p class="help-block">
-                            {{ $errors->first('brand') }}
                         </p>
                     @endif
                 </div>
@@ -93,7 +57,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     <div class="file-loading">
-                        <input id="car_image" name="car_image[]" type="file" multiple accept="image/*" data-browse-on-zone-click="true" data-show-upload="false">
+                        <input id="blog_image" name="blog_image" type="file" accept="image/*" data-browse-on-zone-click="true" data-show-upload="false">
                     </div> 
                 </div>
             </div>
@@ -119,9 +83,9 @@
             var type = '';
      
             if (images.length == 0) {
-                $('#car_image').prop('required', true);
+                $('#blog_image').prop('required', true);
             } else {
-                $('#car_image').removeProp('required');
+                $('#blog_image').removeProp('required');
             }
 
             $.each(images, function (key, val) {
@@ -138,62 +102,20 @@
 
             });
             
-            $("#car_image").fileinput({
-                maxFileCount: 10,
+            $("#blog_image").fileinput({
+                maxFileCount: 1,
                 maxFileSize: 2048,
                 validateInitialCount: true,
                 overwriteInitial: false,
                 initialPreview: imgArray,
                 initialPreviewConfig: imgArray2,
-                deleteUrl: '{{url("admin/destroyImageBlog")}}',
+                ///deleteUrl: '',
+                showRemove: false,
+                showClose: false,
+                layoutTemplates: {actionDelete: ''}, // disable thumbnail deletion
                 allowedFileExtensions: ["jpeg", "jpg", "png", "gif"]
-            }).on('fileselect', function() {
-                type = 'add';
-                checkRequired(id,type);
-            }).on('filebeforedelete', function() {
-                var aborted = !window.confirm('Are you sure you want to delete this file?');
-                if (aborted) {
-                    
-                }
-                type = 'delete';
-                checkRequired(id,type);
-                return aborted;
             });
         });
-
-        function checkRequired(id,type){
-            $.ajax({ 
-                url: '{{url("admin/countImgBlog")}}', 
-                type: "POST",
-                data: { "id" : id },
-                success: function(data, statusText, resObject) {
-                    
-                    if (data) {    
-
-                        var countImg = data[0];
-                        if(type == 'delete'){
-                            countImg = countImg - 1;
-                        }else{
-                            countImg = countImg + 1;
-                        }
-                        
-                        if (countImg == 0) {
-                            $('#car_image').prop('required', true);
-                        } else {
-                            $('#car_image').removeProp('required');
-                        }
-                                                          
-                    }
-                    return false;
-                },
-                error: function (jqXHR, exception) {
-                    getErrorMessage(jqXHR, exception);
-                },
-                complete: function() {      
-                    // Do something when success or error.                                           
-                }
-            });
-        }
     </script>
 @endsection
 
